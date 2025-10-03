@@ -1,0 +1,47 @@
+nav {
+    background-color: rgb(118, 118, 118);
+    padding: 17px;
+    margin: 10px;
+    border-radius: 10px;
+}
+nav a {
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: rgb(91, 91, 91);
+    padding: 10px;
+    border-radius: 8px;
+}
+nav a:hover {
+    background-color: rgb(81, 81, 81);
+
+}
+nav a:active {
+    color: rgb(213, 213, 213);
+}
+body {
+    background-color: rgb(19, 19, 19);
+}
+
+p {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}
+pre {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    padding-left: 40px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    line-height: 25px;
+    /* Esto lo saco de google y sirve para que me salte de linea en los pre*/
+    white-space: pre-wrap;                  /* CSS3 */
+}
