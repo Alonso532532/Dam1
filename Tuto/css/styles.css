@@ -4,6 +4,7 @@ nav {
     margin: 10px;
     border-radius: 10px;
 }
+
 nav a {
     margin: 5px;
     color: rgb(0, 0, 0);
@@ -12,13 +13,17 @@ nav a {
     padding: 10px;
     border-radius: 8px;
 }
+
 nav a:hover {
     background-color: rgb(81, 81, 81);
-
+    padding: 9px;
+    margin: 7px;
 }
+
 nav a:active {
     color: rgb(213, 213, 213);
 }
+
 body {
     background-color: rgb(19, 19, 19);
 }
@@ -32,10 +37,10 @@ p {
     color: rgb(240, 240, 240);
     font-size: 15px;
 }
+
 pre {
     background-color: rgb(76, 76, 76);
     padding: 20px;
-
     border-radius: 10px;
     margin-left: 20px;
     margin-right: 20px;
@@ -45,9 +50,11 @@ pre {
     /* Esto lo saco de google y sirve para que me salte de linea en los pre*/
     white-space: pre-wrap;                  /* CSS3 */
 }
+
 a {
     color: rgb(163, 163, 163);
 }
+
 .cuadrado {
     background-color: rgb(76, 76, 76);
     padding: 15px;
@@ -57,10 +64,24 @@ a {
     color: rgb(240, 240, 240);
     font-size: 15px;
 }
+
 h1, h2 {
     text-align: center; 
     color: white; 
     margin-top: 0; 
     margin-bottom: 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+div {
+    background-color: rgb(76, 76, 76);
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+}
+p, pre, div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
