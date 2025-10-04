@@ -48,7 +48,8 @@ pre {
     font-size: 15px;
     line-height: 20px;
     /* Esto lo saco de google y sirve para que me salte de linea en los pre*/
-    white-space: pre-wrap;                  /* CSS3 */
+    white-space: pre-wrap;
+    /* CSS3 */
 }
 
 a {
@@ -65,11 +66,12 @@ a {
     font-size: 15px;
 }
 
-h1, h2 {
-    text-align: center; 
-    color: white; 
-    margin-top: 0; 
-    margin-bottom: 0;
+h1,
+h2 {
+    text-align: center;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -82,6 +84,44 @@ div {
     color: rgb(240, 240, 240);
     font-size: 15px;
 }
-p, pre, div {
+
+p,
+pre,
+div {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}
+
+.tabla {
+    background-color: rgb(100, 100, 100);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: medium;
+}
+
+th,
+table,
+td {
+    border: 5px solid rgb(68, 68, 68);
+    border-collapse: collapse;
+    padding: 5px;
+}
+input {
+    padding: 5px;
+}
+.bform {
+    padding: 5px;
+    font-size: large;
+    background-color: rgb(80, 80, 80);
+    border: 5px solid rgb(29, 29, 29);
+    color: rgb(218, 218, 218);
+    border-radius: 5px;
+}
+.bform:hover {
+    background-color: rgb(95, 95, 95);
+}
+.bform:active {
+    padding: 3px;
+    margin: 2px;
 }

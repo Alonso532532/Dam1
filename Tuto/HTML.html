@@ -53,21 +53,114 @@
     <h2>Listas</h2>
     <div>
         Existen 2 tipos, "ul" y "ol"
-        <center>- ul -</center>
-        <ul>
-            <li>Las "ul" utilizan signos para separar los puntos</li>
-            <li>1
-                <ul style="list-style-type: square;">
-                    <li>Se pueden meter listas dentro de listas</li>
-                    <li>Con "style="list-style-type: *tipo*"" se puede cambiar el formato de la lista</li>
-                </ul>
-            </li>
-            <li>2</li>
+        <div class="tabla">
+            <center>- ul -</center>
+            <ul>
+                <li>Las "ul" utilizan signos para separar los puntos</li>
+                <li>Elemento
+                    <ul style="list-style-type: square;">
+                        <li>Se pueden meter listas dentro de listas</li>
+                        <li>Con "style="list-style-type: *tipo*"" se puede cambiar el formato de la lista</li>
+                    </ul>
+                </li>
+                <li>Elemento</li>
+            </ul>
             <center>- ol -</center>
-        </ul>
-        <ol>
-            
-        </ol>
+            <ol>
+                <li>Las "ol" utilizan un orden ascendente o descendente de elementos de la lista</li>
+                <li>Elemento
+                    <ol type="a">
+                        <li>Con "type" se cambia el tipo de orden</li>
+                        <li>Elemento</li>
+                        <li>Elemento</li>
+                    </ol>
+                </li>
+                <li>Elemento
+                    <ol reversed>
+                        <li>Con "reversed" se cambia el orden a descendente</li>
+                        <li>Elemento</li>
+                        <li>Elemento</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <hr style="width: 80%;">
+    <h2>Tablas</h2>
+    <div>
+        Para hacer tablas hay que usar la "table" y dentro se usa "tr" para filas, "td" columnas, "th" columnas pero
+        centradas y en negrita. <br> <br>
+        Para que tengan borde las celdas se tienen que poner en los estilos de la tabla "border-collapse: collapse;" y
+        un "border: 5px solid rgb(68, 68, 68);" al gusto:
+        <div class="tabla">
+            <center>
+                <table>
+                    <tr>
+                        <th>tr ⬇️ th ➡</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                        <th>tr ⬇️</th>
+                    </tr>
+                    <tr>
+                        <td>td ➡</td>
+                        <td colspan="3">Se puede usar "colspan" para que ocupe varias columnas</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>td ➡</td>
+                        <td rowspan="2">Y "rowspan" para filas</td>
+                        <td colspan="2" rowspan="2">Y se pueden combinar</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>td ➡</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+    </div>
+    <hr style="width: 80%;">
+    <h2>Formularios</h2>
+    <div>
+        Para hacer un formulario se usa "form" a la que se le puede añadir "action", para decirle al servidor que le
+        está mandando y "method", que puede ser "get", que se lo manda sin cifrar y "post" que si lo cifra al mandar los
+        datos introducidos. <br><br>
+        Los formulariosse suelen meter en un "fieldset" que mete el formulario en una caja, y con la etiqueta "legend"
+        (dentro del fieldset) se pone el nombre del formulario<br> <br>
+        Se usa "input" para meter un campo: <br>
+        - El tipo de campo se define en "type". <br>
+        - El texto mostrado en el imput se establece con "placeholder". <br>
+        - El id para ser usado con un label se pone con "id". <br> <br>
+        Se usa "label" para poner un texto para un input y en el "for" se pone para que id. <br><br>
+        Para enviar la información o para reiniciar los campos se usa un "button", con un "type" "submit" o "reset",
+        tiene que estár dentro del form. <br> <br>
+        En los inputs de numeros se puede poner "min" "max" <br><br>
+        <div class="tabla">
+            <form action="Juanma">
+                <fieldset>
+                    <legend>PruebaBreva</legend>
+                    <label for="nom">Nombre:</label>
+                    <input type="text" id="nom" placeholder="Introduce tu nombre"><br>
+                    <label for="chb">Checkbox</label>
+                    <input type="checkbox" id="chb"><br><br>
+                    Para usar los "radio" hay que usar "name" para poner en varios el mismo y hacer así que no se puedan
+                    selecciónar 2 a la vez <br><br>
+                    <label for="rb">Radio 1</label>
+                    <input type="radio" id="rb" name="numeros"><br>
+                    <label for="rb2">Radio 2</label>
+                    <input type="radio" id="rb2" name="numeros"><br>
+                    <label for="rb3">Radio 3</label>
+                    <input type="radio" id="rb3" name="numeros"><br>
+                    <center><button class="bform" type="reset">Reiniciar coampos</button></center>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </body>
 
