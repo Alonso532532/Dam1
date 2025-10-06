@@ -21,7 +21,6 @@
     <hr style="width: 90%;">
     <!--//////////////////////////////Textos//////////////////////////////////-->
     <h2>Textos</h2>
-
     <p style="margin-top: 5px; text-align: center;">⬇️Etiquetas para modificar/usar textos⬇️</p>
     <pre>- "p" para un parrafo
 - "pre" para hacer un parrafo que tenga en cuenta los espacios
@@ -45,7 +44,7 @@
 <blockquote cite="Pascuals">Mario, ¿de quez el bocadillo Mario?<footer>   - Pasacuasa -</footer></blockquote>
 - "a" para añadir <a href="https://b42map.com/" target="_blank">enlaces</a>, con "target="_blank"" se abre en una pagina nueva
 <hr style="width: 95%;">
-<img src="./img/Captura de pantalla 2025-10-03 122613.png" alt="Codigico" style="width: 100%;">
+<img src="./img/Textos.png" alt="Codigico" style="width: 100%;">
 </pre>
 
     <!--//////////////////////////////Listas//////////////////////////////////-->
@@ -84,7 +83,10 @@
                 </li>
             </ol>
         </div>
+        <hr style="width: 95%;">
+        <img src="./img/Listas.png" alt="Codigico" style="width: 100%;">
     </div>
+    <!--//////////////////////////////Tablas//////////////////////////////////-->
     <hr style="width: 80%;">
     <h2>Tablas</h2>
     <div>
@@ -124,13 +126,17 @@
                 </table>
             </center>
         </div>
+        <hr style="width: 95%;">
+        <img src="./img/Tablas.png" alt="Codigico" style="width: 100%;">
     </div>
+    <!--//////////////////////////////Formularios//////////////////////////////////-->
     <hr style="width: 80%;">
     <h2>Formularios</h2>
     <div>
         Para hacer un formulario se usa "form" a la que se le puede añadir "action", para decirle al servidor que le
         está mandando y "method", que puede ser "get", que se lo manda sin cifrar y "post" que si lo cifra al mandar los
-        datos introducidos. <br><br>
+        datos introducidos. El "name" dentro de un "input" es el nombre con el que se envia la información de ese input
+        al servidor<br><br>
         Los formulariosse suelen meter en un "fieldset" que mete el formulario en una caja, y con la etiqueta "legend"
         (dentro del fieldset) se pone el nombre del formulario<br> <br>
         Se usa "input" para meter un campo: <br>
@@ -141,6 +147,7 @@
         Para enviar la información o para reiniciar los campos se usa un "button", con un "type" "submit" o "reset",
         tiene que estár dentro del form. <br> <br>
         En los inputs de numeros se puede poner "min" "max" <br><br>
+        Si los "label" están bien establecidos se podrá clicar en estos para referirte al "input". <br>
         <div class="tabla">
             <form action="Juanma">
                 <fieldset>
@@ -156,11 +163,29 @@
                     <label for="rb2">Radio 2</label>
                     <input type="radio" id="rb2" name="numeros"><br>
                     <label for="rb3">Radio 3</label>
-                    <input type="radio" id="rb3" name="numeros"><br>
+                    <input type="radio" id="rb3" name="numeros"><br><br>
+                    Para hacer desplegables se usa "select" y para agrupar las opciones "optgroup". Si se usa "selected" en una opcion está saldra seleccionada por defecto.<br><br>
+                    <label for="desp">Despelgable</label>
+                    <select name="desp" id="desp">
+                        <option value="op11">Opcion 1</option>
+                        <option value="op22" selected>Opcion 2</option>
+                        <optgroup label="Grupo1">
+                            <option value="op1">Opcion 1</option>
+                            <option value="op2">Opcion 2</option>
+                        </optgroup>
+                        <optgroup label="Grupo2">
+                            <option value="op111">Opcion 1</option>
+                            <option value="op222">Opcion 2</option>
+                        </optgroup>
+                    </select><br><br>
+                    Se usa "textarea" para crear un campo de texto, se puede indicar su tamaño inicial con "rows" y "cols".<br><br>
+                    <textarea name="fumo" id="txta" cols="30" rows="3" placeholder="Escribe"></textarea><br><br>
                     <center><button class="bform" type="reset">Reiniciar coampos</button></center>
                 </fieldset>
             </form>
         </div>
+        <hr style="width: 95%;">
+        <img src="./img/Formularios.png" alt="Codigico" style="width: 100%;">
     </div>
 </body>
 
