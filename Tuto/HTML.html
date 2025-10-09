@@ -12,8 +12,9 @@
 <body>
     <nav>
 
-        <a style="margin-left: 3px;" href="./index.html">Inicio</a>
+        <a href="./index.html">Inicio</a>
         <a href="./HTML.html">HTML</a>
+        <a href="./CSS.html">CSS</a>
 
     </nav>
     <hr style="width: 90%;">
@@ -22,7 +23,7 @@
     <!--//////////////////////////////Textos//////////////////////////////////-->
     <h2>Textos</h2>
     <p style="margin-top: 5px; text-align: center;">⬇️Etiquetas para modificar/usar textos⬇️</p>
-    <pre>- "p" para un parrafo
+    <pre class="pre1">- "p" para un parrafo
 - "pre" para hacer un parrafo que tenga en cuenta los espacios
 - <i>"i" para cursiva</i>
 - <em>"em" como el "i"</em>
@@ -91,14 +92,14 @@
     <h2>Tablas</h2>
     <div>
         Para hacer tablas hay que usar la "table" y dentro se usa "tr" para filas, "td" columnas, "th" columnas pero
-        centradas y en negrita. <br> <br>
+        centradas y en negrita. Para escribir varios elementos de una se usa "td*3" y pondrá 3 elementos<br> <br>
         Para que tengan borde las celdas se tienen que poner en los estilos de la tabla "border-collapse: collapse;" y
         un "border: 5px solid rgb(68, 68, 68);" al gusto:
         <div class="tabla">
             <center>
                 <table>
                     <tr>
-                        <th>tr ⬇️ th ➡</th>
+                        <th>tr ⬇️ th ➡️</th>
                         <th>tr ⬇️</th>
                         <th>tr ⬇️</th>
                         <th>tr ⬇️</th>
@@ -106,20 +107,20 @@
                         <th>tr ⬇️</th>
                     </tr>
                     <tr>
-                        <td>td ➡</td>
+                        <td>td ➡️</td>
                         <td colspan="3">Se puede usar "colspan" para que ocupe varias columnas</td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>td ➡</td>
+                        <td>td ➡️</td>
                         <td rowspan="2">Y "rowspan" para filas</td>
                         <td colspan="2" rowspan="2">Y se pueden combinar</td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>td ➡</td>
+                        <td>td ➡️</td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -146,8 +147,8 @@
         Se usa "label" para poner un texto para un input y en el "for" se pone para que id. <br><br>
         Para enviar la información o para reiniciar los campos se usa un "button", con un "type" "submit" o "reset",
         tiene que estár dentro del form. <br> <br>
-        En los inputs de numeros se puede poner "min" "max" <br><br>
-        Si los "label" están bien establecidos se podrá clicar en estos para referirte al "input". <br>
+        En los inputs de numeros y alguno que otro como la fecha (en el de la fecha se tiene que poner a-m-d) se puede poner "min" "max" <br><br>
+        Si los "label" están bien establecidos se podrá clicar en estos para referirte al "input".<br>
         <div class="tabla">
             <form action="Juanma">
                 <fieldset>

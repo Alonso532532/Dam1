@@ -1,5 +1,5 @@
 nav {
-    background-color: rgb(118, 118, 118);
+    background-color: rgb(116, 116, 116);
     padding: 17px;
     margin: 10px;
     border-radius: 10px;
@@ -17,7 +17,7 @@ nav a {
 nav a:hover {
     background-color: rgb(81, 81, 81);
     padding: 9px;
-    margin: 7px;
+    margin: 6px;
 }
 
 nav a:active {
@@ -28,6 +28,7 @@ body {
     background-color: rgb(19, 19, 19);
 }
 
+
 p {
     background-color: rgb(76, 76, 76);
     padding: 15px;
@@ -37,13 +38,29 @@ p {
     color: rgb(240, 240, 240);
     font-size: 15px;
 }
+.pruebaT {
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: normal;
+}
 
-pre {
+.pre1 {
     background-color: rgb(76, 76, 76);
     padding: 20px;
-    border-radius: 10px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+pre {
+    background-color: rgb(61, 61, 61);
+    padding: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 10px;
     color: rgb(240, 240, 240);
     font-size: 15px;
     line-height: 20px;
@@ -106,6 +123,10 @@ td {
     border: 5px solid rgb(68, 68, 68);
     border-collapse: collapse;
     padding: 5px;
+}
+td:hover, th:hover{
+    background-color: rgb(77, 77, 77);
+
 }
 input {
     padding: 5px;
