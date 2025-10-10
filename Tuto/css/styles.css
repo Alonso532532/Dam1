@@ -38,15 +38,6 @@ p {
     color: rgb(240, 240, 240);
     font-size: 15px;
 }
-.pruebaT {
-    color: rgb(240, 240, 240);
-    font-size: 15px;
-    font-weight: lighter;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: normal;
-}
 
 .pre1 {
     background-color: rgb(76, 76, 76);
@@ -150,3 +141,30 @@ input {
 img {
     border-radius: 5px;
 }
+
+.pruebaT {
+    color: rgb(240, 240, 240);
+    font-size: 15px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: normal;
+    text-decoration: dotted;
+    text-indent: 1cm; 
+    text-shadow: 2px 3px 4px black;
+}
+
+.pruebaE {
+    width: 10%;
+    /*height: 10px;*/
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+    border: 3px solid black;
+    background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
+}
+/*Box sicing border box <-- explicar*/ 
