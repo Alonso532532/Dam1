@@ -12,6 +12,5 @@ public class ej4 {
         } else {
             System.out.println(car + " no es uan vocal");
         }
-
     }
 }
