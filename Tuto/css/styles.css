@@ -58,6 +58,7 @@ pre {
     /* Esto lo saco de google y sirve para que me salte de linea en los pre*/
     white-space: pre-wrap;
     /* CSS3 */
+    box-shadow: 2px 2px 2px black;
 }
 
 a {
@@ -91,6 +92,7 @@ div {
     margin-right: 20px;
     color: rgb(240, 240, 240);
     font-size: 15px;
+    box-shadow: 2px 2px 2px black;
 }
 
 p,
@@ -166,5 +168,6 @@ img {
     padding: 20px;
     border: 3px solid black;
     background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
+    box-shadow: 2px 2px 2px black;
 }
 /*Box sicing border box <-- explicar*/ 

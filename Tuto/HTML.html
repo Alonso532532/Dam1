@@ -155,17 +155,23 @@
                     <legend>PruebaBreva</legend>
                     <label for="nom">Nombre:</label>
                     <input type="text" id="nom" placeholder="Introduce tu nombre"><br>
+                    <label for="numt">Telefono:</label>
+                    <input type="tel" id="numt" placeholder="123456789" maxlength="9" pattern="[0-9]{9}" size="8"><br>
+                    <br>El de archivos va acompañado con un "accept" para determinar que formato se quiere aceptar 
+                    <br><label for="nom">Archivo:</label>
+                    <input type="file" id="arch" accept=".pdf"><br><br>                   
                     <label for="chb">Checkbox</label>
-                    <input type="checkbox" id="chb"><br><br>
+                    <input type="checkbox" id="chb" value="sufro"><br><br>
                     Para usar los "radio" hay que usar "name" para poner en varios el mismo y hacer así que no se puedan
-                    selecciónar 2 a la vez <br><br>
+                    selecciónar 2 a la vez y le añado un "value" para decir que valor va a mandar si se seleccióna, esto también se usa en los "checkbox"<br><br>
                     <label for="rb">Radio 1</label>
-                    <input type="radio" id="rb" name="numeros"><br>
+                    <input type="radio" id="rb" name="numeros" value="uno"><br>
                     <label for="rb2">Radio 2</label>
-                    <input type="radio" id="rb2" name="numeros"><br>
+                    <input type="radio" id="rb2" name="numeros" value="dos"><br>
                     <label for="rb3">Radio 3</label>
-                    <input type="radio" id="rb3" name="numeros"><br><br>
+                    <input type="radio" id="rb3" name="numeros" value="tres"><br><br>
                     Para hacer desplegables se usa "select" y para agrupar las opciones "optgroup". Si se usa "selected" en una opcion está saldra seleccionada por defecto.<br><br>
+                    En los "select" se puede usar "size" para determinar el tamaño que quieres que tenga <br> <br>
                     <label for="desp">Despelgable</label>
                     <select name="desp" id="desp">
                         <option value="op11">Opcion 1</option>
