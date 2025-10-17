@@ -82,7 +82,24 @@ div {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 5px;
 }</pre>
+Se puede usar "*" para seleccionar todo lo que haya <br> <br>
+<hr style="width: 95%;"> <br>
+Para referirte a que solo se le aplique el efecto cuando pase el cursor por encima:
+<pre>a:hover {
+    background-color: rgb(81, 81, 81);
+    padding: 9px;
+    margin: 6px;
+}</pre>
+Para cuando este clicando:
+<pre>a:active {
+    color: rgb(213, 213, 213);
+}</pre>
+Y para cuando se esté escribiendo en ese campo:
+<pre>input:focus {
+    background-color: red;
+}</pre>
     </div>
+<!--//////////////////////////////Modificación de elementos//////////////////////////////////-->
 <hr style="width: 80%;">
 <h2>Modificación de elementos</h2>
 <div>
@@ -114,9 +131,14 @@ div {
     padding: 20px;
     border: 3px solid black;
     background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
+    box-shadow: 2px 2px 2px black;
 }</pre>
+    Resultado:
     <div class="pruebaE"></div>
 </div>
+<!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
+<hr style="width: 80%;">
+<h2></h2>
 </body>
 
 </html>
