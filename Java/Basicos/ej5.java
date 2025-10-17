@@ -1,9 +1,14 @@
 package Java.Basicos;
-import java.lang.Math;
+import java.math.*;
+import java.util.*;
 
 public class ej5 {
     public static void main(String[] args) {
-        double a = 25;
+        Scanner iker = new Scanner(System.in);
+        System.out.print("Introduce un numero: ");
+        double a = iker.nextDouble();
+        System.out.println("El resultado con raíz cuadrada es: " + Math.sqrt(a));
+        System.out.println("El resultado con raíz cubica es: " + Math.sqrt(a));
         //public static double sqrt(double a)
     }
 
