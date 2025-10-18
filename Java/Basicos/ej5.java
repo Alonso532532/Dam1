@@ -8,7 +8,7 @@ public class ej5 {
         System.out.print("Introduce un numero: ");
         double a = iker.nextDouble();
         System.out.println("El resultado con raíz cuadrada es: " + Math.sqrt(a));
-        System.out.println("El resultado con raíz cubica es: " + Math.sqrt(a));
+        System.out.println("El resultado con raíz cubica es: " + Math.cbrt(a));
         //public static double sqrt(double a)
     }
 

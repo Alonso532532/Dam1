@@ -2,7 +2,7 @@ package Java.Basicos;
 import java.math.*;
 import java.util.*;
 
-public class pruebas {
+public class juegecillo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
