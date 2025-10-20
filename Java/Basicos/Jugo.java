@@ -1,52 +1,97 @@
 package Java.Basicos;
-import java.util.Scanner;
+import java.util.*;
 import java.math.*;
 
 public class Jugo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        char op;
+        String op;
         int opof;
-        double[][] ofertas = {{0,0}, {0,0}, {0,0}};
+        int sal = 0;
+        char ap;
+        int cant;
+        double precio;
+        String espera;
+
+        int[][] ofertas = {{0,0}, {0,0}, {0,0}};
         do {
 
-            System.out.print("¿Que desea?\n----------------------------\nAñadir/Modificar una oferta -> o\nCalcular pedido -> c\nSalir -> s\n> ");
-            op = sc.nextLine().charAt(0);
+            System.out.print("----------------------------\n¿Que desea?\n----------------------------\nAñadir/Modificar una oferta -> o\nCalcular pedido -> c\nSalir -> s\n> ");
+            op = sc.nextLine();
 
-            if (op == 'o') {
-                System.out.println("Que oferta quieres añadir?");
+            if (op.equals("o")) {
+                System.out.println("¿Que oferta quieres añadir? (1/2/3)");
 
                 for (int i = 0; i < 3; i++) {
                     System.out.println("La oferta " + (i + 1) + " rebaja " + ofertas[i][0] + "€ por cada " + ofertas[i][1] + " productos");
                 }
-                System.out.print("¿Que oferta? (1/2/3)\n> ");
+                System.out.print("> ");
                 opof = sc.nextInt();
                 if (opof <= 3 && opof >= 1) {
 
-                    System.out.print("¿De cuanto qieres que sea la oferta?\n> ");
-                    ofertas[opof - 1][0] = sc.nextDouble();
+                    opof = opof - 1;
+                    System.out.print("¿De cuanto qieres que sea la rebaja?\n> ");
+                    ofertas[opof][0] = sc.nextInt();
                     System.out.print("¿Cada cuantos productos?\n> ");
-                    ofertas[opof - 1][1] = sc.nextDouble();
+                    ofertas[opof][1] = sc.nextInt();
 
                 }
-            } else if (op == 'c') {
-                if (ofertas[0][0] > 0 && ofertas[0][1] > 0) {
+                espera = sc.nextLine();
+            } else if (op.equals("c")) {
 
-                } else {
-                    System.out.println("La oferta no existe");
-                }
+                    System.out.print("¿Quieres aplicar una ofreta? (s/n)\n> ");
+                    ap = sc.nextLine().charAt(0);
 
-            } else if (op == 's') {
+                    if (ap == 's') {
+
+                        System.out.print("¿Que oferta? (1/2/3)\n> ");
+                        opof = sc.nextInt();
+
+                        if (opof <= 3 && opof >= 1) {
+                            opof = opof - 1;
+                            if (ofertas[opof][0] > 0 || ofertas[opof][1] > 0) {
+
+                                System.out.print("¿Cuantos productos se van a vender?\n> ");
+                                cant = sc.nextInt();
+                                System.out.print("¿A que precio?\n> ");
+                                precio = sc.nextDouble();
+
+                                System.out.println("Resultado: " + (precio * cant - ofertas[opof][0] * (cant / ofertas[opof][1])) + "€ Enter para contunuar");
+                                espera = sc.nextLine();
+                                espera = sc.nextLine();
+                            } else {
+                                System.out.println("error");
+                            }
+
+                        } else {
+                            System.out.println("Error");
+                        }
+                    } else if (ap == 'n'){
+
+                        System.out.print("¿Cuantos productos se van a vender?\n> ");
+                        cant = sc.nextInt();
+                        System.out.print("¿A que precio?\n> ");
+                        precio = sc.nextDouble();
+                        System.out.println("Resultado: " + precio * cant + " Enter para contunuar");
+                        espera = sc.nextLine();
+                        espera = sc.nextLine();
+
+                    } else {
+                        System.out.println("error");
+                    }
+
+
+            } else if (op.equals("s")) {
 
                 System.out.println("Saliendo...");
+                sal = 1;
 
-            }else {
+            } else {
 
-                System.out.println("bobo o que");
+                System.out.println("error");
 
             }
-
-        } while (op != 's');
+        } while (sal == 0);
     }
 }
