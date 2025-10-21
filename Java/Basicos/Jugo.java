@@ -21,13 +21,16 @@ public class Jugo {
             op = sc.nextLine();
 
             if (op.equals("o")) {
+
                 System.out.println("¿Que oferta quieres añadir? (1/2/3)");
 
                 for (int i = 0; i < 3; i++) {
                     System.out.println("La oferta " + (i + 1) + " rebaja " + ofertas[i][0] + "€ por cada " + ofertas[i][1] + " productos");
                 }
+
                 System.out.print("> ");
                 opof = sc.nextInt();
+
                 if (opof <= 3 && opof >= 1) {
 
                     opof = opof - 1;
@@ -37,6 +40,7 @@ public class Jugo {
                     ofertas[opof][1] = sc.nextInt();
 
                 }
+
                 espera = sc.nextLine();
             } else if (op.equals("c")) {
 
@@ -49,7 +53,9 @@ public class Jugo {
                         opof = sc.nextInt();
 
                         if (opof <= 3 && opof >= 1) {
+
                             opof = opof - 1;
+
                             if (ofertas[opof][0] > 0 || ofertas[opof][1] > 0) {
 
                                 System.out.print("¿Cuantos productos se van a vender?\n> ");
@@ -60,9 +66,11 @@ public class Jugo {
                                 System.out.println("Resultado: " + (precio * cant - ofertas[opof][0] * (cant / ofertas[opof][1])) + "€ Enter para contunuar");
                                 espera = sc.nextLine();
                                 espera = sc.nextLine();
+
                             } else {
                                 System.out.println("error");
                             }
+
 
                         } else {
                             System.out.println("Error");
@@ -92,6 +100,7 @@ public class Jugo {
                 System.out.println("error");
 
             }
+
         } while (sal == 0);
     }
 }
