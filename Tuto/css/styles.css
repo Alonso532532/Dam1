@@ -76,12 +76,21 @@ a {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     text-align: center;
     color: white;
     margin-top: 0;
     margin-bottom: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 20px;
 }
 
 div {
@@ -131,13 +140,20 @@ input {
     border: 5px solid rgb(29, 29, 29);
     color: rgb(218, 218, 218);
     border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
 }
 .bform:hover {
     background-color: rgb(95, 95, 95);
 }
 .bform:active {
     padding: 3px;
-    margin: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 9px;
+    margin-right: 9px;
 }
 
 img {
@@ -156,6 +172,9 @@ img {
     text-decoration: dotted;
     text-indent: 1cm; 
     text-shadow: 2px 3px 4px black;
+    /*⬇️ No es de textos ⬇️*/
+    background-color: rgb(61, 61, 61);
+    box-shadow: 2px 2px 2px black;
 }
 
 .pruebaE {
@@ -170,4 +189,44 @@ img {
     background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
     box-shadow: 2px 2px 2px black;
 }
+.pruebaTr {
+    background-color: rgba(93, 65, 255, 0.3);
+}
+
+.imagenf {
+    background: url(./../img/Maxtben-10--removebg-preview.png);
+    /*background-repeat: no-repeat;*/
+    height: 100px;
+}
+
+.disl {
+    display: inline;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    
+}
+
+.disb {
+    display: block;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    width: 30%;
+}
+
+.dislb {
+    display: inline-block;
+    background-color: rgb(188, 188, 188);
+    border: 5px solid black;
+    border-radius: 2px;
+    margin: 4px;
+    padding: 10px;
+    width: 20%;
+}
+
 /*Box sicing border box <-- explicar*/ 

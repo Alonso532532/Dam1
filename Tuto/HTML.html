@@ -150,7 +150,7 @@
         En los inputs de numeros y alguno que otro como la fecha (en el de la fecha se tiene que poner a-m-d) se puede poner "min" "max" <br><br>
         Si los "label" están bien establecidos se podrá clicar en estos para referirte al "input".<br>
         <div class="tabla">
-            <form action="Juanma">
+            <form action="Juanma" method="dialog">
                 <fieldset>
                     <legend>PruebaBreva</legend>
                     <label for="nom">Nombre:</label>
@@ -187,7 +187,10 @@
                     </select><br><br>
                     Se usa "textarea" para crear un campo de texto, se puede indicar su tamaño inicial con "rows" y "cols".<br><br>
                     <textarea name="fumo" id="txta" cols="30" rows="3" placeholder="Escribe"></textarea><br><br>
-                    <center><button class="bform" type="reset">Reiniciar coampos</button></center>
+                    Aquí uso "required" que impide enviar el formulario si está vacío.<br><br>
+                    <label for="chkr">Requerido:</label>
+                    <input type="checkbox" required id="chkr">
+                    <center style="margin-top: 25px;"><button class="bform" type="submit">Enviar</button><button class="bform" type="reset">Reiniciar coampos</button></center>
                 </fieldset>
             </form>
         </div>
