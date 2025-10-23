@@ -164,27 +164,53 @@ div {
     /*background-repeat: no-repeat;*/
     height: 100px;
 }</pre>
-    <div class="imagenf"></div>
+    <div class="imagenf"></div> <br>
+            Si se quiere usar el "padding" especificando las 4 direcciónes se usar, arria, derecha, abajo e izquierda
+       <pre>.pruebaP{
+    padding: 20px 15px 10px 5px;
+    background-color: rgb(58, 58, 58);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+}</pre>
+       
+            <p class="pruebaP">Iker</p>
     
     </div>
     <!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
     <hr style="width: 80%;">
-    <h2>Posicionamiento (Display, Grid y Flex)</h2>
+    <h2>Posicionamiento (Display, Position, Grid y Flex)</h2>
     <div>
         <h3>Display</h3>
         <hr style="width: 80%;">
         Hay tres tipos importantes: "display: inline;", "display: block;" y "display: inline-block;"<br><br>
+        
         <b>inline:</b><br>
         Si se pone “display: inline”, los elementos se mostrarán en estructura de linea, sin separación alguna y solo
         son textos por lo que no tienen ni altura ni anchura (Estos elementos no podrán tener formatos como width o
-        heigh).<br><br>
-        <div class="disl"></div><div class="disl"></div> <div class="disl"></div><br><br>
+        heigh).<br><br><br>
+        <div class="disl"></div><div class="disl"></div> <div class="disl"></div><br><br><br>
+        
         <b>block:</b><br>
         Si se pone  “display: block”, los elementos se mostrarán en estructura de bloque (con sus espacios y sus cosas).<br><br>
         <div class="disb"></div><div class="disb"></div> <div class="disb"></div><br><br>
+        
         <b>inline-block:</b><br>
         Si se pone  “display: inline-block”, los elementos se ponen en linea pero mantienen formato<br><br>
         <center><div class="dislb"></div><div class="dislb"></div> <div class="dislb"></div></center><br><br>
+        
+        "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento *MIRAR* <br><br>
+        <div class="dislbb"></div>
+
+    </div>
+    <div style="margin-top: 20px;">
+        <h3>Position</h3>
+        <hr style="width: 80%;">
+        <div class="positions">Esta es la posición estatica "position: static"</div>
+                <div class="positions">Esta es la posición estatica "position: static"</div>
     </div>
 </body>
 

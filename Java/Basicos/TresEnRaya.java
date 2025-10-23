@@ -2,7 +2,7 @@ package Java.Basicos;
 import java.util.Scanner;
 
 
-public class TresEnRalla {
+public class TresEnRaya {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -10,6 +10,7 @@ public class TresEnRalla {
         char [][] tabla = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
         int jugador = 1;
         int cambios = 0;
+        boolean ganado = false;
 
         do {
 
@@ -27,6 +28,17 @@ public class TresEnRalla {
             System.out.println("Jugador " + jugador);
             System.out.print("En que posición quieres\n> ");
             while (!sc.hasNextInt()){
+                j = 0;
+                for (int a = 1; a < 8 ; a++) {
+
+                    if (a % 2 == 1) {
+                        System.out.println("-------------");
+                        j++;
+                    } else if (a % 2 == 0) {
+                        System.out.println("| " + tabla[j-1][0] + " | " + tabla[j-1][1] + " | " + tabla[j-1][2] + " |");
+                    }
+
+                }
                 System.out.println("No es un número entero");
                 System.out.print("Introduce un número entero\n> ");
                 sc.nextLine();
@@ -57,8 +69,9 @@ public class TresEnRalla {
             }
             for (int i = 0; i < 3 ; i++){
 
-                if (tabla[i][0] == tabla[i][1] && tabla[i][1] == tabla[i][2]){
+                if (tabla[i][0] == tabla[i][1] && tabla[i][1] == tabla[i][2] && ganado == false){
                     seguir = false;
+                    ganado = true;
                     if (tabla[i][0] == 'O'){
                         System.out.println("Ha ganado el jugador 1");
                     } else {
@@ -78,12 +91,15 @@ public class TresEnRalla {
                     }
                 }
 
-                if (tabla[0][i] == tabla[1][i] && tabla[1][i] == tabla[2][i]){
+                if (tabla[0][i] == tabla[1][i] && tabla[1][i] == tabla[2][i] && ganado == false){
                     seguir = false;
+                    ganado = true;
                     if (tabla[i][0] == 'O'){
                         System.out.println("Ha ganado el jugador 1");
+                        ganado = true;
                     } else {
                         System.out.println("Ha ganado el jugador 2");
+                        ganado = true;
                     }
                     j = 0;
                     for (int a = 1; a < 8 ; a++) {
@@ -99,8 +115,9 @@ public class TresEnRalla {
                 }
             }
 
-            if (tabla[0][0] == tabla[1][1] && tabla[1][1] == tabla[2][2]){
+            if (tabla[0][0] == tabla[1][1] && tabla[1][1] == tabla[2][2] && ganado == false){
                 seguir = false;
+                ganado = true;
                 if (tabla[0][0] == 'O'){
                     System.out.println("Ha ganado el jugador 1");
                 } else {
@@ -117,8 +134,9 @@ public class TresEnRalla {
                     }
 
                 }
-            } else if (tabla[0][2] == tabla[1][1] && tabla[1][1] == tabla[2][0]){
+            } else if (tabla[0][2] == tabla[1][1] && tabla[1][1] == tabla[2][0] && ganado == false){
                 seguir = false;
+                ganado = true;
                 if (tabla[2][0] == 'O'){
                     System.out.println("Ha ganado el jugador 1");
                 } else {
