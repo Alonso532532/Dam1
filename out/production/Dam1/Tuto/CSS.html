@@ -30,15 +30,16 @@
     </p>
     <hr style="width: 80%;">
     <h2>Selección de elementos</h2>
-    <div>Para indicar que todos los elementos de un mismo tipo tengan un formato especifico se pone:
-<pre>nav {
+    <div>Se le pueden asignar varias clases a un mismo objeto poniendo: class="clase1 clase2"<br>
+        Para indicar que todos los elementos de un mismo tipo tengan un formato especifico se pone:
+        <pre>nav {
     background-color: rgb(116, 116, 116);
     padding: 17px;
     margin: 10px;
     border-radius: 10px;
 }</pre>
-        Para indicar que los elementos con una clase tengan un formato especifico se pone: 
-<pre>.cuadrado {
+        Para indicar que los elementos con una clase tengan un formato especifico se pone:
+        <pre>.cuadrado {
     background-color: rgb(76, 76, 76);
     padding: 15px;
     border-radius: 10px;
@@ -47,8 +48,8 @@
     color: rgb(240, 240, 240);
     font-size: 15px;
 }</pre>
-         Para indicar que los elementos con una clase tengan un formato especifico se pone: 
-<pre>#cuadrado {
+        Para indicar que los elementos con una clase tengan un formato especifico se pone:
+        <pre>#cuadrado {
     background-color: rgb(76, 76, 76);
     padding: 15px;
     border-radius: 10px;
@@ -57,8 +58,8 @@
     color: rgb(240, 240, 240);
     font-size: 15px;
 }</pre>
-        Para indicar que los elementos dentro de un elemento tengan un formato especifico se pone: 
-<pre>nav a {
+        Para indicar que los elementos dentro de un elemento tengan un formato especifico se pone:
+        <pre>nav a {
     margin: 5px;
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -66,8 +67,9 @@
     padding: 10px;
     border-radius: 8px;
 }</pre>
-        Para indicar que los elementos pegados a otro elemento dentro de ese otro elemento tengan un formato especifico se pone: 
-<pre>nav > a {
+        Para indicar que los elementos pegados a otro elemento dentro de ese otro elemento tengan un formato especifico
+        se pone:
+        <pre>nav > a {
     margin: 5px;
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -75,36 +77,47 @@
     padding: 10px;
     border-radius: 8px;
 }</pre>
-        Para indicar que varios elementos tengan un formato especifico se pone: 
-<pre>p,
+        Para indicar que varios elementos tengan un formato especifico se pone:
+        <pre>p,
 pre,
 div {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 5px;
 }</pre>
-Se puede usar "*" para seleccionar todo lo que haya <br> <br>
-<hr style="width: 95%;"> <br>
-Para referirte a que solo se le aplique el efecto cuando pase el cursor por encima:
-<pre>a:hover {
+        Para indicar que los elementos que estén directamente despues de otros tengan un formato especifico se pone:
+        <pre>h2 + p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}</pre>
+        Para indicar que los elementos que estén despues de otros (da igual la distancia) tengan un formato especifico
+        se pone:
+        <pre>h2 ~ p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 5px;
+}</pre>
+        Se puede usar "*" para seleccionar todo lo que haya <br> <br>
+        <hr style="width: 95%;"> <br>
+        Para referirte a que solo se le aplique el efecto cuando pase el cursor por encima:
+        <pre>a:hover {
     background-color: rgb(81, 81, 81);
     padding: 9px;
     margin: 6px;
 }</pre>
-Para cuando este clicando:
-<pre>a:active {
+        Para cuando este clicando:
+        <pre>a:active {
     color: rgb(213, 213, 213);
 }</pre>
-Y para cuando se esté escribiendo en ese campo:
-<pre>input:focus {
+        Y para cuando se esté escribiendo en ese campo:
+        <pre>input:focus {
     background-color: red;
 }</pre>
     </div>
-<!--//////////////////////////////Modificación de elementos//////////////////////////////////-->
-<hr style="width: 80%;">
-<h2>Modificación de elementos</h2>
-<div>
-    Para editar el texto:
-<pre>.pruebaT {
+    <!--//////////////////////////////Modificación de elementos//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Modificación de elementos</h2>
+    <div>
+        Para editar el texto:
+        <pre>.pruebaT {
     color: rgb(240, 240, 240);
     font-size: 15px;
     font-weight: lighter;
@@ -116,12 +129,17 @@ Y para cuando se esté escribiendo en ese campo:
     text-decoration: dotted;
     text-indent: 1cm; 
     text-shadow: 2px 3px 4px black;
+    /*⬇️ No es de textos ⬇️*/
+    background-color: rgb(61, 61, 61);
+    box-shadow: 2px 2px 2px black;
 }
 </pre>
-    Resultado:
-    <p class="pruebaT">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam eligendi magni at assumenda nisi pariatur ea ad voluptatibus aspernatur, dolorem est esse ipsum aliquam fugit eos dolor illum? Tempora, praesentium.</p>
-    Para editar espacios:
-<pre>.pruebaE {
+        Resultado:
+        <p class="pruebaT">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam eligendi magni at assumenda
+            nisi pariatur ea ad voluptatibus aspernatur, dolorem est esse ipsum aliquam fugit eos dolor illum? Tempora,
+            praesentium.</p>
+        Para editar espacios:
+        <pre>.pruebaE {
     width: 10%;
     /*height: 10px;*/
     margin-left: 40%;
@@ -133,12 +151,67 @@ Y para cuando se esté escribiendo en ese campo:
     background: linear-gradient(to top, rgb(202, 155, 0), rgb(110, 110, 255) 40%, black 80%);
     box-shadow: 2px 2px 2px black;
 }</pre>
-    Resultado:
-    <div class="pruebaE"></div>
-</div>
-<!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
-<hr style="width: 80%;">
-<h2></h2>
+        Resultado:
+        <div class="pruebaE"></div>
+        <b>Extras</b><br><br>
+        Para aplicar transparencia (va de 0 a 1):
+        <pre class="pruebaTr">.pruebaTr {
+    background-color: rgba(93, 65, 255, 0.3);
+}</pre>
+        Para usar una foto de fondo:
+    <pre>.imagenf {
+    background: url(./../img/Maxtben-10--removebg-preview.png);
+    /*background-repeat: no-repeat;*/
+    height: 100px;
+}</pre>
+    <div class="imagenf"></div> <br>
+            Si se quiere usar el "padding" especificando las 4 direcciónes se usar, arria, derecha, abajo e izquierda
+       <pre>.pruebaP{
+    padding: 20px 15px 10px 5px;
+    background-color: rgb(58, 58, 58);
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+}</pre>
+       
+            <p class="pruebaP">Iker</p>
+    
+    </div>
+    <!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
+    <hr style="width: 80%;">
+    <h2>Posicionamiento (Display, Position, Grid y Flex)</h2>
+    <div>
+        <h3>Display</h3>
+        <hr style="width: 80%;">
+        Hay tres tipos importantes: "display: inline;", "display: block;" y "display: inline-block;"<br><br>
+        
+        <b>inline:</b><br>
+        Si se pone “display: inline”, los elementos se mostrarán en estructura de linea, sin separación alguna y solo
+        son textos por lo que no tienen ni altura ni anchura (Estos elementos no podrán tener formatos como width o
+        heigh).<br><br><br>
+        <div class="disl"></div><div class="disl"></div> <div class="disl"></div><br><br><br>
+        
+        <b>block:</b><br>
+        Si se pone  “display: block”, los elementos se mostrarán en estructura de bloque (con sus espacios y sus cosas).<br><br>
+        <div class="disb"></div><div class="disb"></div> <div class="disb"></div><br><br>
+        
+        <b>inline-block:</b><br>
+        Si se pone  “display: inline-block”, los elementos se ponen en linea pero mantienen formato<br><br>
+        <center><div class="dislb"></div><div class="dislb"></div> <div class="dislb"></div></center><br><br>
+        
+        "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento *MIRAR* <br><br>
+        <div class="dislbb"></div>
+
+    </div>
+    <div style="margin-top: 20px;">
+        <h3>Position</h3>
+        <hr style="width: 80%;">
+        <div class="positions">Esta es la posición estatica "position: static"</div>
+                <div class="positions">Esta es la posición estatica "position: static"</div>
+    </div>
 </body>
 
 </html>
