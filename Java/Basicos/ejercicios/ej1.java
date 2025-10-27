@@ -1,4 +1,4 @@
-package Java.Basicos;
+package Java.Basicos.ejercicios;
 public class ej1 {
     public static void main(String[] args) {
         int segundos = 6832, minutos, horas;

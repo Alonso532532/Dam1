@@ -1,4 +1,4 @@
-package Java.Basicos;
+package Java.Basicos.ejercicios;
 import java.util.*;
 
 public class ej2 {

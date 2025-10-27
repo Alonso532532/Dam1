@@ -1,4 +1,4 @@
-package Java.Basicos;
+package Java.Basicos.ejercicios;
 import java.util.Scanner;
 
 public class ej4 {
