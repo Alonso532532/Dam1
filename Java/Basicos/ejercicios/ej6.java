@@ -16,7 +16,7 @@ public class ej6 {
             sc.nextLine();
 
             switch (op) {
-                case "t":
+                case "T","t":
 
                     do {
                         System.out.print("¿Que tamaño quieres que tenga?, tiene que ser impar\n> ");
@@ -26,7 +26,6 @@ public class ej6 {
                             sc.nextLine();
                         }
                         tamano = sc.nextInt();
-                        sc.nextLine();
                         if (tamano <= 0){
                             System.out.println("No puede ser 0 o inferior");
                         } else if (tamano% 2 == 0){
@@ -50,7 +49,7 @@ public class ej6 {
                     String b = sc.nextLine();
 
                     break;
-                case "tr":
+                case "Tr","tr":
 
                     do {
                         System.out.print("¿Que tamaño quieres que tenga?, tiene que ser impar\n> ");
@@ -60,7 +59,7 @@ public class ej6 {
                             sc.nextLine();
                         }
                         tamano = sc.nextInt();
-                        sc.nextLine();
+
                         if (tamano <= 0){
                             System.out.println("No puede ser 0 o inferior");
                         } else if (tamano% 2 == 0){
@@ -83,7 +82,7 @@ public class ej6 {
                     String a = sc.nextLine();
 
                     break;
-                case "c":
+                case "C","c":
                     int alt;
                     int anch;
 
@@ -95,7 +94,6 @@ public class ej6 {
                             sc.nextLine();
                         }
                         alt = sc.nextInt();
-                        sc.nextLine();
                         if (alt <= 0){
                             System.out.println("El numero no puede ser 0 o inferior");
                         }
@@ -109,7 +107,6 @@ public class ej6 {
                             sc.nextLine();
                         }
                         anch = sc.nextInt();
-                        sc.nextLine();
                         if (anch <= 0){
                             System.out.println("El numero no puede ser 0 o inferior");
                         }
@@ -131,14 +128,15 @@ public class ej6 {
                         }
                         System.out.println("");
                     }
+                    sc.nextLine();
                     System.out.print("Introduce una letra para continuar\n> ");
                     String c = sc.nextLine();
 
                     break;
-                case "s":
+                case "S","s":
                     return;
                 default:
-                    System.out.println("Error");
+                    System.out.println("No es una opción");
                     break;
             }
         } while (op != "s");
