@@ -209,6 +209,50 @@ img {
     width: auto;
     height: auto;
 }
+.pruebaTabla{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla td:nth-child(odd){
+    background-color: rgb(88, 88, 88);
+}
+
+.pruebaTabla2{
+    background-color: black;
+    display: inline-block;
+}
+
+.PruevaOV{
+    overflow: scroll;
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    border-radius: 0px;
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+}
+
+.PruebaTRA{
+    background-color: black;
+    padding: 25px;
+    width: 25px;
+    transition-duration: 2s;
+    margin: 0px;    
+    margin-top: 20px;
+}
+
+.PruebaTRA:hover{
+    transition-duration: 2s;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    width: 50px;
+    margin: 0px;
+    margin-top: 20px;
+}
+.pruebaTabla2 tr:nth-child(even){
+    background-color: rgb(88, 88, 88);
+}
 
 .disl {
     display: inline;
@@ -250,22 +294,47 @@ img {
     box-sizing: border-box;
 }
 
-.positions{
-    position: static;
-    background-color: rgb(188, 188, 188);
-    border: 5px solid black;
-    color: black;
-}
-.positionr{
-    position: relative;
-    background-color: rgb(188, 188, 188);
-    border: 5px solid black;
-        color: black;
-}
-.positiona{
-    position: absolute;
-    background-color: rgb(188, 188, 188);
-    border: 5px solid black;
-        color: black;
-}
 /*Box sicing border box <-- explicar*/ 
+
+.posC{
+    border: 5px solid black;
+    position: relative;
+}
+
+div.posC > div{
+    box-shadow: 0px 0px 0px;
+    background-color: rgb(117, 117, 117);
+    padding: 25px;
+    text-align: center;
+    width: 15%;
+
+}
+div.posC > .posR{
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    top: 20px;
+    left: 150px;
+}
+div.posC > .posS{
+    background-color: rgb(0, 0, 0);
+    position: static;
+}
+div.posC > .posA{
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 60%;
+    top: 50%px;
+}
+div.posC > .posF{
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    right: -3%;
+    bottom: 20px;
+    padding: 10px;
+    height: 20px;
+    width: 50px;
+}
+div.posC > .posFl{
+    background-color: rgb(0, 0, 0);
+    float: right;
+}

@@ -16,6 +16,8 @@ public class BlackJack {
             int jugador = 1;
             int manoP1 = 0;
             boolean fin = false;
+            boolean pasado = false;
+
 
             for (int i = 0; i != 4; i++){
                 sacarCarta(baraja, jugador, mano);
@@ -28,8 +30,49 @@ public class BlackJack {
 
             do {
                 mostrarMano(mano);
-                fin = true;
+
+                char op;
+                boolean as = false;
+                int cont = 0;
+
+                for (int i = 0; i != 9; i++){
+                    if (mano[0][i] == 1) {
+                        cont++;
+                        as = true;
+                    }else if (mano[0][i] != 0) {
+                        cont = cont + mano[0][i];
+                    }
+                }
+                if (as && cont < 11){
+                    cont = cont + 10;
+                }
+
+                if (cont == 21){
+                    System.out.println("Has alcanzado 21");
+                    fin = true;
+                } else if (cont > 21){
+                    System.out.println("Te has pasado");
+                    pasado = true;
+                    fin = true;
+                } else {
+                    do {
+                        System.out.print("¿Que quieres hacer?\n1- Pedir carta\n2- Plantarse\n> ");
+                        op = sc.nextLine().charAt(0);
+                        if (op != '1' && op != '2') {
+                            System.out.println("Carácter inválido");
+                        }
+                    } while (op != '1' && op != '2');
+                    if (op == '1'){
+                        sacarCarta(baraja, jugador, mano);
+                    } else if (op == '2'){
+                        fin = true;
+                    }
+                }
             } while(!fin);
+
+            if (pasado){
+                System.out.println("Has perdido");
+            }
 
             do {
                 System.out.print("¿Quieres repetir? (s/n)\n> ");
@@ -79,7 +122,7 @@ public class BlackJack {
     static void mostrarMano(int[][] verdadera) {
         int cont = 0;
         int contg = 4;
-        int as = 0; // <--------
+        boolean as = false; // <--------
 
         for (int i = 0; i != 9; i++){
             if (verdadera[0][i] == 1) {
@@ -100,6 +143,7 @@ public class BlackJack {
             if (verdadera[0][i] == 1) {
                 System.out.print("As - 1 o 11");
                 cont++;
+                as = true;
             }else if (verdadera[0][i] != 0) {
                 System.out.print(verdadera[0][i]);
                 cont = cont + verdadera[0][i];
@@ -115,7 +159,9 @@ public class BlackJack {
         }
         System.out.println();
 
-        if (as == 0) {
+        if (as && cont - 1 < 11) {
+            System.out.println("< Total: " + (cont + 10) + " >");
+        } else {
             System.out.println("< Total: " + cont + " >");
         }
 
