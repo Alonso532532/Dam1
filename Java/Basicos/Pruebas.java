@@ -14,6 +14,12 @@ public class Pruebas {
             System.out.print("\n");
         }
         System.out.print("Dame un texto\n> ");
-
+        String txt = sc.nextLine();
+        if (txt.equals("iker")){
+            System.out.println("juanlu");
+        }
+        if (txt == "iker"){
+            System.out.println("juanlu2");
+        }
     }
 }

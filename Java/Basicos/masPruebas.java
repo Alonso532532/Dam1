@@ -21,8 +21,19 @@ public class masPruebas {
                 System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
                 do {
                     System.out.println("-------------------------------------------------------------------------------");
-                    System.out.print("¿Que desea?\nSalir = q\nComprar mejora1 (50) = \"1\"\nComprar mejora2 (300) = \"2\"\nComprar mejora3 (700) = \"3\"\nFin, acaba el proceso (5000) = \"f\"\n> ");
+                    System.out.println("¿Que desea?\nSalir = q");
+                    if (mejoras[0] == 0) {
+                        System.out.println("Comprar mejora1 (50) = \"1\"");
+                    }
+                    if (mejoras[1] == 0) {
+                        System.out.println("Comprar mejora2 (300) = \"2\"");
+                    }
+                    if (mejoras[2] == 0) {
+                        System.out.println("Comprar mejora3 (700) = \"3\"");
+                    }
+                    System.out.print("Fin, acaba el proceso (5000) = \"f\"\n> ");
                     resp2 = sc.next().charAt(0);
+
                     if (resp2 == 'q') {
                         System.out.println("Saliendo de la tienda");
                     } else if (resp2 == '1') {
