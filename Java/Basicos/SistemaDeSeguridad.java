@@ -1,11 +1,10 @@
 package Java.Basicos;
 
-import java.io.CharConversionException;
 import java.util.*;
 import java.math.*;
 
 public class SistemaDeSeguridad {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         boolean valido;

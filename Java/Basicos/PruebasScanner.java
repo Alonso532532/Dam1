@@ -3,7 +3,7 @@ import java.util.*;
 import java.math.*;
 
 public class PruebasScanner {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Introdice un numero\n> ");
         while (!sc.hasNextLine()) {

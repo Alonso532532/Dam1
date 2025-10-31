@@ -205,6 +205,7 @@ public class BlackJack {
                 System.out.println("------------------------------------------------------------------------");
                 if (pasadou && pasadoc){
                     System.out.println("- Os habéis pasado los dos, tú con un " + calcularMano(mano, jugador) + " y el crupier con un " + calcularMano(mano, jugador = 1));
+                    ganador = 0;
                 } else if (pasadou && !pasadoc){
                     System.out.println("- Te has pasado con un " + calcularMano(mano, jugador) + " y el crupier ha sacado un " + calcularMano(mano, jugador = 1));
                     ganador = 0;

@@ -5,21 +5,12 @@ public class Pruebas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int[][] cad = {{0,1,3},{4,5,6,}};
-
-        for (int i = 0; i < 2; i++){
-            for (int j = 0; j < 3; j++){
-                System.out.print(cad[i][j] + " ");
-            }
-            System.out.print("\n");
-        }
-        System.out.print("Dame un texto\n> ");
-        String txt = sc.nextLine();
-        if (txt.equals("iker")){
-            System.out.println("juanlu");
-        }
-        if (txt == "iker"){
-            System.out.println("juanlu2");
+        System.out.print("Dame un num \n> ");
+        double num = sc.nextDouble();
+        if (num % 1 == 0){
+            System.out.println("Es entero");
+        } else {
+            System.out.println("No es entero");
         }
     }
 }
