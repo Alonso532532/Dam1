@@ -15,11 +15,11 @@ public class BlackJack {
                 contf++;
                 as = true;
             }else if (manof[quien][i] != 0) {
-                contf = contf + manof[quien][i];
+                contf += manof[quien][i];
             }
         }
         if (as && contf < 11){
-            contf = contf + 10;
+            contf += 10;
         }
         return contf;
     }
@@ -53,8 +53,7 @@ public class BlackJack {
 
     //-------------------------MOSTRAR MANO--------------------------
     static void mostrarMano(int[][] verdadera) {
-        int cont = 0;
-        int contg = 4;
+        int cont = 0, contg = 4;
         boolean as = false;
 
         for (int i = 0; i != 9; i++){
@@ -79,7 +78,7 @@ public class BlackJack {
                 as = true;
             }else if (verdadera[0][i] != 0) {
                 System.out.print(verdadera[0][i]);
-                cont = cont + verdadera[0][i];
+                cont += verdadera[0][i];
             }
 
             if (verdadera[0][i+1] != 0 && i < 9) {
@@ -92,7 +91,7 @@ public class BlackJack {
         }
         System.out.println();
 
-        if (as && cont - 1 < 11) {
+        if (as && cont < 11) {
             System.out.println("< Total: " + (cont + 10) + " >");
         } else {
             System.out.println("< Total: " + cont + " >");
@@ -137,12 +136,8 @@ public class BlackJack {
 
                 int[] baraja = {1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10};
 
-                int jugador = 0;
-                int manoP1 = 0;
-                boolean fin = false;
-                boolean pasadou = false;
-                boolean pasadoc = false;
-                int cont;
+                int jugador = 0, manoP1 = 0, cont;
+                boolean pasadou = false, pasadoc = false, fin = false;
 
                 //-------------------------REPARTO DE 2--------------------------
                 for (int i = 0; i != 4; i++){
