@@ -177,8 +177,110 @@ div {
     height: auto;
 }</pre>
        
-            <p class="pruebaP">Iker</p>
-    
+            <p class="pruebaP" style="margin-bottom: 10px;">Iker</p>
+        Parahacer que las columnas o filas impares o pares de una tabla tengan un formato distinto se usa:
+        <pre>.pruebaTabla{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla td:nth-child(odd){
+    background-color: rgb(88, 88, 88);
+}
+
+.pruebaTabla2{
+    background-color: black;
+    display: inline-block;
+}
+
+.pruebaTabla2 tr:nth-child(even){
+    background-color: rgb(88, 88, 88);
+}</pre>
+"odd" para impares y "even" para pares y si se pone un numero solo se afectará esa posición<br>
+Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<br><br>
+*Las grises son las modificadas*<br><br>
+        <table class="pruebaTabla">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+                <table class="pruebaTabla2">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> <br>
+        Para controlar el exceso de texto en un contentedor se usa "overflow", tiene varios modos
+        <pre>.PruevaOV{
+    overflow: scroll;
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    border-radius: 0px;
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+}</pre>
+        <div class="PruevaOV">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, nobis? Facere magni, laudantium, nam quasi, beatae nesciunt est sit libero voluptatum fuga voluptatem? Deleniti, fuga placeat expedita quos illum laudantium.</div>
+    <br>
+    Para hacer transiciónes se usa "transition-time" -- mirar
+    <div class="PruebaTRA"></div>
     </div>
     <!--//////////////////////////////Display, Grid y Flex//////////////////////////////////-->
     <hr style="width: 80%;">
@@ -204,14 +306,31 @@ div {
         
         "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento *MIRAR* <br><br>
         <div class="dislbb"></div>
+    </div>
 
+        <div style="margin-top: 20px;">
+            <h3>Position</h3>
+            <hr style="width: 80%;">
+            El "static" es el por defecto <br><br>
+            El "relative" mueve el elemento desde su posición nativa <br><br>
+            El "absolute" mueve el elemento desde su padre con posición distinta a estatica <br><br>
+            El "Fixed" pega el elemento a la pantalla en la posición qe le digas, es el que está abajo a la derecha<br><br>
+            "Float" permite definir de que forma se tiene que ordenar, este no es un position, pero lo pongo igualmente<br><br>
+            <div class="posC">
+                <div class="pos posS">Static</div>
+                <div class="pos">Normal</div>
+                <div class="pos posFl">Float</div>
+                <div class="pos posFl">Float</div>
+                <div class="pos">Normal</div>
+                <div class="pos posR">Relative</div>
+                <div class="pos">Normal</div>
+                <div class="pos posA">Absolute</div>
+                <div class="pos">Normal</div>
+                <div class="pos posF">Fixed</div>
+            </div>
+        </div>
     </div>
-    <div style="margin-top: 20px;">
-        <h3>Position</h3>
-        <hr style="width: 80%;">
-        <div class="positions">Esta es la posición estatica "position: static"</div>
-                <div class="positions">Esta es la posición estatica "position: static"</div>
-    </div>
+
 </body>
 
 </html>
