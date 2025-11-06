@@ -268,6 +268,8 @@ public class LaRule {
                         } else {
                             System.out.print("░░░░░░░┃");
                         }
+
+
                     }
                     System.out.print("\n┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛");
 
@@ -277,7 +279,7 @@ public class LaRule {
                         i = -1;
                     }
                 }
-
+                System.out.println();
 
 
                 tirar = false;

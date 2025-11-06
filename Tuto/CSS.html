@@ -304,32 +304,103 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
         Si se pone  “display: inline-block”, los elementos se ponen en linea pero mantienen formato<br><br>
         <center><div class="dislb"></div><div class="dislb"></div> <div class="dislb"></div></center><br><br>
         
-        "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento *MIRAR* <br><br>
+        "box-sizing: border-box;" sirve para que el conjunto de elementos que modifican el espacio que ocupa el elemento no supere el tamaño del elemento<br><br>
         <div class="dislbb"></div>
     </div>
 
-        <div style="margin-top: 20px;">
-            <h3>Position</h3>
-            <hr style="width: 80%;">
-            El "static" es el por defecto <br><br>
-            El "relative" mueve el elemento desde su posición nativa <br><br>
-            El "absolute" mueve el elemento desde su padre con posición distinta a estatica <br><br>
-            El "Fixed" pega el elemento a la pantalla en la posición qe le digas, es el que está abajo a la derecha<br><br>
-            "Float" permite definir de que forma se tiene que ordenar, este no es un position, pero lo pongo igualmente<br><br>
-            <div class="posC">
-                <div class="pos posS">Static</div>
-                <div class="pos">Normal</div>
-                <div class="pos posFl">Float</div>
-                <div class="pos posFl">Float</div>
-                <div class="pos">Normal</div>
-                <div class="pos posR">Relative</div>
-                <div class="pos">Normal</div>
-                <div class="pos posA">Absolute</div>
-                <div class="pos">Normal</div>
-                <div class="pos posF">Fixed</div>
-            </div>
+    <div>
+        <h3>Position</h3>
+        <hr style="width: 80%;">
+        El "static" es el por defecto <br><br>
+        El "relative" mueve el elemento desde su posición nativa <br><br>
+        El "absolute" mueve el elemento desde su padre con posición distinta a estatica <br><br>
+        El "Fixed" pega el elemento a la pantalla en la posición qe le digas, es el que está abajo a la derecha<br><br>
+        "Float" permite definir de que forma se tiene que ordenar, este no es un position, pero lo pongo igualmente<br>
+        <div class="posC">
+            <div class="pos posS">Static</div>
+            <div class="pos">Normal</div>
+            <div class="pos posFl">Float</div>
+            <div class="pos posFl">Float</div>
+            <div class="pos">Normal</div>
+            <div class="pos posR">Relative</div>
+            <div class="pos">Normal</div>
+            <div class="pos posA">Absolute</div>
+            <div class="pos">Normal</div>
+            <div class="pos posF">Fixed</div>
         </div>
     </div>
+    <div>
+        <h3>Flex</h3>
+        <hr style="width: 80%;">
+        <b><u>Flex normal</u></b><br><br>
+        <i>display: flex; </i><br>
+        <div class="flexC">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+        </div>
+        <b><u>Flex columna invertida</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-direction: column-reverse;</i>
+        <div class="flexCc">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+        </div>
+        <b><u>Flex con wrap</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-wrap: wrap;</i><br>
+        <i>gap: 10px;</i>⬅️(Sirve para determinar el espacio entre elementos)<br>
+        También se puede usar "wrap-reverse" y por defecto está "no-wrap"
+
+        <div class="flexCwr">
+            <div >1</div>
+            <div >2</div>
+            <div >3</div>
+            <div >4</div>
+            <div >5</div>
+            <div >6</div>
+        </div>
+        <b>flex-flow sirve para unir estas 2 funciones anteriores</b><br><br>
+        <b><u>Flex con justify-content</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>justify-content: space-evenly;</i><br><br>
+        También se puede usar "flex-start", "flex-end", "space-between", "space-arround" y "space-evenly"  
+
+        <div class="flexCjf">
+            <div >1</div>
+            <div >2</div>
+        </div>
+        <b><u>Flex con align-items</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>justify-content: center;</i><br><br>
+        <i>align-items: end;</i><br><br>
+        También se puede usar "center" , "baseline" ...  
+
+        <div class="flexCai">
+            <div >1</div>
+            <div >2</div>
+        </div>
+        <b><u>Flex con align-items</u></b><br><br>
+        <i>display: flex; </i><br>
+        <i>flex-wrap: wrap;</i><br>
+        <i>align-items: center;</i><br>    
+        <i>justify-content: center;</i><br><br>
+        Desordeno los "div" usando "style="order: #;""<br>
+        Uso "style="flex-grow: #"" en cada uno para decir que todos ocupan una fraccion
+
+        <div class="flexCac">
+            <div style="order: 2; flex-grow: 1;">1</div>
+            <div style="order: 1; flex-grow: 2;">2</div>
+            <div style="order: 5; flex-grow: 1;">3</div>
+            <div style="order: 4; flex-grow: 1;">4</div>
+            <div style="order: 3; flex-grow: 3;">5</div>
+            <div style="order: 6; flex-grow: 1;">6</div>
+        </div>
+    </div>
+
 
 </body>
 
