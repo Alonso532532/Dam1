@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.math.*;
 
 public class LaRule {
-    static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -268,8 +268,47 @@ public class LaRule {
                         } else {
                             System.out.print("░░░░░░░┃");
                         }
+                    }
+                    System.out.print("\n|");
+                    for (int j = 9;j > 0; j--) {
+                        int p = i - j;
+                        int num1, num2 = 0;
+                        if (p < 0) {p += 37;}
+                        //saco el primer y segundo carácter
+                        num1 = rule[0][p] % 10;
+                        if (rule[0][p] > 9) {
+                            num2 = (rule[0][p] - num1) / 10;
+                        }
+                        if (rule[0][p] > 9) {
+                            if (rule[1][p] == 40) {
+                                System.out.print("█ " + num2 + " " + num1 + " █┃");
+                            } else if (rule[1][p] == 41) {
+                                System.out.print("  " + num2 + " " + num1 + "  ┃");
+                            } else {
+                                System.out.print("░ " + num2 + " " + num1 + " ░┃");
+                            }
+                        } else {
+                            if (rule[1][p] == 40) {
+                                System.out.print("██ " + num1 + " ██┃");
+                            } else if (rule[1][p] == 41) {
+                                System.out.print("   " + num1 + "   ┃");
+                            } else {
+                                System.out.print("░░ " + num1 + " ░░┃");
+                            }
+                        }
+                    }
+                    System.out.print("\n|");
+                    for (int j = 9;j > 0; j--) {
+                        int p = i - j;
+                        if (p < 0) {p += 37;}
 
-
+                        if (rule[1][p] == 40) {
+                            System.out.print("███████┃");
+                        } else if (rule[1][p] == 41) {
+                            System.out.print("       ┃");
+                        } else {
+                            System.out.print("░░░░░░░┃");
+                        }
                     }
                     System.out.print("\n┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛");
 
@@ -279,8 +318,17 @@ public class LaRule {
                         i = -1;
                     }
                 }
+                i -= 6;
+                if (i < 0){
+                    i += 37;
+                }
                 System.out.println();
 
+                int j = 0;
+                while (apuestas[j][1] > 0) {
+                    j++;
+
+                }
 
                 tirar = false;
                 repetir = true;
