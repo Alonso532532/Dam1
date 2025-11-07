@@ -282,7 +282,7 @@ public class LaRule {
                             System.out.print("░░░░░░░┃");
                         }
                     }
-                    System.out.print("\n|");
+                    System.out.print("\n┃");
                     for (int j = 9;j > 0; j--) {
                         int p = i - j;
                         int num1, num2 = 0;
@@ -311,7 +311,7 @@ public class LaRule {
                             }
                         }
                     }
-                    System.out.print("\n|");
+                    System.out.print("\n┃");
                     for (int j = 9;j > 0; j--) {
                         int p = i - j;
                         if (p < 0) {p += 37;}
@@ -467,6 +467,7 @@ public class LaRule {
                     } while (repetir);
                 } else {
                     System.out.println("[ Te has quedado sin dinero ]");
+                    tirar = false;
                 }
             }while (tirar);
 
