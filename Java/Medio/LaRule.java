@@ -264,9 +264,9 @@ public class LaRule {
                 for (;tiempo < 1500;tiempo = (int) (tiempo * 1.1), i++){
                     System.out.println("\n\n\n\n\n\n\n\n\n");
                     if (luz == 0){
-                        System.out.print("▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭ ⇘  ⇓  ⇙ ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬\n");
+                        System.out.print(" ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭ ⇘  ⇓  ⇙ ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬\n");
                     } else {
-                        System.out.print("▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬ ⇘  ⇓  ⇙ ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭\n");
+                        System.out.print(" ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬ ⇘  ⇓  ⇙ ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭\n");
                     }
                     System.out.print("┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓\n┃");
                     //Calculo los numeros que se tienen de mostrar mostrando el numero de i sus 8 anteriores
@@ -326,10 +326,10 @@ public class LaRule {
                     }
                     System.out.print("\n┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛\n");
                     if (luz == 0){
-                        System.out.print("▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭ ⇗  ⇑  ⇖ ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭\n");
+                        System.out.print(" ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭ ⇗  ⇑  ⇖ ▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭\n");
                         luz = 1;
                     } else {
-                        System.out.print("▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬ ⇗  ⇑  ⇖ ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬\n");
+                        System.out.print(" ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬ ⇗  ⇑  ⇖ ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬\n");
                         luz = 0;
                     }
                     Thread.sleep(tiempo);
