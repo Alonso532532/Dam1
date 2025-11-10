@@ -4,7 +4,7 @@ import static java.lang.Math.random;
 
 
 public class memoria {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         boolean repetir;
