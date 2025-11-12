@@ -57,6 +57,8 @@ public class buckshotRoulette {
         int ronda = 1;
         int vidaJ = 3;
         int vidaB = 3;
+        int turno = 1;
+
 
         //Partida
         do {
@@ -77,33 +79,78 @@ public class buckshotRoulette {
             } else {
 
                 //Ronda
+                int recamara = 0;
+
                 do {
-                    int recamara = 0;
 
-                    repetir = false;
+
                     do {
-                        System.out.print(" //<><><><><><><><><><><><>\\\\\n||   ELIGE    ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARAR AL BOT\n2 - DISPARARTE\nRonda " + ronda + " > ");
-                        String op = sc.nextLine();
-                        if (op.equals("1")){
+                        if (turno == 1){
+                            //zona de desarrollo
+                            System.out.println("<");
+                            for (int i = 0; i < balas; i++){
+                                System.out.print("|" + tipo[i]);
+                            }
+                            System.out.println();
+                            System.out.println(recamara);
+                            System.out.println(">");
+
+                            repetir = false;
+                            //Mostrar vida
+                            System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE          ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARAR AL BOT\n2 - DISPARARTE\nRonda " + ronda + " > ");
 
 
+                            System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE          ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARAR AL BOT\n2 - DISPARARTE\nRonda " + ronda + " > ");
+                            String op = sc.nextLine();
+                            if (op.equals("1")){
 
-                        } else if (op.equals("2")) {
+                                if (tipo[recamara] == 1){
 
+                                    System.out.println("La bala era real\n-1 de vida para el BOT");
+                                    vidaB--;
+                                    tipo[recamara] = 2;
 
+                                } else {
 
+                                    System.out.println("La bala era falsa");
+                                    tipo[recamara] = 2;
+
+                                }
+
+                                recamara++;
+
+                            } else if (op.equals("2")) {
+
+                                if (tipo[recamara] == 1){
+
+                                    System.out.println("La bala era real\n-1 de vida");
+                                    vidaJ--;
+                                    tipo[recamara] = 2;
+
+                                } else {
+
+                                    System.out.println("La bala era falsa, continuas en tu turno");
+                                    tipo[recamara] = 2;
+
+                                }
+
+                                recamara++;
+
+                            } else {
+
+                                System.out.println("ERROR - Carácter invalido");
+                                repetir = true;
+
+                            }
                         } else {
-
-                            System.out.println("ERROR - Carácter invalido");
-                            repetir = true;
+                            turno--;
                         }
-
                     } while(repetir);
 
-                }while (vidaJ > 0 && vidaB > 0 && balas > 0);
+                }while (vidaJ > 0 && vidaB > 0 && recamara < balas);
 
                 //Si en la ronda se han quedado sin balas se recarga
-                if (balas <= 0){
+                if (recamara == balas){
 
                     balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
                     tipo = recargar(balas);
@@ -120,21 +167,14 @@ public class buckshotRoulette {
 
     public static int[] recargar(int cant){
 
-        int[] balas = {cant};
-
+        int[] balas = new int [cant];
+        System.out.println(cant);
         cant--;
+        System.out.println(cant);
         for (; cant >= 0; cant--){
             balas[cant] = (int) (Math.random() * 2);
-            System.out.println("|" + balas[cant]);
         }
         return balas;
     }
 
-    public static int[] disparar(int pos, int balasF){
-
-    }
-
-    public static int[] autoDisparar(int pos, int balasF){
-
-    }
 }
