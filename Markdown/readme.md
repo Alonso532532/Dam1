@@ -60,7 +60,7 @@ int dinero = 1000;
 
 ## Imagenes
 
-![Texto de la imagen](../tuto/img/Maxtben-10--removebg-preview.png)
+![Texto de la imagen](https://github.com/Alonso532532/Dam1/blob/main/Tuto/img/Maxtben-10--removebg-preview.png)
 
 ## Lista de tareas
 
