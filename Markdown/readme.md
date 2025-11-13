@@ -56,7 +56,7 @@ int dinero = 1000;
 | Nombre | Tipo | coste |
 |---|---|---|
 |Pandilla de duendes|Especial|- 3 -|
-|Lozano |No|- Hello World -|
+|Alonso |No|- Hello World -|
 |Tete.io|NoReply|- Extra de salsa -|
 
 ## Imagenes
@@ -65,7 +65,7 @@ int dinero = 1000;
 
 ## Lista de tareas
 
-* [x] Loazano
+* [x] Alonso
 * [ ] Chiquibai
 * [x] Peruano
   
