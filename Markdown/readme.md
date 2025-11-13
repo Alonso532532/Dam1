@@ -70,4 +70,4 @@ int dinero = 1000;
   
 ## Emojis
 
-:cerveza:
+:beer:
