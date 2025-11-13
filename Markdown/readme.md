@@ -4,7 +4,6 @@
 ## Cursiva
 
 Joserra *skibidy* flow pasacuasa
-
 Joserra _skibidy_ flow pasacuasa
 
 ## Negrita
@@ -56,7 +55,7 @@ int dinero = 1000;
 | Nombre | Tipo | coste |
 |---|---|---|
 |Pandilla de duendes|Especial|- 3 -|
-|Alonso |No|- Hello World -|
+|Lozano |No|- Hello World -|
 |Tete.io|NoReply|- Extra de salsa -|
 
 ## Imagenes
@@ -65,7 +64,7 @@ int dinero = 1000;
 
 ## Lista de tareas
 
-* [x] Alonso
+* [x] Loazano
 * [ ] Chiquibai
 * [x] Peruano
   
