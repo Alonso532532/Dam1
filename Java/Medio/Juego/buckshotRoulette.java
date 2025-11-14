@@ -7,7 +7,7 @@ public class buckshotRoulette {
     public static boolean repetir;
     public static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         int record = 0;
 
         while (true){
@@ -43,10 +43,9 @@ public class buckshotRoulette {
 
     }
 
-    public static int partidaNormal(){
+    public static int partidaNormal() throws InterruptedException {
         int partida = 0;
         boolean ganador = true;
-
         int balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
         int[] tipo = recargar(balas);
         int ronda = 1, vidaJ = 3, vidaB = 3, turno = 1;
@@ -92,10 +91,9 @@ public class buckshotRoulette {
 
                 do {
 
-
                     do {
                         if (turno == 1){
-                            //zona de desarrollo
+                            /*zona de desarrollo
                             System.out.println("<");
                             for (int i = 0; i < balas; i++){
                                 System.out.print("|" + tipo[i]);
@@ -103,7 +101,9 @@ public class buckshotRoulette {
                             System.out.println();
                             System.out.println(recamara);
                             System.out.println(">");
+                            */
 
+                            turno++;
                             repetir = false;
                             //Mostrar vida
                             System.out.print("       /==TU==|==BOT=\\\n      | ");
@@ -123,14 +123,205 @@ public class buckshotRoulette {
                             System.out.println( "       \\=============/");
 
                             //Menú de disparo y tal
-                            System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARAR AL BOT\n2 - DISPARARTE\nRONDA " + ronda + " > ");
+                            System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARARTE\n2 - DISPARAR AL BOT\nRONDA " + ronda + " > ");
                             String op = sc.nextLine();
-                            if (op.equals("1")){
+                            if (op.equals("2")){
+
+                                System.out.print("APUNTAS AL BOT");
+                                for(int i = 0; i < 3; i++){
+                                    System.out.print(".");
+                                    Thread.sleep(1000);
+                                }
+                                System.out.println();
 
                                 if (tipo[recamara] == 1){
 
-                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT BOT");
+                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
                                     vidaB--;
+                                    tipo[recamara] = 2;
+
+                                } else {
+
+                                    System.out.println("LA BALA ERA FALSA");
+                                    tipo[recamara] = 2;
+
+
+                                }
+
+                                recamara++;
+
+                            } else if (op.equals("1")) {
+
+                                System.out.print("TE APUNTAS");
+                                for(int i = 0; i < 3; i++){
+                                    System.out.print(".");
+                                    Thread.sleep(1000);
+                                }
+                                System.out.println();
+
+                                if (tipo[recamara] == 1){
+
+                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+                                    vidaJ--;
+
+                                } else {
+
+                                    System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
+                                    tipo[recamara] = 2;
+                                    turno--;
+
+                                }
+
+                                recamara++;
+
+                            } else {
+
+                                System.out.println("ERROR - Carácter invalido");
+                                repetir = true;
+                                turno--;
+
+                            }
+                        } else {
+
+                            System.out.println(" //<><><><><><><><><><><><>\\\\\n||       TURNO DEL BOT      ||\n \\\\<><><><><><><><><><><><>//");
+                            turno--;
+                            Thread.sleep(1000);
+
+                            int real = 0, fals = 0, accion;
+
+                            for (int i = 0; i < balas; i++){
+                                if (tipo[i] == 1){
+
+                                    real++;
+
+                                } else if (tipo[i] == 0){
+
+                                    fals++;
+
+                                }
+                            }
+
+                            accion = (int) (Math.random() * 4 + 1);
+
+                            if (real >= fals && fals > 0){
+
+                                if (accion >= 2){
+
+                                    System.out.print("EL BOT TE APUNTA");
+                                    for(int i = 0; i < 3; i++){
+                                        System.out.print(".");
+                                        Thread.sleep(1000);
+                                    }
+                                    System.out.println();
+
+                                    if (tipo[recamara] == 1){
+
+                                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+                                        vidaJ--;
+                                        tipo[recamara] = 2;
+
+                                    } else {
+
+                                        System.out.println("LA BALA ERA FALSA");
+                                        tipo[recamara] = 2;
+
+
+                                    }
+
+                                    recamara++;
+
+                                } else {
+
+                                    System.out.print("EL BOT SE APUNTA A EL");
+                                    for(int i = 0; i < 3; i++){
+                                        System.out.print(".");
+                                        Thread.sleep(1000);
+                                    }
+                                    System.out.println();
+
+                                    if (tipo[recamara] == 1){
+
+                                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
+                                        vidaB--;
+
+                                    } else {
+
+                                        System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
+                                        tipo[recamara] = 2;
+                                        turno++;
+
+                                    }
+
+                                    recamara++;
+
+                                }
+
+                            } else if (real < fals && real > 0){
+
+                                if (accion == 1){
+
+                                    System.out.print("EL BOT TE APUNTA");
+                                    for(int i = 0; i < 3; i++){
+                                        System.out.print(".");
+                                        Thread.sleep(1000);
+                                    }
+                                    System.out.println();
+
+                                    if (tipo[recamara] == 1){
+
+                                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+                                        vidaJ--;
+                                        tipo[recamara] = 2;
+
+                                    } else {
+
+                                        System.out.println("LA BALA ERA FALSA");
+                                        tipo[recamara] = 2;
+
+
+                                    }
+
+                                    recamara++;
+
+                                } else {
+
+                                    System.out.print("EL BOT SE APUNTA A EL");
+                                    for(int i = 0; i < 3; i++){
+                                        System.out.print(".");
+                                        Thread.sleep(1000);
+                                    }
+                                    System.out.println();
+
+                                    if (tipo[recamara] == 1){
+
+                                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
+                                        vidaB--;
+
+                                    } else {
+
+                                        System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
+                                        tipo[recamara] = 2;
+                                        turno++;
+
+                                    }
+
+                                    recamara++;
+
+                                }
+
+                            } else if (fals == 0){
+
+                                System.out.print("EL BOT TE APUNTA");
+                                for(int i = 0; i < 3; i++){
+                                    System.out.print(".");
+                                    Thread.sleep(1000);
+                                }
+                                System.out.println();
+
+                                if (tipo[recamara] == 1){
+
+                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+                                    vidaJ--;
                                     tipo[recamara] = 2;
 
                                 } else {
@@ -142,38 +333,41 @@ public class buckshotRoulette {
 
                                 recamara++;
 
-                            } else if (op.equals("2")) {
+                            } else {
+
+                                System.out.print("EL BOT SE APUNTA A EL");
+                                for(int i = 0; i < 3; i++){
+                                    System.out.print(".");
+                                    Thread.sleep(1000);
+                                }
+                                System.out.println();
 
                                 if (tipo[recamara] == 1){
 
-                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
-                                    vidaJ--;
-                                    tipo[recamara] = 2;
+                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
+                                    vidaB--;
 
                                 } else {
 
-                                    System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
+                                    System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
                                     tipo[recamara] = 2;
+                                    turno++;
 
                                 }
 
                                 recamara++;
-
-                            } else {
-
-                                System.out.println("ERROR - Carácter invalido");
-                                repetir = true;
-
                             }
-                        } else {
-                            turno--;
+
                         }
+                        System.out.print("===========================================");
+                        Thread.sleep(2000);
+                        System.out.println();
                     } while(repetir);
 
                 }while (vidaJ > 0 && vidaB > 0 && recamara < balas);
 
                 //Si en la ronda se han quedado sin balas se recarga
-                if (recamara == balas){
+                if (recamara == balas && vidaJ > 0 && vidaB > 0 ){
 
                     balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
                     tipo = recargar(balas);
@@ -185,6 +379,9 @@ public class buckshotRoulette {
 
         }while (ganador);
 
+        System.out.println("ⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘ\nⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘHASⵘPERDIDOⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘ\nⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘⵘ");
+        System.out.print("PUNTUACION: " + partida + "\nENTER PARA CONTINUAR...");
+        sc.nextLine();
         return partida;
     }
 
@@ -214,7 +411,7 @@ public class buckshotRoulette {
         }
 
         //Muestro la cantidad de balas de cada tipo
-        System.out.print("⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹|RECARGA|⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹\n           /");
+        System.out.print("⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹|RECARGA|⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹\n           /");
         for (int i = 1;i <= blanks + reales; i++) System.out.print("--");;
         System.out.print("-\\\nCARTUCHOS <  ");
         for (int i = 1;i <= reales; i++) System.out.print("◉ ");
