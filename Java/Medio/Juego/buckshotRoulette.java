@@ -95,7 +95,7 @@ public class buckshotRoulette {
                     do {
                         if (jugador == 1){
 
-                            jugador++;
+
                             repetir = false;
                             //Mostrar vida
                             System.out.print("       /==TU==|==BOT=\\\n      | ");
@@ -117,7 +117,6 @@ public class buckshotRoulette {
                             //Menú de disparo y tal
                             System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARARTE\n2 - DISPARAR AL BOT\nRONDA " + ronda + " > ");
                             String op = sc.nextLine();
-                            dispararBOT(op);
                             if (op.equals("1")){
 
                                 vidaJ -= dispararBOT(op);
@@ -377,65 +376,67 @@ public class buckshotRoulette {
     }
 
     public static int dispararBOT(String op) throws InterruptedException {
-        int recamaraDisparo = recamara;
-        repetir = false;
-        do {
+        int recamaraDisparo = 0;
 
-            if (jugador == 1){
-                if (op.equals("2")){
+        if (jugador == 1){
+            if (op.equals("2")){
 
-                    System.out.print("APUNTAS AL BOT");
-                    for(int i = 0; i < 3; i++){
-                        System.out.print(".");
-                        Thread.sleep(1000);
-                    }
-                    System.out.println();
+                System.out.print("APUNTAS AL BOT");
+                for(int i = 0; i < 3; i++){
+                    System.out.print(".");
+                    Thread.sleep(1000);
+                }
+                System.out.println();
 
-                    if (tipo[recamara] == 1){
+                if (tipo[recamara] == 1){
 
-                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
-                        tipo[recamara] = 2;
+                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
+                    recamaraDisparo = tipo[recamara];
+                    tipo[recamara] = 2;
 
-                    } else {
+                } else {
 
-                        System.out.println("LA BALA ERA FALSA");
-                        tipo[recamara] = 2;
-
-
-                    }
-
-                    recamara++;
-
-                } else if (op.equals("1")) {
-
-                    System.out.print("TE APUNTAS");
-                    for(int i = 0; i < 3; i++){
-                        System.out.print(".");
-                        Thread.sleep(1000);
-                    }
-                    System.out.println();
-
-                    if (tipo[recamara] == 1){
-
-                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
-
-                    } else {
-
-                        System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
-                        tipo[recamara] = 2;
-                        jugador--;
-
-                    }
-
-                    recamara++;
+                    System.out.println("LA BALA ERA FALSA");
+                    recamaraDisparo = tipo[recamara];
+                    tipo[recamara] = 2;
 
                 }
 
-            }else {
+                recamara++;
+
+            } else if (op.equals("1")) {
+
+                jugador++;
+                System.out.print("TE APUNTAS");
+                for(int i = 0; i < 3; i++){
+                    System.out.print(".");
+                    Thread.sleep(1000);
+                }
+                System.out.println();
+
+                if (tipo[recamara] == 1){
+
+                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+                    recamaraDisparo = tipo[recamara];
+                    tipo[recamara] = 2;
+
+                } else {
+
+                    System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
+                    recamaraDisparo = tipo[recamara];
+                    tipo[recamara] = 2;
+                    jugador--;
+
+                }
+
+                recamara++;
 
             }
-        }while (repetir);
-        return tipo[recamaraDisparo];
+
+        }else {
+
+        }
+        return recamaraDisparo;
     }
 
 }
