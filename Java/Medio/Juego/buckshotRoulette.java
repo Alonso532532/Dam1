@@ -1,9 +1,10 @@
 package Java.Medio.Juego;
 import java.util.Scanner;
-import java.math.*;
 
 public class buckshotRoulette {
 
+    public static int balas, recamara, jugador;
+    public static int[] tipo;
     public static boolean repetir;
     public static Scanner sc = new Scanner(System.in);
 
@@ -46,9 +47,10 @@ public class buckshotRoulette {
     public static int partidaNormal() throws InterruptedException {
         int partida = 0;
         boolean ganador = true;
-        int balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
-        int[] tipo = recargar(balas);
-        int ronda = 1, vidaJ = 3, vidaB = 3, turno = 1;
+        balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
+        tipo = recargar();
+        int ronda = 1, vidaJ = 3, vidaB = 3;
+        jugador = 1;
 
         //Partida
         do {
@@ -75,8 +77,7 @@ public class buckshotRoulette {
 
                 }while (repetir);
 
-                balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
-                tipo = recargar(balas);
+                tipo = recargar();
                 ronda = 1;
 
 
@@ -87,23 +88,14 @@ public class buckshotRoulette {
             } else {
 
                 //Ronda
-                int recamara = 0;
+                recamara = 0;
 
                 do {
 
                     do {
-                        if (turno == 1){
-                            /*zona de desarrollo
-                            System.out.println("<");
-                            for (int i = 0; i < balas; i++){
-                                System.out.print("|" + tipo[i]);
-                            }
-                            System.out.println();
-                            System.out.println(recamara);
-                            System.out.println(">");
-                            */
+                        if (jugador == 1){
 
-                            turno++;
+                            jugador++;
                             repetir = false;
                             //Mostrar vida
                             System.out.print("       /==TU==|==BOT=\\\n      | ");
@@ -125,66 +117,25 @@ public class buckshotRoulette {
                             //Menú de disparo y tal
                             System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARARTE\n2 - DISPARAR AL BOT\nRONDA " + ronda + " > ");
                             String op = sc.nextLine();
-                            if (op.equals("2")){
+                            dispararBOT(op);
+                            if (op.equals("1")){
 
-                                System.out.print("APUNTAS AL BOT");
-                                for(int i = 0; i < 3; i++){
-                                    System.out.print(".");
-                                    Thread.sleep(1000);
-                                }
-                                System.out.println();
+                                vidaJ -= dispararBOT(op);
 
-                                if (tipo[recamara] == 1){
+                            } else if (op.equals("2")) {
 
-                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
-                                    vidaB--;
-                                    tipo[recamara] = 2;
-
-                                } else {
-
-                                    System.out.println("LA BALA ERA FALSA");
-                                    tipo[recamara] = 2;
-
-
-                                }
-
-                                recamara++;
-
-                            } else if (op.equals("1")) {
-
-                                System.out.print("TE APUNTAS");
-                                for(int i = 0; i < 3; i++){
-                                    System.out.print(".");
-                                    Thread.sleep(1000);
-                                }
-                                System.out.println();
-
-                                if (tipo[recamara] == 1){
-
-                                    System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
-                                    vidaJ--;
-
-                                } else {
-
-                                    System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
-                                    tipo[recamara] = 2;
-                                    turno--;
-
-                                }
-
-                                recamara++;
+                                vidaB -= dispararBOT(op);
 
                             } else {
 
                                 System.out.println("ERROR - Carácter invalido");
                                 repetir = true;
-                                turno--;
 
                             }
                         } else {
 
                             System.out.println(" //<><><><><><><><><><><><>\\\\\n||       TURNO DEL BOT      ||\n \\\\<><><><><><><><><><><><>//");
-                            turno--;
+                            jugador--;
                             Thread.sleep(1000);
 
                             int real = 0, fals = 0, accion;
@@ -248,7 +199,7 @@ public class buckshotRoulette {
 
                                         System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
                                         tipo[recamara] = 2;
-                                        turno++;
+                                        jugador++;
 
                                     }
 
@@ -301,7 +252,7 @@ public class buckshotRoulette {
 
                                         System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
                                         tipo[recamara] = 2;
-                                        turno++;
+                                        jugador++;
 
                                     }
 
@@ -351,7 +302,7 @@ public class buckshotRoulette {
 
                                     System.out.println("LA BALA ERA FALSA, CONTINUA SU TURNO");
                                     tipo[recamara] = 2;
-                                    turno++;
+                                    jugador++;
 
                                 }
 
@@ -369,8 +320,7 @@ public class buckshotRoulette {
                 //Si en la ronda se han quedado sin balas se recarga
                 if (recamara == balas && vidaJ > 0 && vidaB > 0 ){
 
-                    balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
-                    tipo = recargar(balas);
+                    tipo = recargar();
                     ronda++;
 
                 }
@@ -385,29 +335,32 @@ public class buckshotRoulette {
         return partida;
     }
 
-    public static int[] recargar(int cant){
-        int[] balas = new int [cant];
+    public static int[] recargar(){
+        balas = (int) (Math.random() * 5 + 3); // entre 3 y 7
+        int[] balasArr = new int [balas];
         int cartucho, blanks = 0, reales = 0;
 
+
         //Itroduzco las balas en la escopeta
-        cant--;
-        for (; cant >= 0; cant--){
+        for (int i = balas -1; i >= 0; i--){
             cartucho = (int) (Math.random() * 2);
-            balas[cant] = cartucho;
+            balasArr[i] = cartucho;
             if (cartucho == 1){reales++;} else {blanks++;}
+            System.out.print("|" + balasArr[i]);
         }
+        System.out.println();
 
         if (blanks == 0){
             System.out.println("lleno de reales");
             reales--;
             blanks++;
-            balas[((int) (Math.random() * reales-1))] = 0;
+            balasArr[((int) (Math.random() * reales-1))] = 0;
         }
         if (reales == 0){
             System.out.println("lleno de blanks");
             reales++;
             blanks--;
-            balas[((int) (Math.random() * blanks-1))] = 1;
+            balasArr[((int) (Math.random() * blanks-1))] = 1;
         }
 
         //Muestro la cantidad de balas de cada tipo
@@ -420,7 +373,69 @@ public class buckshotRoulette {
         for (int i = 1;i <= blanks + reales; i++) System.out.print("--");;
         System.out.print("-/\n⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸⧹⧸\nENTER PARA CONTINUAR...");
         sc.nextLine();
-        return balas;
+        return balasArr;
+    }
+
+    public static int dispararBOT(String op) throws InterruptedException {
+        int recamaraDisparo = recamara;
+        repetir = false;
+        do {
+
+            if (jugador == 1){
+                if (op.equals("2")){
+
+                    System.out.print("APUNTAS AL BOT");
+                    for(int i = 0; i < 3; i++){
+                        System.out.print(".");
+                        Thread.sleep(1000);
+                    }
+                    System.out.println();
+
+                    if (tipo[recamara] == 1){
+
+                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA EL BOT");
+                        tipo[recamara] = 2;
+
+                    } else {
+
+                        System.out.println("LA BALA ERA FALSA");
+                        tipo[recamara] = 2;
+
+
+                    }
+
+                    recamara++;
+
+                } else if (op.equals("1")) {
+
+                    System.out.print("TE APUNTAS");
+                    for(int i = 0; i < 3; i++){
+                        System.out.print(".");
+                        Thread.sleep(1000);
+                    }
+                    System.out.println();
+
+                    if (tipo[recamara] == 1){
+
+                        System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+
+                    } else {
+
+                        System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
+                        tipo[recamara] = 2;
+                        jugador--;
+
+                    }
+
+                    recamara++;
+
+                }
+
+            }else {
+
+            }
+        }while (repetir);
+        return tipo[recamaraDisparo];
     }
 
 }
