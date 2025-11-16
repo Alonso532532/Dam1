@@ -28,21 +28,141 @@ public class buckshotRoulette {
                 record = partidaNormal();
 
             } else if (op.equals("2")) {
+                    repetir = false;
+                    int contJ = 0;
+                    for (int i = 0; i < 4; i++){
+                        if (jugadoresN[i].equals("Sin asignar"))contJ++;
+                    }
 
-                int contJ = 0;
-                for (int i = 0; i < 4; i++){
-                    if (jugadoresN[i].equals("Sin asignar"))contJ++;
-                }
+                    op = "n";
+                    if (contJ < 3){
+
+                        do {
+                            System.out.print(" ╭⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃╮\n │   ¿Quieres jugar con los mismos jugadores? (S/N)   │\n ╰⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃╯\n|");
+                            for (int i = 0; i < 4; i++){
+                                if (!jugadoresN[i].equals("Sin asignar")){
+                                    System.out.print(" " + jugadoresN[i] + " |");
+                                }
+                            }
+                            System.out.print("\n> ");
+                            op = sc.nextLine();
+                            op = op.toLowerCase();
+
+                            if (!op.equals("s") && !op.equals("n")){
+
+                                System.out.println("ERROR - Carácter invalido");
+
+                            }
+
+                        } while (!op.equals("s") && !op.equals("n"));
+
+                    }
+
+                    if (op.equals("n")) {
+
+                        do {
+                            int pos = 0;
+                            repetir = true;
+                            System.out.print(" ╭⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃╮\n │   ¿Quienes van a jugar?    │\n ╰⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃╯\n1 - Añadir jugador\n2 - Eliminar jugador\n3 - Empezar\nS - Salir\n|");
+                            for (int i = 0; i < 4; i++) {
+                                System.out.print(" " + jugadoresN[i] + " |");
+                            }
+                            System.out.print("\n> ");
+                            op = sc.nextLine();
+                            op = op.toLowerCase();
+
+                            if (op.equals("1")) {
+                                System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ ¿Que posición? (1-4)\n- Cualquier otra posición para cancelar\n|");
+                                for (int i = 0; i < 4; i++) {
+                                    System.out.print(" " + jugadoresN[i] + " |");
+                                }
+                                System.out.print("\n> ");
+                                try {
+
+                                    pos = Integer.parseInt(sc.nextLine());
+                                    if (pos < 4 && pos > 0){
+                                        pos--;
+                                        System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ Nombre del jugador\n> ");
+                                        op = sc.nextLine();
+                                        jugadoresN[pos] = op;
+                                    } else {
+                                        System.out.println("ERROR - Posición invalida");
+                                    }
+
+                                } catch (Exception e){
+
+                                    System.out.println("ERROR - Carácter invalido");
+
+                                }
+
+                            } else if (op.equals("2")) {
+
+                                System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ ¿Que posición? (1-4)\n- Cualquier otra posición para cancelar\n|");
+                                for (int i = 0; i < 4; i++) {
+                                    System.out.print(" " + jugadoresN[i] + " |");
+                                }
+                                System.out.print("\n> ");
+                                try {
+
+                                    pos = Integer.parseInt(sc.nextLine());
+                                    if (pos < 4 && pos > 0){
+                                        pos--;
+                                        jugadoresN[pos] = "Sin asignar";
+                                    } else {
+                                        System.out.println("ERROR - Posición invalida");
+                                    }
+
+                                } catch (Exception e){
+
+                                    System.out.println("ERROR - Carácter invalido");
+
+                                }
+
+                            } else if (op.equals("3")) {
+                                contJ = 0;
+                                for (int i = 0; i < 4; i++){
+                                    if (jugadoresN[i].equals("Sin asignar"))contJ++;
+                                }
+
+                                if (contJ < 3){
+
+                                    //TP
+                                    repetir = false;
+
+                                } else {
+
+                                    System.out.println("ERROR - Faltan jugadores");
+
+                                }
+
+                            } else if (op.equals("s")) {
+
+                                break;
+
+                            } else {
+
+                                System.out.println("ERROR - Carácter invalido");
+
+                            }
+
+                        } while (repetir);
+
+                    } else if (op.equals("s")){
+
+                        //TP
+
+                    }
 
             } else if (op.equals("s")) {
 
                 return;
 
-            }else {
+            } else {
 
                 System.out.println("ERROR - Carácter invalido");
 
             }
+
 
         }
 
@@ -69,7 +189,7 @@ public class buckshotRoulette {
                     repetir = false;
                     System.out.print("HAS GANADO UNA PARTIDA, ¿QUIERES CONTINUAR? (S/N)\n> ");
                     String salir = sc.nextLine();
-                    salir.toLowerCase();
+                    salir = salir.toLowerCase();
 
                     if (salir.equals("n")) return partida;
 
