@@ -607,9 +607,10 @@ public class buckshotRoulette {
 
     */
     public static int PartidaRapida(String[] jugadores) throws InterruptedException {
-        int partida = 0;
+        int partida = 0, ronda = 1, turno = (int) (Math.random() * 4);
+        String op;
         tipo = recargar();
-
+        recamara = 0;
         int[] vida = {0,0,0,0};
         for (int i = 0; i < 4; i++){
             if (!jugadores[i].equals("Sin asignar")){
@@ -618,6 +619,22 @@ public class buckshotRoulette {
         }
         //===========================================================MOSTRAR VIDA==================================================================
         do {
+            //Compruebo que a quien le toca esté capacitado y si es 4 pasa a 0
+            boolean ok = false;
+            do {
+
+                if (turno == 4){
+                    turno = 0;
+                }
+
+                if (vida[turno] == 0){
+                    turno++;
+                } else {
+                    ok = true;
+                }
+
+            }while (!ok);
+
             repetir = false;
             System.out.println("⬤⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⬤");
             System.out.print(" /");
@@ -657,13 +674,121 @@ public class buckshotRoulette {
             }
             System.out.println("/");
             //===========================================================FIN MOSTRAR VIDA==================================================================
+            System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARARTE\n2 - DISPARAR A OTRO\nRONDA " + ronda + " > ");
+            op = sc.nextLine();
+            if (op.equals("1")){
 
+                dispararsePVP(jugadores[turno]);
+                turno++;
 
+            } else if (op.equals("2")){
 
-            sc.nextLine();
+                int quien;
+                System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ¿A QUIEN? (1-4)          ||\n \\\\<><><><><><><><><><><><>//\n - OTRO CARÁCTER PARA CANCELAR\n> ");
+                try {
+
+                    quien = Integer.parseInt(sc.nextLine());
+                    //Evito que se pueda disparar a sí mismo y a objetivos no válidos
+                    quien--;
+                    if (quien >= 0 && quien < 4) {
+
+                        if (quien == turno){
+
+                            System.out.println("ERROR - OBJETIVO INVALIDO");
+
+                        } else if (vida[quien] > 0) {
+
+                            vida[quien] -= dispararPVP(jugadores[quien]);
+                            turno++;
+
+                        }else {
+                            System.out.println("ERROR - OBJETIVO INVALIDO");
+                        }
+                    } else {
+                        System.out.println("OPERACIÓN CANCELADA");
+                    }
+
+                }catch (Exception e){
+
+                    System.out.println("OPERACIÓN CANCELADA");
+
+                }
+
+            } else {
+                System.out.println("ERROR - OPCIÓN INVALIDA");
+                repetir = true;
+            }
+
+            //Recargo si ya no hay balas
+            if (recamara == balas){
+
+                recargar();
+                ronda++;
+
+            }
+
         } while (repetir);
 
         return partida;
+    }
+
+    public static int dispararPVP(String jugador) throws InterruptedException {
+        //==========================================================================================================================================================================
+        //=============================================================================DISPARAR DE MODO PVP=========================================================================
+        //==========================================================================================================================================================================
+        int recamaraDisparo = 0;
+
+            System.out.print("APUNTAS A " + jugador);
+            for(int i = 0; i < 3; i++){
+                System.out.print(".");
+                Thread.sleep(700);
+            }
+            System.out.println();
+
+            if (tipo[recamara] == 1){
+
+                System.out.println("LA BALA ERA REAL\n-1 DE VIDA PARA " + jugador);
+                recamaraDisparo = tipo[recamara];
+                tipo[recamara] = 2;
+
+            } else {
+
+                System.out.println("LA BALA ERA FALSA");
+                recamaraDisparo = tipo[recamara];
+                tipo[recamara] = 2;
+
+            }
+            recamara++;
+
+        return recamaraDisparo;
+    }
+    public static int dispararsePVP(String jugador) throws InterruptedException {
+        //==========================================================================================================================================================================
+        //=============================================================================DISPARAR DE MODO PVP=========================================================================
+        //==========================================================================================================================================================================
+        int recamaraDisparo = 0;
+        System.out.print("TE APUNTAS");
+        for(int i = 0; i < 3; i++){
+            System.out.print(".");
+            Thread.sleep(700);
+        }
+        System.out.println();
+
+        if (tipo[recamara] == 1){
+
+            System.out.println("LA BALA ERA REAL\n-1 DE VIDA");
+            recamaraDisparo = tipo[recamara];
+            tipo[recamara] = 2;
+
+        } else {
+
+            System.out.println("LA BALA ERA FALSA, CONTINUAS EN TU TURNO");
+            recamaraDisparo = tipo[recamara];
+            tipo[recamara] = 2;
+
+        }
+        recamara++;
+        return recamaraDisparo;
     }
 
 }
