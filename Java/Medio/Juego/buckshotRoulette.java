@@ -131,6 +131,7 @@ public class buckshotRoulette {
 
                                 if (contJ < 3){
 
+                                    System.out.println("[=================EMPIEZA LA PARTIDA=================]");
                                     PartidaRapida(jugadoresN);
                                     repetir = false;
 
@@ -154,6 +155,7 @@ public class buckshotRoulette {
 
                     } else if (op.equals("s")){
 
+                        System.out.println("[=================EMPIEZA LA PARTIDA=================]");
                         PartidaRapida(jugadoresN);
 
                     }
@@ -276,7 +278,6 @@ public class buckshotRoulette {
                         }
                         System.out.print("===========================================");
                         Thread.sleep(2000);
-                        System.out.println();
                     } while(repetir);
 
                 }while (vidaJ > 0 && vidaB > 0 && recamara < balas);
@@ -659,7 +660,7 @@ public class buckshotRoulette {
                         for (int j = 1; j <= vida[i]; j++) System.out.print("▮");
                         for (int j = 3; j > vida[i]; j--) System.out.print("▯");
                     } else {
-                        System.out.print(" ╳ ╳ ╳ ");
+                        System.out.print("╳ ╳ ╳");
                     }
                 }
             }
@@ -678,16 +679,21 @@ public class buckshotRoulette {
             op = sc.nextLine();
             if (op.equals("1")){
 
-                vida[turno] -= dispararsePVP(jugadores[turno]);
+                int resultado = dispararsePVP(jugadores[turno]);
+                vida[turno] -= resultado;
                 if (vida[turno] == 0){
                     System.out.println("EL JUGADOR " + jugadores[turno] + " HA SIDO ELIMINADO");
                 }
-                turno++;
+                if (resultado != 0){
+                    turno++;
+                }
+                Thread.sleep(2000);
+
 
             } else if (op.equals("2")){
 
                 int quien;
-                System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ¿A QUIEN? (1-4)          ||\n \\\\<><><><><><><><><><><><>//\n - OTRO CARÁCTER PARA CANCELAR\n> ");
+                System.out.print(" //<><><><><><><><><><><><>\\\\\n||      ¿A QUIEN? (1-4)     ||\n \\\\<><><><><><><><><><><><>//\n - OTRO CARÁCTER PARA CANCELAR\n> ");
                 try {
 
                     quien = Integer.parseInt(sc.nextLine());
@@ -706,6 +712,7 @@ public class buckshotRoulette {
                                 System.out.println("EL JUGADOR " + jugadores[quien] + " HA SIDO ELIMINADO");
                             }
                             turno++;
+                            Thread.sleep(2000);
 
                         }else {
                             System.out.println("ERROR - OBJETIVO INVALIDO");
@@ -719,6 +726,7 @@ public class buckshotRoulette {
                     System.out.println("OPERACIÓN CANCELADA");
 
                 }
+
 
             } else {
                 System.out.println("ERROR - OPCIÓN INVALIDA");

@@ -64,7 +64,7 @@ public class programa {
         }
     }
 
-    static void main() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         pelota bola = new pelota();
         Scanner sc = new Scanner(System.in);
         String[][] tabla = {{" "," "," "," "," "," "," "," "," "," "},{" "," "," "," "," "," "," "," "," "," "},{" "," "," "," "," "," "," "," "," "," "},{" "," "," "," "," "," "," "," "," "," "},{" "," "," "," "," "," "," "," "," "," "}};
