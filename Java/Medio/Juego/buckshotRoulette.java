@@ -607,7 +607,7 @@ public class buckshotRoulette {
 
     */
     public static int PartidaRapida(String[] jugadores) throws InterruptedException {
-        int partida = 0, ronda = 1, turno = (int) (Math.random() * 4);
+        int partida = 0, ronda = 1, turno = (int) (Math.random() * 4), ganador;
         String op;
         tipo = recargar();
         recamara = 0;
@@ -636,7 +636,7 @@ public class buckshotRoulette {
             }while (!ok);
 
             repetir = false;
-            System.out.println("⬤⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⬤");
+            System.out.println("⬤⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃[Turno de " + jugadores[turno] + " ]⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⬤");
             System.out.print(" /");
             for (int i = 0; i < 4; i++){
                 if (!jugadores[i].equals("Sin asignar")){
@@ -678,7 +678,10 @@ public class buckshotRoulette {
             op = sc.nextLine();
             if (op.equals("1")){
 
-                dispararsePVP(jugadores[turno]);
+                vida[turno] -= dispararsePVP(jugadores[turno]);
+                if (vida[turno] == 0){
+                    System.out.println("EL JUGADOR " + jugadores[turno] + " HA SIDO ELIMINADO");
+                }
                 turno++;
 
             } else if (op.equals("2")){
@@ -699,6 +702,9 @@ public class buckshotRoulette {
                         } else if (vida[quien] > 0) {
 
                             vida[quien] -= dispararPVP(jugadores[quien]);
+                            if (vida[quien] == 0){
+                                System.out.println("EL JUGADOR " + jugadores[quien] + " HA SIDO ELIMINADO");
+                            }
                             turno++;
 
                         }else {
@@ -725,6 +731,19 @@ public class buckshotRoulette {
                 recargar();
                 ronda++;
 
+            }
+
+            //Comppruebo si seguir o no
+            int vivos = 0;
+
+            for (int i = 0; i < 4; i++){
+                if (vida[i] > 0){
+                    vivos++;
+                }
+            }
+
+            if (vivos > 1){
+                repetir = true;
             }
 
         } while (repetir);
