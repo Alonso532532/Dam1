@@ -10,7 +10,7 @@ public class buckshotRoulette {
 
     public static void main(String[] args) throws InterruptedException {
         int record = 0;
-        String[] jugadoresN = {"Sin asignar","Sin asignar","Sin asignar","Sin asignar"};
+        String[] jugadoresN = {"iker","alon","pableras","Sin asignar"};
 
         while (true){
 
@@ -82,8 +82,13 @@ public class buckshotRoulette {
                                     pos = Integer.parseInt(sc.nextLine());
                                     if (pos < 4 && pos > 0){
                                         pos--;
-                                        System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ Nombre del jugador\n> ");
-                                        op = sc.nextLine();
+                                        do {
+                                            System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ Nombre del jugador\n> ");
+                                            op = sc.nextLine();
+                                            if (op.length() < 3){
+                                                System.out.println("ERROR - Minimo 3 carácteres");
+                                            }
+                                        } while (op.length() < 3);
                                         jugadoresN[pos] = op;
                                     } else {
                                         System.out.println("ERROR - Posición invalida");
@@ -126,7 +131,7 @@ public class buckshotRoulette {
 
                                 if (contJ < 3){
 
-                                    //TP
+                                    PartidaRapida(jugadoresN);
                                     repetir = false;
 
                                 } else {
@@ -149,7 +154,7 @@ public class buckshotRoulette {
 
                     } else if (op.equals("s")){
 
-                        //TP
+                        PartidaRapida(jugadoresN);
 
                     }
 
@@ -167,7 +172,9 @@ public class buckshotRoulette {
         }
 
     }
-
+    //==========================================================================================================================================================================
+    //=============================================================================Partida Normal===============================================================================
+    //==========================================================================================================================================================================
     public static int partidaNormal() throws InterruptedException {
         int partida = 0;
         boolean ganador = true;
@@ -235,7 +242,7 @@ public class buckshotRoulette {
 
                             System.out.println(" |");
 
-                            System.out.println( "       \\=============/");
+                            System.out.println( "       \\======|======/");
 
                             //Menú de disparo y tal
                             System.out.print(" //<><><><><><><><><><><><>\\\\\n||          ELIGE           ||\n \\\\<><><><><><><><><><><><>//\n1 - DISPARARTE\n2 - DISPARAR AL BOT\nRONDA " + ronda + " > ");
@@ -589,6 +596,74 @@ public class buckshotRoulette {
         }
 
         return recamaraDisparo;
+    }
+    //==========================================================================================================================================================================
+    //=============================================================================Partida Rápida===============================================================================
+    //==========================================================================================================================================================================
+    /*
+    Hacer
+    - Si solo hay 2 jugadores en pie no se preguntará a quien disparar
+
+
+    */
+    public static int PartidaRapida(String[] jugadores) throws InterruptedException {
+        int partida = 0;
+        tipo = recargar();
+
+        int[] vida = {0,0,0,0};
+        for (int i = 0; i < 4; i++){
+            if (!jugadores[i].equals("Sin asignar")){
+                vida[i] = 3;
+            }
+        }
+        //===========================================================MOSTRAR VIDA==================================================================
+        do {
+            repetir = false;
+            System.out.println("⬤⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⬤");
+            System.out.print(" /");
+            for (int i = 0; i < 4; i++){
+                if (!jugadores[i].equals("Sin asignar")){
+                    if (i != 0){
+                        System.out.print("|");
+                    }
+
+                    String ini = jugadores[i].substring(0,3);
+                    System.out.print("==" + ini.toUpperCase() + "==");
+
+                }
+            }
+            System.out.print("\\\n|  ");
+            for (int i = 0; i < 4; i++){
+                if (!jugadores[i].equals("Sin asignar")){
+                    if (i != 0){
+                        System.out.print(" | ");
+                    }
+                    if (vida[i] > 0){
+                        for (int j = 1; j <= vida[i]; j++) System.out.print("▮");
+                        for (int j = 3; j > vida[i]; j--) System.out.print("▯");
+                    } else {
+                        System.out.print(" ╳ ╳ ╳ ");
+                    }
+                }
+            }
+            System.out.print("  |\n \\");
+            for (int i = 0; i < 4; i++){
+                if (!jugadores[i].equals("Sin asignar")){
+                    if (i != 0){
+                        System.out.print("|");
+                    }
+                    System.out.print("=======");
+                }
+            }
+            System.out.println("/");
+            //===========================================================FIN MOSTRAR VIDA==================================================================
+
+
+
+            sc.nextLine();
+        } while (repetir);
+
+        return partida;
     }
 
 }
