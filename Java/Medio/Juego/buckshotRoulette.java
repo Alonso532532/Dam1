@@ -10,8 +10,7 @@ public class buckshotRoulette {
 
     public static void main(String[] args) throws InterruptedException {
         int record = 0;
-        String[] jugadoresN = {"iker","alon","pableras","Sin asignar"};
-
+        String[] jugadoresN = {"Sin asignar","Sin asignar","Sin asignar","Sin asignar"};
         while (true){
 
             System.out.println("El record de esta ejecución es de " + record + " partidas contra BOT.");
@@ -80,7 +79,7 @@ public class buckshotRoulette {
                                 try {
 
                                     pos = Integer.parseInt(sc.nextLine());
-                                    if (pos < 4 && pos > 0){
+                                    if (pos < 5 && pos > 0){
                                         pos--;
                                         do {
                                             System.out.print("⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃⊂⊃\n▶ Nombre del jugador\n> ");
@@ -314,7 +313,7 @@ public class buckshotRoulette {
             cartucho = (int) (Math.random() * 2);
             balasArr[i] = cartucho;
             if (cartucho == 1){reales++;} else {blanks++;}
-            System.out.print("|" + balasArr[i]);
+            //System.out.print("|" + balasArr[i]);
         }
         System.out.println();
 

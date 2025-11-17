@@ -28,7 +28,7 @@ public class ej14 {
             } else {
 
                 System.out.print(a + " " + b + " ");
-                fibonacci(a = a + b, a + b, limite - 2);
+                fibonacci(a += b, a + b, limite - 2);
 
             }
 
