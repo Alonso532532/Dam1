@@ -275,7 +275,7 @@ public class buckshotRoulette {
                             }
 
                         }
-                        System.out.print("===========================================");
+                        System.out.print("===========================================\n");
                         Thread.sleep(2000);
                     } while(repetir);
 
@@ -678,7 +678,7 @@ public class buckshotRoulette {
             op = sc.nextLine();
             if (op.equals("1")){
 
-                int resultado = dispararsePVP(jugadores[turno]);
+                int resultado = dispararsePVP();
                 vida[turno] -= resultado;
                 if (vida[turno] == 0){
                     System.out.println("EL JUGADOR " + jugadores[turno] + " HA SIDO ELIMINADO");
@@ -735,7 +735,7 @@ public class buckshotRoulette {
             //Recargo si ya no hay balas
             if (recamara == balas){
 
-                recargar();
+                tipo = recargar();
                 ronda++;
 
             }
@@ -788,7 +788,7 @@ public class buckshotRoulette {
 
         return recamaraDisparo;
     }
-    public static int dispararsePVP(String jugador) throws InterruptedException {
+    public static int dispararsePVP() throws InterruptedException {
         //==========================================================================================================================================================================
         //=============================================================================DISPARAR DE MODO PVP=========================================================================
         //==========================================================================================================================================================================
