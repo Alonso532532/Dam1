@@ -5,16 +5,32 @@ import java.util.Scanner;
 
 public class Pruebas {
     public static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
-
-        int[] nums = new int[(int) (Math.random() * 10)];
-        System.out.print("Tiene una longitud de: " + nums.length + "\nY sus valores son\n> ");
-        for (int i = 0; i < nums.length; i++){
-            nums[i] = (int) (Math.random() * 10);
-        }
-        for (int d : nums){
-            System.out.print(" " + d);
-        }
-
+    static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Dame un numero\n> ");
+        int num = sc.nextInt();
+        System.out.println(recursiva(num));
+        int cont = 1;
+        System.out.println(recursivaInversa(num, cont));
     }
+
+    static int recursiva(int num){
+        if (num == 1){
+            System.out.print(num + " = ");
+        } else {
+            System.out.print(num + " + ");
+            num += recursiva(num-1);
+        }
+        return num;
+    }
+    static int recursivaInversa(int num, int cont){
+        if (cont < num){
+            System.out.print(cont + " + ");
+            cont += recursivaInversa(num, cont+1);
+        } else {
+            System.out.print(cont + " = ");
+        }
+        return cont;
+    }
+
 }
