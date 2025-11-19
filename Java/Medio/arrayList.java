@@ -1,13 +1,11 @@
-package Java.Basicos;
-import java.rmi.MarshalException;
-import java.util.ArrayList;
+package Java.Medio;
 import java.util.Scanner;
 
 
 
-public class Pruebas {
+public class arrayList {
     public static Scanner sc = new Scanner(System.in);
-    static ArrayList<Integer> numeros = new ArrayList<>();
+    static java.util.ArrayList<Integer> numeros = new java.util.ArrayList<>();
     static void main(String[] args) {
         do {
             System.out.print("¿Cuantos numeros quieres almacenar?\n> ");

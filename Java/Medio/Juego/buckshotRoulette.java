@@ -690,13 +690,18 @@ public class buckshotRoulette {
 
 
             } else if (op.equals("2")){
+
                 int quien;
                 System.out.print("╦");
                 for (int i = 0; i < 4; i++){
                     if (!jugadores[i].equals("Sin asignar")) {
-                        System.out.print("═════");
-                        for (int j = 0; j < jugadores[i].length();j++){
-                            System.out.print("═");
+                        if (vida[i] == 0){
+                            System.out.print("════");
+                        } else {
+                            System.out.print("═════");
+                            for (int j = 0; j < jugadores[i].length();j++){
+                                System.out.print("═");
+                            }
                         }
                         System.out.print("═╦");
                     }
@@ -704,22 +709,31 @@ public class buckshotRoulette {
                 System.out.print("\n║");
                 for (int i = 0; i < 4; i++){
                     if (!jugadores[i].equals("Sin asignar")) {
-                        System.out.print(" ");
-                        System.out.print(i+1 + " - " + jugadores[i]);
+                        if (vida[i] == 0){
+                            System.out.print(" ╳ ╳ ╳");
+                        } else {
+                            System.out.print(" ");
+                            System.out.print(i+1 + " - " + jugadores[i]);
+                        }
                         System.out.print(" ║");
                     }
                 }
                 System.out.print("\n╩");
                 for (int i = 0; i < 4; i++){
                     if (!jugadores[i].equals("Sin asignar")) {
-                        System.out.print("═════");
-                        for (int j = 0; j < jugadores[i].length();j++){
-                            System.out.print("═");
+                        if (vida[i] == 0){
+                            System.out.print("══════");
+                        } else {
+                            System.out.print("═════");
+                            for (int j = 0; j < jugadores[i].length();j++){
+                                System.out.print("═");
+                            }
                         }
                         System.out.print("═╩");
                     }
                 }
                 System.out.println();
+
                 System.out.print(" //<><><><><><><><><><><><>\\\\\n||      ¿A QUIEN? (1-4)     ||\n \\\\<><><><><><><><><><><><>//\n - OTRO CARÁCTER PARA CANCELAR\n> ");
                 try {
 
