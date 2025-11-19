@@ -10,7 +10,7 @@ public class buckshotRoulette {
 
     public static void main(String[] args) throws InterruptedException {
         int record = 0;
-        String[] jugadoresN = {"Sin asignar","Sin asignar","Sin asignar","Sin asignar"};
+        String[] jugadoresN = {"Eker","Alon","Stan Andrew","Sin asignar"};
         while (true){
 
             System.out.println("El record de esta ejecución es de " + record + " partidas contra BOT.");
@@ -690,8 +690,36 @@ public class buckshotRoulette {
 
 
             } else if (op.equals("2")){
-
                 int quien;
+                System.out.print("╦");
+                for (int i = 0; i < 4; i++){
+                    if (!jugadores[i].equals("Sin asignar")) {
+                        System.out.print("═════");
+                        for (int j = 0; j < jugadores[i].length();j++){
+                            System.out.print("═");
+                        }
+                        System.out.print("═╦");
+                    }
+                }
+                System.out.print("\n║");
+                for (int i = 0; i < 4; i++){
+                    if (!jugadores[i].equals("Sin asignar")) {
+                        System.out.print(" ");
+                        System.out.print(i+1 + " - " + jugadores[i]);
+                        System.out.print(" ║");
+                    }
+                }
+                System.out.print("\n╩");
+                for (int i = 0; i < 4; i++){
+                    if (!jugadores[i].equals("Sin asignar")) {
+                        System.out.print("═════");
+                        for (int j = 0; j < jugadores[i].length();j++){
+                            System.out.print("═");
+                        }
+                        System.out.print("═╩");
+                    }
+                }
+                System.out.println();
                 System.out.print(" //<><><><><><><><><><><><>\\\\\n||      ¿A QUIEN? (1-4)     ||\n \\\\<><><><><><><><><><><><>//\n - OTRO CARÁCTER PARA CANCELAR\n> ");
                 try {
 
