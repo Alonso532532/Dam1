@@ -1,29 +1,33 @@
 package Java;
-import java.util.ArrayList;
+
+
+import java.util.Scanner;
 
 public class Pruebas {
     public static void main(String[] args) {
-        ArrayList<Integer> numeros = new ArrayList<>();
-        for (int i = 0; i < Math.random()*10+10; i++){
-            numeros.add((int)(Math.random()*10));
-        }
-        System.out.print("|");
-        for (int i : numeros){
-            System.out.print(i + "|");
-        }
-
-        for (int i = 0; i < numeros.size();i++){
-            for (int j = 0; j < numeros.size() -1 -i;j++){
-                if (numeros.get(j) > numeros.get(j+1)){
-                    int a = numeros.get(j+1);
-                    numeros.set(j+1,numeros.get(j));
-                    numeros.set(j,a);
+        Scanner sc = new Scanner(System.in);
+        do {
+            try {
+                System.out.print("Dame un numero y te daré su mínimo común divisor\n> ");
+                int num = Integer.parseInt(sc.nextLine());
+                int num2 = num/2;
+                if (MaxCD(num, num2) == 1){
+                    System.out.println("El numero es primo");
+                } else {
+                    System.out.println(MaxCD(num, num2));
                 }
+                break;
+            } catch (Exception e){
+                System.out.println("Malo");
             }
+        }while (true);
+    }
+    static int MaxCD(int num, int num2){
+        if (num2 == 1){
+            return 1;
+        } else if (num%num2 != 0){
+            num2 = MaxCD(num, num2-1);
         }
-        System.out.print("\n|");
-        for (int i : numeros){
-            System.out.print(i + "|");
-        }
+        return num2;
     }
 }
