@@ -23,9 +23,20 @@ public class ej21 {
         if (find(numeros, buscar) < 0){
             System.out.println("El numero no está");
         } else {
-            System.out.println("El numero " + find(numeros, buscar) + " existe");
-
+            System.out.println("El numero " + buscar + " está en la posición " + find(numeros, buscar));
         }
+
+        System.out.print("Dame otro numero que buscar\n> ");
+        buscar = sc.nextInt();
+
+        int pos;
+        do {
+            System.out.print("Desde que posición\n> ");
+            pos = sc.nextInt();
+            if (pos < numeros.length){
+
+            }
+        } while (pos > numeros.length);
     }
 
     static int[] IntArray(int tamano, int min, int max){
@@ -44,12 +55,18 @@ public class ej21 {
     }
 
     static int find(int[] numeros, int buscar){
-        Arrays.sort(numeros);
-        try {
-            return numeros[Arrays.binarySearch(numeros,buscar)];
-        } catch (Exception e){
-            return -1;
+        for (int i = 0; i < numeros.length; i++){
+            if(numeros[i] == buscar){
+                return i;
+            }
         }
-
+        return -1;
     }
+
+    static int find(int[] numeros, int buscar, int desde){
+        desde--;
+        int[] nuevoNumeros = Arrays.copyOfRange(numeros, desde, numeros.length);
+        return buscar;
+    }
+
 }
