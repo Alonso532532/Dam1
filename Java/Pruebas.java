@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Pruebas {
     public static void main(String[] args) {
+        int cont = 0;
         Scanner sc = new Scanner(System.in);
         String textaco = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, ligula sed euismod elementum, urna elit mattis sem, eu pulvinar libero nibh ut risus.";
         String a = "iker";
@@ -45,7 +46,82 @@ public class Pruebas {
         System.out.println("Compruebo si la cadena empieza con algo: " + "Hola".startsWith("Ho"));
         System.out.println();
 
+        System.out.println("Creo un StringBuilder de 32 carácteres de capacidad (esta capacidad varía en cuanto se le asigne un append), este tipo de variables permite ser modificado sin abandonar el puntero de memoria, se puede cambiar a tipo cadena con \".toString\"\n");
         StringBuilder cosa1 = new StringBuilder(32);
+        cosa1.append("hola");
+        System.out.print("Añado \"hola\" a la variable: \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
+
+        cosa1.setCharAt(0, 'H');
+        cosa1.append('!');
+        System.out.print("Sustituyo la posición 0 por \"H\" y añado \"!\" al final: \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
+
+        cosa1.insert(5, "world");
+        cosa1.insert(5, "-");
+        System.out.print("Añado en la posición 5 \"world\" y posteriormente un \"-\": \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
+
+        cosa1.replace(5, 7," W");
+        System.out.print("Sustituyo desde la posición 5 hasta la 7-1 por un \" W\": \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
+
+        cosa1.deleteCharAt(4);
+        cosa1.append("!");
+        System.out.print("Muevo la exclamación al finál: \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
+
+        cosa1.append(" <");
+        cosa1.repeat("-", 5);
+        cosa1.reverse();
+        cosa1.append(" >");
+        cosa1.repeat("-", 5);
+
+        cosa1.reverse();
+        System.out.print("Añado flechas: \n|" + cosa1 + "|\n|");
+        cont = 0;
+        for (int i = 0; i < cosa1.length(); i++){
+            if (cont==10){
+                cont -= 10;
+            }
+            System.out.print(cont++);
+        }
+        System.out.println("|\n");
     }
 
 }
