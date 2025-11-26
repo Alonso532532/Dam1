@@ -29,17 +29,16 @@ public class arrayList {
         }
         Representar();
         do {
-            System.out.print("¿Quieres sustituir alguna posición?\n1 - Sustituir valores \n2 - Sustituir posiciónes\n3 - Eliminar una posición\nS - Salir\n> ");
+            System.out.print("¿Que quieres hacer?\n1 - Sustituir valores \n2 - Sustituir posiciónes\n3 - Eliminar una posición\n4 - Vaciar la lista\n5 - Añadir a la lista\nS - Salir\n> ");
             String op = sc.nextLine();
             if (op.equalsIgnoreCase("s"))break;
-            if (op.equals("1")){
-                Sustituir();
-            } else if (op.equals("2")){
-                SustituirPos();
-            } else if (op.equals("3")){
-                EliminarPos();
-            }else {
-                System.out.println("ERROR - Opción inválida");
+            switch (op) {
+                case "1" -> Sustituir();
+                case "2" -> SustituirPos();
+                case "3" -> EliminarPos();
+                case "4" -> VaciarLista();
+                case "5" -> Anadir();
+                default -> System.out.println("ERROR - Posición invalida inválida");
             }
 
         }while (true);
@@ -118,6 +117,7 @@ public class arrayList {
             }
         }while (true);
     }
+
     static void Representar(){
         int pos = 0;
         System.out.println("Representación grafica:");
@@ -129,4 +129,23 @@ public class arrayList {
         System.out.println("\n");
     }
 
+    static void VaciarLista(){
+        numeros.clear();
+    }
+
+    static void Anadir(){
+        do {
+            try{
+                System.out.print("¿Que valor quieres añadir?\n> ");
+                int num = Integer.parseInt(sc.nextLine());
+                if (num>=0 && num<10){
+                    numeros.add(num);
+                    break;
+                }
+            }catch (Exception e){
+                System.out.println("Formato invalido");
+            }
+        } while (true);
+        Representar();
+    }
 }
