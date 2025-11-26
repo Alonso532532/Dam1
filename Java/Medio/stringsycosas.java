@@ -1,7 +1,7 @@
-package Java;
+package Java.Medio;
 import java.util.Scanner;
 
-public class Pruebas {
+public class stringsycosas {
     public static void main(String[] args) {
         int cont = 0;
         Scanner sc = new Scanner(System.in);
