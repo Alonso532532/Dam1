@@ -9,6 +9,11 @@ public class Personas {
 
     // Creo el constructor
 
+
+    public Personas(String nombre) {
+        Nombre = nombre;
+    }
+
     public Personas() {
     }
 
@@ -70,4 +75,9 @@ public class Personas {
                 ", Nombre='" + Nombre + '\'' +
                 '}';
     }
+
+    public String info(){
+        return "nombre: " + Nombre + " dni: " + dni;
+    }
+
 }
