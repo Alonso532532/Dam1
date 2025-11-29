@@ -1,6 +1,5 @@
 package Java.Basicos.ejercicios;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -9,10 +8,8 @@ public class ej22 {
     static void main() {
         //Lleno el array con "vacio" para saber los que aún no están rellenos
         String[][] pueblos = new String[3][10];
-        for (int i = 0; i < pueblos.length ; i++){
-            for (int j = 0; j < pueblos[i].length; j++){
-                pueblos[i][j] = "vacio";
-            }
+        for (String[] pueblo : pueblos) {
+            Arrays.fill(pueblo, "vacio");
         }
         do {
             int pro;
@@ -22,7 +19,7 @@ public class ej22 {
                         "| 2 - Huesca \n" +
                         "| 3 - Teruel \n" +
                         "| 4 - Mostrar todos los pueblos\n" +
-                        "| 5 - Salir \n> ");;
+                        "| 5 - Salir \n> ");
                 try {
                     pro = Integer.parseInt(sc.nextLine());
                     if (pro == 5)return;
