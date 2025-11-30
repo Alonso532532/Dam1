@@ -5,144 +5,121 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ej22Manera2 {
+    //Creo el array list
+    static ArrayList<provincias> provinciasArray = new ArrayList<provincias>();
     static Scanner sc = new Scanner(System.in);
     static void main() {
-        ArrayList<provincias> provinciasArray = new ArrayList<provincias>();
+        //Añado varias provincias
         provinciasArray.add(new provincias("Zaragoza"));
         provinciasArray.add(new provincias("Huesca"));
         provinciasArray.add(new provincias("Teruel"));
-        for (provincias i : provinciasArray){
-            System.out.println(i.nombre);
+        // Y pueblos
+        provinciasArray.get(0).pueblos.add("pueblo1");
+        provinciasArray.get(0).pueblos.add("pueblo2");
+        provinciasArray.get(0).pueblos.add("pueblo3");
+        provinciasArray.get(0).pueblos.add("pueblo4");
+        provinciasArray.get(0).pueblos.add("pueblo5");
+        provinciasArray.get(0).pueblos.add("pueblo6");
+
+        provinciasArray.get(1).pueblos.add("pueblo1");
+        provinciasArray.get(1).pueblos.add("pueblo2");
+
+
+        //muestro de forma numerada las provincias para el menú
+        System.out.println("¿Con que provincia quieres trabajar?");
+        mostrarProvincias();
+        System.out.print("\n| s - Salir\n| m - Mostrar todos los pueblos\n> ");
+        String op = sc.nextLine();
+        op = op.toLowerCase();
+        if (op.equals("s")){
+            return;
+        } else if (op.equals("m")) {
+            mostrarPueblos();
+        } else {
+            if (transformarAEntero(op) == -1){
+                System.out.println("ERROR - Carácter invalido");
+            } else {
+                System.out.println(transformarAEntero(op));
+                System.out.println("PROGRAMA AQUI");
+            }
         }
 
-        /*
-        //Lleno el array con "vacio" para saber los que aún no están rellenos
-        String[][] pueblos = new String[3][10];
-        for (String[] pueblo : pueblos) {
-            Arrays.fill(pueblo, "vacio");
-        }
-        do {
-            int pro;
-            do {
-                System.out.print("¿Sobre que provincia quieres trabajar?\n" +
-                        "| 1 - Zaragoza \n" +
-                        "| 2 - Huesca \n" +
-                        "| 3 - Teruel \n" +
-                        "| 4 - Mostrar todos los pueblos\n" +
-                        "| 5 - Salir \n> ");
-                try {
-                    pro = Integer.parseInt(sc.nextLine());
-                    if (pro == 5)return;
-                    if (pro == 4){mostrarTodo(pueblos);} else break;
-                } catch (Exception e){
-                    System.out.println("ERROR - Formato invalido");
-                }
-            } while (true);
-            pro--;
-            System.out.print("¿Que quieres hacer?\n" +
-                    "| 1 - Mostrar pueblos por provincia  \n" +
-                    "| 2 - Añadir pueblo\n" +
-                    "| 3 - Buscar pueblo\n" +
-                    "| s - Salir \n> ");
-            String op = sc.nextLine();
-            switch (op){
-                case "1":
-                    mostrarPueblos(pueblos[pro]);
-                    break;
-                case "2":
-                    anadirPueblo(pueblos[pro]);
-                    break;
-                case "3":
-                    buscarPueblo(pueblos[pro]);
-                    break;
-                case "s":
-                    return;
-                default:
-                    System.out.println("ERROR - Opción invalida");
-            }
-        } while (true);
+
 
     }
-
-    static void mostrarPueblos(String[] pueblos){
+    static void mostrarProvincias(){
+        //Cada 30 caracteres se salta de línea
         int cont = 0;
-        int j = 0;
-        Arrays.sort(pueblos);
-        for (String i : pueblos){
-            if (!pueblos[j].equals("vacio")){
-                cont++;
-                System.out.println(cont + " - " + i);
+        System.out.print("| ");
+        for (int i = 0; i < provinciasArray.toArray().length; i++){
+            cont += provinciasArray.get(i).nombre.length();
+            if (cont >= 30){
+                System.out.print("\n| ");
+                cont = 0;
             }
-            j++;
+            System.out.print(i+1 + " - " + provinciasArray.get(i).nombre + " | ");
         }
-        System.out.print("Enter para continuar...");
-        sc.nextLine();
     }
 
-    static void mostrarTodo(String[][] pueblos){
-        String[] provincias = {"Zaragoza","Huesca","Teruel"};
-        for (int j = 0; j < pueblos.length; j++){
-            Arrays.sort(pueblos[j]);
+    static void mostrarPueblos(){
+        //Muestro bonito las provincias
+        for (provincias i : provinciasArray){
             System.out.print("|>>");
-            for (int a = 0;a < provincias[j].length(); a++){
+            for (int a = 0;a < i.nombre.length(); a++){
                 System.out.print(">");
             }
-            System.out.print(">>|\n");
+            System.out.println(">>|");
 
             System.out.print("|< ");
-            System.out.print(provincias[j]);
-            System.out.print(" >|\n");
+            System.out.print(i.nombre);
+            System.out.println(" >|");
 
             System.out.print("|<<");
-            for (int a = 0;a < provincias[j].length(); a++){
+            for (int a = 0;a < i.nombre.length(); a++){
                 System.out.print("<");
             }
-            System.out.print("<<|\n");
+            System.out.println("<<|");
+
+            //Cada 30 caracteres se salta de línea
             int cont = 0;
-            for (String i : pueblos[j]){
-                if (!pueblos[j][cont].equals("vacio")){
-                    cont++;
-                    System.out.println(cont + " - " + i);
+            // En caso de que no esté vacío
+            if (!i.pueblos.isEmpty()) System.out.print("| ");
+            for (int j = 0; j < i.pueblos.size(); j++){
+                cont += i.pueblos.get(j).length();
+                if (cont >= 30){
+                    System.out.print("\n| ");
+                    cont = 0;
                 }
-
+                System.out.print(j+1 + " - " + i.pueblos.get(j) + " | ");
             }
+            System.out.println("\n");
         }
-        System.out.print("Enter para continuar...");
-        sc.nextLine();
     }
 
-    static void anadirPueblo(String[] pueblos){
-        System.out.print("¿Como se llama el pueblo?\n> ");
-        String nombre = sc.nextLine();
-        for (int i = 0; i < pueblos.length + 1; i++) {
-            if (i == pueblos.length){
-                System.out.println("El array está lleno");
-            }else if (pueblos[i].equals("vacio")){
-                pueblos[i] = nombre;
-                break;
-            }
-        }
-        mostrarPueblos(pueblos);
-    }
-
-    static void buscarPueblo(String[] pueblos){
-        System.out.print("¿Que pueblo quieres buscar?\n> ");
-        String nombre = sc.nextLine();
-        boolean encontrado = false;
+    static int transformarAEntero(String op){
+        //Transformo una cadena de uno o vários caracteres transformándola a un array de caracteres para transformarlos 1 a 1 en su equivalente en ascii -48
+        // haciendo que si hay algún carácter que no sea un número devuelva un -1, finalmente voy sumando los resultados para obtener el resultado, peero me he dado cuenta
+        // de que se puede hacer más fácil asiq a la basura el bloque
+        /*
+        char[] car = op.toCharArray();
+        int cont = car.length - 1;
         int pos = 0;
-        for (String i : pueblos){
-            if (i.equalsIgnoreCase(nombre)){
-                encontrado = true;
-                break;
-            }
-            pos++;
+        for (char i : car){
+            int num = i - 48;
+            if (num < 0 || num > 9)return - 1;
+            pos += (int) (num * Math.pow(10, cont));
+            cont--;
         }
-        if (encontrado){
-            System.out.println("El pueblo " + pueblos[pos] + " está en la pos " + (pos+1));
-        } else {
-            System.out.println("El pueblo " + nombre + " no existe");
+        pos--;
+        return pos;
+         */
+        try {
+            Integer pos = Integer.parseInt(op);
+            return pos-1;
+        } catch (Exception e){
+            return -1;
         }
-        System.out.print("Enter para continuar...");
-        sc.nextLine();        */
     }
+
+
 }
