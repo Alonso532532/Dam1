@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ej22 {
     static Scanner sc = new Scanner(System.in);
-    static void main() {
+    public static void main(String[] args) {
         //Lleno el array con "vacio" para saber los que aún no están rellenos
         String[][] pueblos = new String[3][10];
         for (String[] pueblo : pueblos) {
