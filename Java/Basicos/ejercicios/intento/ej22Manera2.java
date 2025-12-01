@@ -8,7 +8,7 @@ public class ej22Manera2 {
     //Creo el array list
     static ArrayList<provincias> provinciasArray = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
-    static void main() {
+    public static void main(String[] args) {
         //Añado varias provincias
         provinciasArray.add(new provincias("Zaragoza"));
         provinciasArray.add(new provincias("Huesca"));
