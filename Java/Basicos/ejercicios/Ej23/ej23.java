@@ -13,6 +13,14 @@ public class ej23 {
         System.out.println(calvo.toString());
         calvo.saludar();
 
+        ArrayList<String> asignaturas = new ArrayList<>();
+        asignaturas.add("SI");
+        asignaturas.add("AWEB");
+        asignaturas.add("SOR");
+        asignaturas.add("ED");
+
+        Alumno pascual = new Alumno("Pascual", "Lozano Romero", "2235525J", 'H', LocalDate.parse("1982-02-20") , "A", 3, asignaturas);
+        pascual.saludar();
 
         calvo.setFechaDeNacimiento(LocalDate.parse("2000-11-01"));
         ArrayList<Persona> grupo = new ArrayList<>();
@@ -20,7 +28,12 @@ public class ej23 {
         grupo.add(calvo);
         Personas list = new Personas(grupo);
         list.addPersonas(dalek);
+        list.addPersonas(pascual);
 
         list.toString();
+        pascual.verEstudios();
+
+
+
     }
 }
