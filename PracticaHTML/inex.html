@@ -14,25 +14,55 @@
             body{
                 margin: 0;
             }
-
-            #contentedor{
-                margin: 10px;
-                border: 2px solid black;
-
-            }
-
             #menu{
                 display: flex;
                 flex-wrap: wrap;
                 gap: 10px;
-                justify-content: space-around;
+                justify-content: space-evenly;
             }
             #menu a{
                 text-decoration: none;
                 color: black;
-                background-color: rgb(248, 183, 61);
+                background-color: rgb(228, 163, 44);
                 border-radius: 10px;
+                padding: 10px;
+            }
+            #contenedor{
+                margin: 10px;
+                border: 2px solid black;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr) 50%;
+                gap: 10px;
+                padding: 10px;
+                height: 200px;
+            }
+            #contenedor2{
+                margin: 10px;
+                border: 2px solid black;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr) ;
+                gap: 10px;
+                padding: 10px;
+                height: 300px;
+            }
+            #contenedor3{
+                margin: 10px;
+                border: 2px solid black;
+                display: flex;
+                grid-template-columns: repeat(5, 1fr) ;
+                gap: 10px;
+                padding: 10px;
+            }
+            div > div{
+                background-color: rgb(255, 177, 87);
                 padding: 5px;
+                border-radius: 5px;
+            }
+            #contenedor3 div{
+                padding: 15px;
+                justify-content: center;
+                align-items: center;
+                
             }
     </style>
 </head>
@@ -40,14 +70,40 @@
 <body>
     <div id="cabecera">
         <center><h1 style="margin: 0;">Practica</h1></center>
-        <hr style="margin-top: 0px; width: 40%; height: 2px; border: 0; background: linear-gradient(to right, rgb(0, 0, 0, 0), rgb(0, 0, 0), rgb(0,0,0,0));;">
+        <hr style="margin-top: 0px; width: 40%; height: 2px; border: 0; background: linear-gradient(to right, rgb(0, 0, 0, 0), rgb(0, 0, 0), rgb(0,0,0,0));">
         <div id="menu">
             <a href="">elemento1</a>
             <a href="">elemento2</a>
         </div>
     </div>
-    <div id="contentedor">
-        <div></div>
+    <div id="contenedor">
+        <div style="grid-row: span 2;">1</div>
+        <div>2</div>
+        <div style="grid-row: span 3;">3</div>
+        <div style="grid-row: span 2;">4</div>
+        <div>5</div>
+        <div style="grid-column: span 2;">6</div>
+        <div>7</div>
     </div>
+    <div id="contenedor2">
+        <div style="grid-row: span 5;">1</div>
+        <div style="grid-column: span 3;">2</div>
+        <div style="grid-row: span 5;">3</div>
+        <div style="grid-column: span 2;">4</div>
+        <div style="grid-row: span 2;">5</div>
+        <div style="grid-row: span 2;">6</div>
+        <div>7</div>
+        <div style="grid-column: span 2;">8</div>
+        <div style="grid-column: span 3;">9</div>
+    </div>
+    <div id="contenedor3">
+        <div id="objeto1">1</div>
+        <div id="objeto2">2</div>
+        <div id="objeto3">3</div>
+        <div id="objeto4">4</div>
+        <div id="objeto5">5</div>
+        <div id="objeto6">6</div>
+    </div>
+
 </body>
 </html>

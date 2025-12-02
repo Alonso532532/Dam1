@@ -7,7 +7,8 @@
     <link rel="shortcut icon" href="../Tuto/img/Maxtben-10--removebg-preview.png">
     <style>
             #cabecera{
-                    background-color: rgb(255, 202, 123);
+                background-color: rgb(255, 202, 123);
+                padding-bottom: 10px;
             }
 
             body{
@@ -17,6 +18,21 @@
             #contentedor{
                 margin: 10px;
                 border: 2px solid black;
+
+            }
+
+            #menu{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-around;
+            }
+            #menu a{
+                text-decoration: none;
+                color: black;
+                background-color: rgb(248, 183, 61);
+                border-radius: 10px;
+                padding: 5px;
             }
     </style>
 </head>
@@ -24,7 +40,11 @@
 <body>
     <div id="cabecera">
         <center><h1 style="margin: 0;">Practica</h1></center>
-        <hr style="margin-top: 3px; width: 30%; height: 2px; border: 0; background: linear-gradient(to right);">
+        <hr style="margin-top: 0px; width: 40%; height: 2px; border: 0; background: linear-gradient(to right, rgb(0, 0, 0, 0), rgb(0, 0, 0), rgb(0,0,0,0));;">
+        <div id="menu">
+            <a href="">elemento1</a>
+            <a href="">elemento2</a>
+        </div>
     </div>
     <div id="contentedor">
         <div></div>
