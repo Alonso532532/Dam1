@@ -20,6 +20,20 @@
     <hr style="width: 90%;">
     <h1>- CSS -</h1>
     <hr style="width: 90%;">
+
+    <nav id="indice">
+
+        <h2 style="grid-column: span 2; margin-bottom: 5px;">Indice</h2>
+        <hr style="width: 90%; grid-column: span 2;">
+        <a href="#seleccion">Selección de elementos</a>
+        <a href="#modificacion">Modificación de elementos</a>
+        <a href="#display">Display</a>
+        <a href="#position">Position</a>
+        <a href="#flex">Flex</a>
+        <a href="#grid">Grid</a>
+
+    </nav>
+    <hr style="width: 90%;">
     <!--//////////////////////////////Vinculación y Selección de elementos//////////////////////////////////-->
     <h2>Vinculación</h2>
     <p>
@@ -29,7 +43,7 @@
         "shortcut icon"
     </p>
     <hr style="width: 80%;">
-    <h2>Selección de elementos</h2>
+    <h2 id="seleccion">Selección de elementos</h2>
     <div>Se le pueden asignar varias clases a un mismo objeto poniendo: class="clase1 clase2"<br>
         Para indicar que todos los elementos de un mismo tipo tengan un formato especifico se pone:
         <pre>nav {
@@ -114,7 +128,7 @@ div {
     </div>
     <!--//////////////////////////////Modificación de elementos//////////////////////////////////-->
     <hr style="width: 80%;">
-    <h2>Modificación de elementos</h2>
+    <h2 id="modificacion">Modificación de elementos</h2>
     <div>
         Para editar el texto:
         <pre>.pruebaT {
@@ -233,7 +247,7 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
                 <td></td>
             </tr>
         </table>
-                <table class="pruebaTabla2">
+        <table class="pruebaTabla2">
             <tr>
                 <td>1</td>
                 <td>2</td>
@@ -279,8 +293,25 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
 }</pre>
         <div class="PruevaOV">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, nobis? Facere magni, laudantium, nam quasi, beatae nesciunt est sit libero voluptatum fuga voluptatem? Deleniti, fuga placeat expedita quos illum laudantium.</div>
     <br>
-    Para hacer transiciónes se usa "transition-time" -- mirar
-    <div class="PruebaTRA"></div>
+    Para hacer transiciónes se usa "transition-duration"
+    <div class="PruebaTRA"></div><br>
+    <pre class="codigo">.PruebaTRA{
+    background-color: black;
+    padding: 25px;
+    width: 25px;
+    transition-duration: 2s;
+    margin: 0px;    
+    margin-top: 20px;
+}
+
+.PruebaTRA:hover{
+    transition-duration: 2s;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+    width: 50px;
+    margin: 0px;
+    margin-top: 20px;
+}</pre>
     <br>
     Si a un elemento se le pone "!important" se le aplica siempre
     </div>
@@ -288,7 +319,7 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
     <hr style="width: 80%;">
     <h2>Posicionamiento (Display, Position, Grid y Flex)</h2>
     <div>
-        <h3>Display</h3>
+        <h3 id="display">Display</h3>
         <hr style="width: 80%;">
         Hay tres tipos importantes: "display: inline;", "display: block;" y "display: inline-block;"<br><br>
         
@@ -311,7 +342,7 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
     </div>
 
     <div>
-        <h3>Position</h3>
+        <h3 id="position">Position</h3>
         <hr style="width: 80%;">
         El "static" es el por defecto <br><br>
         El "relative" mueve el elemento desde su posición nativa <br><br>
@@ -331,8 +362,9 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
             <div class="pos posF">Fixed</div>
         </div>
     </div>
+    <hr style="width: 90%;">
     <div>
-        <h3>Flex</h3>
+        <h3 id="flex">Flex</h3>
         <hr style="width: 80%;">
         <b><u>Flex normal</u></b><br><br>
         <i>display: flex; </i><br>
@@ -403,7 +435,7 @@ Si se usa "tr:nth-last-child(even)" aunque ponga even se selecciónan las pares<
         </div>
     </div>
     <div>
-        <h3>Grid</h3>
+        <h3 id="grid">Grid</h3>
         <hr style="width: 80%;">
 
         Por defecto con solo un "display: grid" solo habilita un conjunto de reglas <br>

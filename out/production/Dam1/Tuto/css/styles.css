@@ -7,6 +7,24 @@ nav {
     justify-content: space-evenly;
 }
 
+#indice{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgb(83, 83, 83);
+}
+
+#indice a{
+    padding: 4px;
+    text-align: center;
+    background-color: rgb(150, 150, 150);
+}
+
+#indice a:hover {
+    background-color: rgb(121, 121, 121);
+    padding: 5px;
+    margin: 4px;
+}
+
 nav a {
     margin: 5px;
     color: rgb(0, 0, 0);
@@ -220,6 +238,10 @@ img {
     background-color: rgb(88, 88, 88);
 }
 
+.pruebaTabla2 tr:nth-child(even){
+    background-color: rgb(88, 88, 88);
+}
+
 .pruebaTabla2{
     background-color: black;
     display: inline-block;
@@ -252,9 +274,7 @@ img {
     margin: 0px;
     margin-top: 20px;
 }
-.pruebaTabla2 tr:nth-child(even){
-    background-color: rgb(88, 88, 88);
-}
+
 
 .disl {
     display: inline;
@@ -308,7 +328,7 @@ img {
 div.posC div{
     box-shadow: 0px 0px 0px;
     background-color: rgb(117, 117, 117);
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     width: 15%;
     border: 3px solid rgb(37, 37, 37);
