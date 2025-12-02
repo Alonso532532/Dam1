@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ej23 {
-    static void main() {
+    public static void main(String[] args) {
         Persona transeunte = new Persona("Pablo", "Ramirez", "1723712S", 'H', LocalDate.parse("2020-11-01"));
         Persona calvo = new Persona("Andrew", "vape", "17452912S", 'H', LocalDate.parse("0001-11-01"));
         Persona dalek = new Persona("Jef", "Jepherson", "3897612S", 'H', LocalDate.parse("1999-11-01"));

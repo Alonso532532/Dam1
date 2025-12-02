@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class ej24 {
-    static void main() {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.print("Dame la ruta de un archivo o directorio: ");
