@@ -13,12 +13,13 @@
 
             body{
                 margin: 0;
+                background-color: rgb(255, 254, 246);
             }
             #menu{
                 display: flex;
                 flex-wrap: wrap;
-                gap: 10px;
-                justify-content: space-evenly;
+                gap: 40px;
+                justify-content: center;
                 background-color: rgb(255, 202, 123);
             }
             #menu a{
@@ -53,8 +54,8 @@
                 grid-template-columns: repeat(5, 1fr) ;
                 gap: 10px;
                 padding: 10px;
-                justify-content: end;
-                height: 100px;
+                justify-content: center;
+                height: 150px;
                 align-items: end;
                 flex-direction: row-reverse;
                 flex-wrap: wrap;
@@ -64,16 +65,33 @@
                 padding: 5px;
                 border-radius: 5px;
             }
+
             #contenedor3 div{
                 text-align: center;
                 height: 20px;
-                width: 150px;
-        
+                width: 45%;
             }
-            #contenedor4{
+
+            .contenedor4{
                 margin: 10px;
                 border: 2px solid black;
                 padding: 10px;
+            }
+            table{
+                border-collapse: collapse;
+                border: 4px solid black;
+            }
+            td, th{
+                border: 2px solid black;
+                padding: 10px;
+                text-align: center;
+                transition: 0.2s;
+            }
+            td:hover, th:hover{
+                background-color: rgb(255, 235, 209);
+            }
+            td:active, th:active{
+                background-color: rgb(255, 212, 157);
             }
     </style>
 </head>
@@ -83,8 +101,10 @@
         <center><h1 style="margin: 0;">Practica</h1></center>
         <hr style="margin-top: 0px; width: 40%; height: 2px; border: 0; background: linear-gradient(to right, rgb(0, 0, 0, 0), rgb(0, 0, 0), rgb(0,0,0,0));">
         <div id="menu">
-            <a href="">elemento1</a>
-            <a href="">elemento2</a>
+            <a href="#contenedor">GRID</a>
+            <a href="#contenedor3">FLEX</a>
+            <a href="#formularios">FORMULARIOS</a>
+            <a href="#listas">LISTAS</a>
         </div>
     </div>
     <div id="contenedor">
@@ -108,15 +128,15 @@
         <div style="grid-column: span 3;">9</div>
     </div>
     <div id="contenedor3">
-        <div id="objeto1">1</div>
-        <div id="objeto2">2</div>
-        <div id="objeto3">3</div>
-        <div id="objeto4">4</div>
-        <div id="objeto5">5</div>
-        <div id="objeto6">6</div>
+        <div id="objeto1" style="order: 2;">1</div>
+        <div id="objeto2" style="order: 1;">2</div>
+        <div id="objeto3" style="order: 3;">3</div>
+        <div id="objeto4" style="order: 5;">4</div>
+        <div id="objeto5" style="order: 6;">5</div>
+        <div id="objeto6" style="order: 4;">6</div>
     </div>
-    <div id="contenedor4">
-        <form action="La breva">
+    <div class="contenedor4" id="formularios">
+        <form action="La breva" method="dialog">
             <fieldset>
                 <legend>PASC</legend>
                 <p>
@@ -128,16 +148,80 @@
                 <input type="number" id="edad" placeholder="Introduce tu edad">
                 </p>
                 <p>
-                <label for="nombre">Nombre </label>
-                <input type="text" id="nombre" placeholder="Introduce tu nombre">
+                <label for="mensaje">Mensaje </label><br>
+                <textarea id="mensaje" placeholder="Escribe aquí tu mensaje" cols="30" rows="4"></textarea>
                 </p>
                 <p>
-                <label for="nombre">Nombre </label>
-                <input type="text" id="nombre" placeholder="Introduce tu nombre">
+                <label for="1" >1 </label>
+                <input type="radio" id="1" name="numeros"><br>                
+                <label for="2">2 </label>
+                <input type="radio" id="2" name="numeros"><br>                
+                <label for="3">3 </label>
+                <input type="radio" id="3" name="numeros"><br>                
+                <label for="4">4 </label>
+                <input type="radio" id="4" name="numeros"><br>
                 </p>
-                <button type="submit">Enviar</button>
+                <p>
+                <label for="1C" >1 </label>
+                <input type="checkbox" id="1C"><br>                
+                <label for="2C">2 </label>
+                <input type="checkbox" id="2C"><br>                
+                <label for="3C">3 </label>
+                <input type="checkbox" id="3C"><br>                
+                <label for="4C">REQUERIDO </label>
+                <input type="checkbox" id="4C" required><br>
+                </p>
+                <p>
+                    <label for="pascual">Cosillas </label>
+                    <select name="Hola" id="pascual">
+                        <option value="uno">uno</option>
+                        <option value="uno" selected>dos</option>
+                        <optgroup label="Numeros">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </optgroup>   
+                        <option value="uno">tres</option>
+                    </select>
+                </p>
+                <button type="submit">Enviar</button><button type="reset" style="float: right; ">Reiniciar campos</button>
             </fieldset>
         </form>
+    </div>
+    <div class="contenedor4" id="listas">
+        <ol type="a" reversed start="10"> 
+            <li>UNO</li>
+            <li>DOS</li>
+            <li>TRES</li>
+            <li>CUATRO</li>
+            <li>CINCO</li>
+        </ol>
+        <ul style="list-style-type: circle;"> 
+            <li>UNO</li>
+            <li>DOS</li>
+            <li>TRES</li>
+            <li>CUATRO</li>
+            <li>CINCO</li>
+        </ul>
+    </div>
+    <div class="contenedor4" id="tablas">
+        <table>
+            <tr>
+                <th>Uno</th>
+                <th>Dos</th>
+                <th>Tres</th>
+            </tr>
+            <tr>
+                <td>pa</td>
+                <td>sc</td>
+                <td>ual</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
     </div>
 
 </body>
