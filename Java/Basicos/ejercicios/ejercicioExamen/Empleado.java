@@ -2,6 +2,7 @@ package Java.Basicos.ejercicios.ejercicioExamen;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Locale;
 
@@ -98,6 +99,7 @@ public class Empleado {
     }
 
     public int antiguedad(){
-        return Period.between(fechaDeContratacion, LocalDate.now()).getYears();
+        if (fechaDeContratacion == null) return 0;
+        return (int) ChronoUnit.DAYS.between(fechaDeContratacion, LocalDate.now());
     }
 }

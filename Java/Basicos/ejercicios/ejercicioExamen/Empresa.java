@@ -1,54 +1,62 @@
 package Java.Basicos.ejercicios.ejercicioExamen;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Empresa {
-    private ArrayList<Empleado> trabajadores = new ArrayList<>();
+    private ArrayList<Empleado> trabajadores;
 
     public ArrayList<Empleado> getTrabajadores() {
         return trabajadores;
+    }
+
+    public Empresa() {
+        trabajadores = new ArrayList<>();
     }
 
     public Empresa(ArrayList<Empleado> trabajadores) {
         this.trabajadores = trabajadores;
     }
 
-    public Empresa() {
-    }
-
-    public String toString() {
-        for (Empleado i : trabajadores){
-            System.out.println(i.toString());
+    public void mostrarEmpleados() {
+        if (trabajadores.isEmpty()){
+            System.out.println("No hay empleados");
+        } else {
+            for (Empleado i : trabajadores){
+                System.out.println(i.toString());
+            }
         }
-        return null;
     }
 
     public double salarioPromedio(){
+        if (trabajadores.isEmpty()) return 0.0;
         double acum = 0;
-        int cont = 0;
         for (Empleado i : trabajadores){
             acum += i.getSalario();
-            cont++;
         }
-        return acum/cont;
+        return acum/trabajadores.size();
     }
 
-    public String empleadoMasAntiguo(){
-        String nombre = "";
-        int antiguedadMax = 0;
+    public Empleado empleadoMasAntiguo(){
+        if (trabajadores.isEmpty()) return null;
+        Empleado empleado = trabajadores.get(0);
         for (Empleado i : trabajadores){
-            if (i.antiguedad() > antiguedadMax){
-                antiguedadMax = i.antiguedad();
-                nombre = i.getNombre();
+            if (empleado.antiguedad() < i.antiguedad()){
+                empleado = i;
             }
         }
-        return nombre;
+        return empleado;
     }
 
     public void buscarEmpleado(String empleado){
+        if (trabajadores.isEmpty()){
+            System.out.println("No hay empleados");
+            return;
+        }
         for (Empleado i : trabajadores){
-            if (i.getNombre().equals(empleado) || i.getPuesto().equals(empleado)){
+            if (i.getNombre().equalsIgnoreCase(empleado) || i.getPuesto().equalsIgnoreCase(empleado)){
                 System.out.println("Empleado encontrado\n" + i.toString());
             }
         }
