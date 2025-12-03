@@ -24,8 +24,8 @@ public class DemoEmpresa {
         array.add(empleado5);
 
         Empresa marmoleriasManolo = new Empresa(array);
-        marmoleriasManolo.toString();
-        System.out.println("El empleado más antiguo es: " + marmoleriasManolo.empleadoMasAntiguo());
+        marmoleriasManolo.mostrarEmpleados();
+        System.out.println("El empleado más antiguo es: " + marmoleriasManolo.empleadoMasAntiguo().getNombre());
         System.out.println("El salario promedio: " + marmoleriasManolo.salarioPromedio());
         System.out.print("Dame un empleado para buscar \n> ");
         String resp = sc.nextLine();
