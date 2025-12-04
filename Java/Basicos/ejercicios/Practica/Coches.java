@@ -11,18 +11,27 @@ public class Coches {
     private String modelo;
     private double precio;
     private LocalDate fechaDeCompra;
-
+    private Propietario propietario;
 
     public Coches() {
-        numeroDeSerie = numero++;
+        numeroDeSerie = ++numero;
     }
 
-    public Coches(int velocidad, String modelo, double precio, LocalDate fechaDeCompra) {
+    public Coches(int velocidad, String modelo, double precio, LocalDate fechaDeCompra, Propietario propietario) {
         this.velocidad = velocidad;
         this.modelo = modelo;
         this.precio = precio;
         this.fechaDeCompra = fechaDeCompra;
-        numeroDeSerie = numero++;
+        this.propietario = propietario;
+        numeroDeSerie = ++numero;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
     }
 
     public int getVelocidad() {
@@ -57,8 +66,24 @@ public class Coches {
         this.fechaDeCompra = fechaDeCompra;
     }
 
+    public int getNumeroDeSerie() {
+        return numeroDeSerie;
+    }
+
+    @Override
+    public String toString() {
+        return "Coche " + numeroDeSerie + " <" +
+                " Velocidad: " + velocidad +
+                " | Modelo: " + modelo +
+                " | Precio: " + precio +
+                " | FechaDeCompra: " + fechaDeCompra +
+                " | Propietario: " + propietario.toString() +
+                " >";
+    }
+
     //Calculo el tiempo de uso
     public int uso(){
+        if (fechaDeCompra == null)return 0;
         return (int) ChronoUnit.DAYS.between(fechaDeCompra, LocalDate.now());
     }
 
