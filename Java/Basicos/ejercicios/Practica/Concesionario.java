@@ -27,9 +27,11 @@ public class Concesionario {
         registroCoches.add(coche);
     }
 
-    public void mostrarTodo(){
+    public void mostrarCoches(){
         for (Coches i : registroCoches){
             System.out.println(i.toString() + " El vehiculo lleva " + i.uso() + " días en uso");
         }
     }
+
+
 }
