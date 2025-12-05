@@ -19,6 +19,17 @@ public class DemoCoches {
         arrayList.add(seatLeon);
         arrayList.add(cupraE15);
         Concesionario hecproll = new Concesionario(arrayList);
-        hecproll.mostrarTodo();
+        hecproll.mostrarCoches();
+        ArrayList<String> problemas = new ArrayList<>();
+        problemas.add("1.1 - dasdadas das ddasdadas das dasdasddasdadas hola muy buenas dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasdasdasd");
+        problemas.add("2.1 - dasdadas das ddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasdasdasd");
+        Problemas problemaCoche1 = new Problemas(problemas, 1);
+        hecproll.anadirProblema(problemaCoche1);
+        ArrayList<String> problemas2 = new ArrayList<>();
+        problemas2.add("1.2 - dasdadas das ddasdadas das dasdasddasdadas hola muy buenas dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasddasdadas das dasdasdasdasd");
+        problemas2.add("2.2 - dasddasdadas das dasdasdasdasd");
+        Problemas problemaCoche2 = new Problemas(problemas2, 2);
+        hecproll.anadirProblema(problemaCoche2);
+        hecproll.mostratProblemas();
     }
 }

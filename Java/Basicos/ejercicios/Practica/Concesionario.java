@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 public class Concesionario {
     private ArrayList<Coches> registroCoches;
-    private ArrayList<String> problemas;
-    private ArrayList<Character> reparar;
+    private ArrayList<Problemas> problemas;
 
     public Concesionario() {
         registroCoches = new ArrayList<>();
+        problemas = new ArrayList<>();
     }
 
     public Concesionario(ArrayList<Coches> registroCoches) {
         this.registroCoches = registroCoches;
+        problemas = new ArrayList<>();
     }
 
     public ArrayList<Coches> getRegistroCoches() {
@@ -27,10 +28,30 @@ public class Concesionario {
         registroCoches.add(coche);
     }
 
-    public void mostrarCoches(){
-        for (Coches i : registroCoches){
-            System.out.println(i.toString() + " El vehiculo lleva " + i.uso() + " días en uso");
+    public void anadirProblema(Problemas problema){
+        problemas.add(problema);
+    }
+
+    public void mostratProblemas(){
+        if (!problemas.isEmpty()){
+            for (Problemas i : problemas){
+                i.mostrarProblemas();
+            }
+        }else {
+            System.out.println("No hay problemas");
         }
+    }
+
+    public void mostrarCoches(){
+        if (!registroCoches.isEmpty()){
+            System.out.println("<=  Coches del concesionario =>");
+            for (Coches i : registroCoches){
+                System.out.println(i.toString() + " El vehiculo lleva " + i.uso() + " días en uso");
+            }
+        } else {
+            System.out.println("No hay coches");
+        }
+
     }
 
 

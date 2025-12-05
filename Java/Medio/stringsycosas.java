@@ -81,7 +81,7 @@ public class stringsycosas {
         System.out.println("|\n");
 
         cosa1.replace(5, 7," W");
-        System.out.print("Sustituyo desde la posición 5 hasta la 7-1 por un \" W\": \n|" + cosa1 + "|\n|");
+        System.out.print("Sustituyo desde la posición 5 hasta la 7 por un \" W\": \n|" + cosa1 + "|\n|");
         cont = 0;
         for (int i = 0; i < cosa1.length(); i++){
             if (cont==10){
@@ -108,8 +108,8 @@ public class stringsycosas {
         cosa1.reverse();
         cosa1.append(" >");
         cosa1.repeat("-", 5);
-
         cosa1.reverse();
+
         System.out.print("Añado flechas: \n|" + cosa1 + "|\n|");
         cont = 0;
         for (int i = 0; i < cosa1.length(); i++){

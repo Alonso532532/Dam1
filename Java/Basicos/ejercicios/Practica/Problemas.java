@@ -17,31 +17,31 @@ public class Problemas {
 
     public void mostrarProblemas(){
         if (!problemas.isEmpty()){
-
-
             System.out.println("<== Los problemas del coche " + numSerie + " son ==>");
             for (String i : problemas){
                 if (!i.isEmpty()){
                     int tamano = i.length();
-                    int ini = 0;
-                    int fin = 49;
-                    int acum = 50;
+                    int ini = -1;
+                    int fin = 50;
+                    int acum = 51;
                     System.out.println();
                     while (tamano-acum>0){
-                        System.out.println(i.substring(ini, fin));
+                        System.out.println(i.substring(ini+1, fin));
                         acum+=50;
                         fin+=50;
-                        if (ini == 0){
-                            ini += 49;
-                        } else {
-                            ini += 50;
-                        }
+                        ini += 50;
+
                     }
-                    System.out.println(i.substring(ini));
+                    System.out.println(i.substring(ini+1));
+                } else {
+                    System.out.println("El problema está vacío");
                 }
             }
         } else {
             System.out.println("No hay problemas relacionados");
         }
+    }
+    public void anadirProblema(String pr){
+        problemas.add(pr);
     }
 }
