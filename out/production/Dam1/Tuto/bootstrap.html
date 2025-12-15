@@ -1,0 +1,86 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destornillador Witte Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./img/images.ico">
+</head>
+<body class="container">
+    <nav class="text-center">
+
+        <a href="./index.html">Inicio</a>
+        <a href="./HTML.html">HTML</a>
+        <a href="./CSS.html">CSS</a>
+        <a href="./bootstrap.html">Bootstrap</a>
+
+    </nav>
+    <hr style="width: 90%;">
+    <h1 class="text-center">- BOOTSTRAP -</h1>
+    <hr style="width: 90%;">
+    <p>
+        Bootstrap es un framework que agiliza la programación mediante un conjunto de clases ya hechas. <br> <br>
+        Para utilizarlo hay que instalarlo primero en la <a href="https://getbootstrap.com/" target="_blank">pagina oficial</a> y copiar las 2 nineas CDN para pegarlas en el "head", el script se puede poner al final del body para que las inimaciónes se cargen lo ultimo.
+    </p>
+    <p>
+        <h2 class="text-center">Contenedores</h2><hr><br>
+        Existe "container" que deja un marjen horizontal y "container-fluid" que también deja un marjen horizontal pero mucho más pequeño
+
+    </p>
+
+    <p>
+
+        <h2 class="text-center">Tablas</h2><hr><br>
+        Meto varios "div" en un "div" padre con la clase "row" y les asigno "col" y "border" a cada uno haciendo que tengan borde y que cada uno sea una columna con el espacio de "1fr"<br><br>
+        
+        <div class="row">
+            <div class="col border">1</div>
+            <div class="col border">2</div>
+            <div class="col border">3</div>
+            <div class="col border">4</div>
+            <div class="col border">5</div>
+            <div class="col border">6</div>
+            <div class="col border">7</div>
+            <div class="col border">8</div>
+            <div class="col border">9</div>
+            <div class="col border">10</div>
+            <div class="col border">11</div>
+            <div class="col border">12</div>
+        </div>
+        <div class="row">
+            <div class="col border text-center">Con "text-center" se centra el texto</div>
+            <div class="col border text-center">Las columnas se reparten el espacio por defecto</div>
+        </div><br>
+        Hago lo mismo pero repartiendo el espacio con "col-#", el espacio se reparte en 12fr siempre<br><br>
+        
+        <div class="row">
+            <div class="col-1 border">1fr</div>
+            <div class="col-2 border">2fr</div>
+            <div class="col-3 border">3fr</div>
+            <div class="col-6 border">6fr</div>
+        </div><br>
+        Para que las columnas sean responsivas ante pantallas estrechas se usa "col-lg-#", "col-md-#" y "col-sm-#" para determinar los fr que han de ocupar las columnas dependiendo de el ancho de la pantalla <br><br>
+        Se puede poner en los elementos hijos <br><br>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 border"><div class="text-center">- 1 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="col-lg-3 col-md-6 col-sm-12 border"><div class="text-center">- 2 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="col-lg-3 col-md-6 col-sm-12 border"><div class="text-center">- 3 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="col-lg-3 col-md-6 col-sm-12 border"><div class="text-center">- 4 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+        </div><br>
+        O en el padre, en este caso se determinan las columnas que han de haber<br><br>
+        <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+            <div class="border"><div class="text-center">- 1 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="border"><div class="text-center">- 2 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="border"><div class="text-center">- 3 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+            <div class="border"><div class="text-center">- 4 -</div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</div>
+        </div><br>
+    </p>
+    <p>
+        <h2 class="text-center">Textos</h2><hr><br>
+        <ul style="list-style: inside;">
+            <li>Se puede usar la clase "h#" para hacer que tenga el formato de titulo que le hayas especificado. <br><br></li>
+            <li class="display-6">"display-#" le da un tamaño al texto<br><br></li>
+            <li class="lead">"lead" le da un estilo distinto<br><br></li>
+        </ul>
+    </p>
+</body>
