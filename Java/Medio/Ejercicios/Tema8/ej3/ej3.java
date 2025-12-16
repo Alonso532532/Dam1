@@ -16,7 +16,7 @@ public class ej3 {
                 System.out.println("Creando \""+destino.getName()+"\"");
                 Files.copy(archivo.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e){
-                System.out.println("Ha ocurrido un error Ha ocurrido un error durante la copia");
+                System.out.println("Ha ocurrido un error durante la copia");
                 e.printStackTrace();
             }
         }
@@ -30,7 +30,7 @@ public class ej3 {
             System.out.println("Error garrafal durante la creación de los directorios " + carpetas1.getPath().substring( carpetas1.getPath().lastIndexOf("docs")-1));
         }
 
-        if (carpetas2.mkdirs()){
+        if (carpetas2.mkdir()){
             System.out.println("Carpetas " + carpetas2.getParent() + carpetas2.getPath().substring( carpetas2.getPath().lastIndexOf("docs")-1) + " creadas");
         } else {
             System.out.println("Error garrafal durante la creación de los directorios " + carpetas2.getPath().substring( carpetas2.getPath().lastIndexOf("docs")-1));
