@@ -30,7 +30,44 @@
 
     <p>
 
-        <h2 class="text-center">Tablas</h2><hr><br>
+        <h2 class="text-center">Tablas normal</h2><hr><br>
+        <p>Para hacer una tabla se pone "table"</p>
+        <p>Para darle un color se usa "table-*color*" que puede usarse tanto el el "table" como en los "tr"</p>
+        <p>También se puede usar "table-striped" para alternar colores grises, "table-hover" y "table-bordered" para un pequeño borde</p>
+        <table class="table table-striped table-hover table-bordered">
+            <tr class="table-success">
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Bebida</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Pablo</td>
+                <td>Pascual Pascualez</td>
+                <td>Bifrutas</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Eker</td>
+                <td>Ramirez</td>
+                <td>Vodka</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Diego</td>
+                <td>Patillicas</td>
+                <td>Sufrimiento</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pascual</td>
+                <td>Lopez Lopez</td>
+                <td>Todo</td>
+            </tr>
+        </table>
+
+        <h2 class="text-center">Tablas con div</h2><hr><br>
         Meto varios "div" en un "div" padre con la clase "row" y les asigno "col" y "border" a cada uno haciendo que tengan borde y que cada uno sea una columna con el espacio de "1fr"<br><br>
         
         <div class="row">
@@ -48,7 +85,7 @@
             <div class="col border">12</div>
         </div>
         <div class="row">
-            <div class="col border text-center">Con "text-center" se centra el texto</div>
+            <div class="col border text-center">Con "text-center" se centra el texto, también se puede usar end y start</div>
             <div class="col border text-center">Las columnas se reparten el espacio por defecto</div>
         </div><br>
         Hago lo mismo pero repartiendo el espacio con "col-#", el espacio se reparte en 12fr siempre<br><br>
@@ -82,5 +119,66 @@
             <li class="display-6">"display-#" le da un tamaño al texto<br><br></li>
             <li class="lead">"lead" le da un estilo distinto<br><br></li>
         </ul>
+        <blockquote class="blockquote text-center">
+            <p>Como un pulpo en un garaje</p>
+            <footer class="blockquote-footer text-center">Juanmanuel Moreno Diaz</footer>
+        </blockquote>
+        <p>
+            <p>Para establecer un padding se usa "p-$" y para el margen "m-$" y para decirle que sea horizontal o vertical se usa "x" o "y" y para la dirección se usa "b", "t", "l", "r"</p>
+            <p class="bg-primary p-2 m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</p>
+            <p class="bg-secondary py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem totam at laudantium quo ullam corrupti, itaque dolore sint culpa fugit voluptate incidunt. Nam, natus veniam sit consequuntur temporibus esse!</p>
+            <p class="bg-warning px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, officiis temporibus eaque ex ad vel voluptates optio ut. Eligendi nostrum aperiam in deserunt quasi veniam natus est nulla sunt eius.</p>
+        </p>
     </p>
+    <p>
+        <h2 class="text-center">Listas</h2><hr><br>
+        <p>- Para quitar el punto se usa "list-unstyled"</p>
+        <ul class="list-unstyled">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+        </ul>
+        <p>- Para hacer un menú con una lista se usa "list-inline" para que los elementos se pueden poner en la misma linea y "list-inline-item" (en cada "li") para ponerlos en la misma linea</p>
+        <ol class="list-inline text-center">
+            <li class="list-inline-item">Elemento 1</li>
+            <li class="list-inline-item">Elemento 2</li>
+            <li class="list-inline-item">Elemento 3</li>
+            <li class="list-inline-item">Elemento 4</li>
+            <li class="list-inline-item">Elemento 5</li>
+            <li class="list-inline-item">Elemento 6</li>
+        </ol>
+    </p>
+    <p>
+        <h2 class="text-center">Imagenes</h2><hr><br>
+        <p>Para que una imagen sea responsiva se pone "img-fluid" y con "img-thumbnail" se le pone un pequeño lienzo, para que la imagen tenga esquinas redondeadadas se usa "rounded"</p>
+        <p>Se le puede asignar un ancho con "w-$" (porcentaje) y con "float-end" lo muevo a la derecha y lo pongo como inblock</p>
+        <img class="img-fluid img-thumbnail rounded-3 w-50" src="./img/Landscape-Photography-steps.jpg" alt="">
+        <img class="img-fluid img-thumbnail rounded-3 w-50 float-end" src="./img/Landscape-Photography-steps.jpg" alt="">
+    </p>
+    <p>
+        <h2 class="text-center">Formularios</h2><hr><br>
+
+        <form action="">
+            <div class="mb-4 row">
+                <label class="col-form-label col col-2" for="Nombre">Nombre</label>
+                <input class="form-control col" type="text" id="Nombre" placeholder="Introduce tu nombre">
+            </div>
+            <div class="mb-4 row">
+                <label class="col-form-label col col-4" for="Apellido">Correo apellido</label>
+                <input class="form-control col" type="Apellido" id="Apellido" disabled placeholder="Introduce tu apellido">
+            </div>
+            <div class="mb-4 row">
+                <label class="col-form-label col col-4" for="Correo">Correo electronico</label>
+                <input class="form-control col" type="email" id="Correo" placeholder="Introduce tu email">
+            </div>
+            <div class="mb-4 row">
+                <label class="col-form-label col col-2" for="asunto">Asunto: </label><br>
+                <textarea class="form-control col" name="asunto" id="asunto" cols="30" rows="3" placeholder="Introduce un asunto"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            <button type="reset" class="btn btn-outline-success btn-lg">borrar</button>
+        </form>
+    </p>
+
+
 </body>
