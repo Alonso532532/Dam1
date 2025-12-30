@@ -30,12 +30,17 @@ public class Editor {
                     do {
                         String texto = sc.nextLine();
                         if (texto.contains(" salir.") || texto.contains("salir.")){
-                            System.out.println("Saliendo...");
+                            System.out.println("<====================>\nSaliendo...");
                             repetir = false;
                             texto = texto.replace(" salir.", "");
                             texto = texto.replace("salir.", "");
+                            if (!texto.isEmpty()){
+                                anadirAlTexto(texto, archivo);
+                            }
+                        } else {
+                            anadirAlTexto(texto, archivo);
                         }
-                        anadirAlTexto(texto, archivo);
+
                     } while (repetir);
                     break;
                 case "2":
@@ -103,18 +108,28 @@ public class Editor {
             System.out.print("¿Que líneas quieres borrar? (Formato ej: 1,3,4)\n> ");
             String resp = sc.nextLine().concat(",");
             while (resp.contains(",")){
-                lineas[Integer.parseInt(resp.substring(0,resp.indexOf(",")))-1] = "";
+                int pos = Integer.parseInt(resp.substring(0,resp.indexOf(",")))-1;
+                if (pos+1 > lineas.length || pos < 0){
+                    System.out.println("Posición " + (pos+1) + " invalida");
+                } else {
+                    lineas[pos] = "\n";
+                }
                 resp = resp.replace(resp.substring(0,resp.indexOf(",")+1), "");
             }
             String nuevoTexto = "";
-            for (String i : lineas){
-                if (!i.isEmpty()){
-                    nuevoTexto = nuevoTexto.concat(i+"\n");
+            for (int i = 0; i < lineas.length; i++){
+                if (!lineas[i].contains("\n")){
+                    nuevoTexto = nuevoTexto.concat(lineas[i]+"\n");
+                } else if (i != lineas.length-1){
+                    nuevoTexto = nuevoTexto.concat("");
                 }
             }
-            FileWriter escribir = new FileWriter(archivo.toString());
-            System.out.println(nuevoTexto);
-            escribir.write(nuevoTexto);
+            try (FileWriter escribir = new FileWriter(archivo.toString())){
+                System.out.println("<==RESULTADO==>\n"+nuevoTexto+"<============>");
+                escribir.write(nuevoTexto);
+            } catch (IOException e){
+                System.out.println("No se ha encontrado el archivo");
+            }
         }catch (IOException e){
             System.out.println("No se ha encontrado el archivo");
         }
