@@ -4,6 +4,4 @@ asd
 d
 f
 sdf
-sf
-sdf
 salir
