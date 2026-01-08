@@ -125,9 +125,9 @@
         </blockquote>
         <p>
             <p>Para establecer un padding se usa "p-$" y para el margen "m-$" y para decirle que sea horizontal o vertical se usa "x" o "y" y para la dirección se usa "b", "t", "l", "r"</p>
-            <p class="bg-primary p-2 m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</p>
-            <p class="bg-secondary py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem totam at laudantium quo ullam corrupti, itaque dolore sint culpa fugit voluptate incidunt. Nam, natus veniam sit consequuntur temporibus esse!</p>
-            <p class="bg-warning px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, officiis temporibus eaque ex ad vel voluptates optio ut. Eligendi nostrum aperiam in deserunt quasi veniam natus est nulla sunt eius.</p>
+            <p class="bg-primary p-2 m-4 rounded-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quas voluptatibus laudantium cumque? Aut eaque, eos possimus vitae itaque quidem non quam magnam maiores tempora odio consequatur iste magni tempore!</p>
+            <p class="bg-secondary py-4 rounded-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolorem totam at laudantium quo ullam corrupti, itaque dolore sint culpa fugit voluptate incidunt. Nam, natus veniam sit consequuntur temporibus esse!</p>
+            <p class="bg-warning px-4 rounded-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, officiis temporibus eaque ex ad vel voluptates optio ut. Eligendi nostrum aperiam in deserunt quasi veniam natus est nulla sunt eius.</p>
         </p>
     </p>
     <p>
@@ -157,8 +157,8 @@
     </p>
     <p>
         <h2 class="text-center">Formularios</h2><hr><br>
-
         <form action="">
+        
             <div class="mb-4 row">
                 <label class="col-form-label col col-2" for="Nombre">Nombre</label>
                 <input class="form-control col" type="text" id="Nombre" placeholder="Introduce tu nombre">
@@ -175,10 +175,64 @@
                 <label class="col-form-label col col-2" for="asunto">Asunto: </label><br>
                 <textarea class="form-control col" name="asunto" id="asunto" cols="30" rows="3" placeholder="Introduce un asunto"></textarea>
             </div>
+
+            - Selección de un archivo <br><br>
+            <div class="mb-4 row" style="background-color: rgb(156, 156, 156); padding: 5px; border-radius: 5px;">
+                <label class="form-label col col-3" for="archivo">Introduce un archivo</label>
+                <input class="form-control col" type="file" name="archivo" id="archivo">
+            </div>
+
+            - Selección de varios archivos y de tipo ".jpg"<br><br>
+            <div class="mb-4 row" style="background-color: rgb(156, 156, 156); padding: 5px; border-radius: 5px;">
+                <label class="form-label col col-3" for="archivo">Introduce un archivo</label>
+                <input class="form-control col" type="file" name="archivo" id="archivo" multiple accept=".jpg">
+            </div>
+
+            - Selección de un color <br><br>
+            <div class="mb-4 row">
+                <label class="form-label col col-3" for="color">Introduce un color</label>
+                <input class="form-control col form-control-color col-1" type="color" name="color" id="color" value="#7ee462"><br>
+            </div>
+            
+            - Selector de opciónes <br><br>
+            <select name="" class="form-select mb-4" id="">
+                <option value="uno">uno</option>
+                <option value="dos" selected>dos</option>
+                <option value="tres">tres</option>
+            </select>
+
+            <!--Se pueden poner al reves y da el mismo resultado-->
+            <div class="form-check">
+                <label class="form-label" for="cb1">¿Fumas?</label>
+                <input class="form-check-input" type="checkbox" name="cb1" id="cb1">
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="cb2" id="cb2" checked>
+                <label class="form-label" for="cb2">Butano ahora</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="rb" id="rb1">
+                <label class="form-check-label" for="rb1">Ju</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="rb" id="rb2">
+                <label class="form-check-label" for="rb2">An</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="rb" id="rb3" checked>
+                <label class="form-check-label" for="rb3">Ma</label>
+            </div> <br>
             <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-            <button type="reset" class="btn btn-outline-success btn-lg">borrar</button>
+            <button type="reset" class="btn btn-outline-danger btn-lg">borrar</button>
         </form>
     </p>
-
-
+    <p>
+        <hr>
+        <h2 class="text-center">Para hacer alertas</h2><br><br>
+        <div class="alert alert-primary">
+            <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rem minus odio aspernatur nulla iusto iste dignissimos beatae dolore facilis commodi id quisquam consequatur rerum itaque, aliquam pariatur assumenda quos!</span>
+        </div> 
+   </p>
 </body>
