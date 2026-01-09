@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Editor {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Path archivo = Path.of("ad");
+        Path archivo = Path.of("");
         do {
             System.out.print("<== Dame la ruta de un archivo ==>\n> ");
             try {

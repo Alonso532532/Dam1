@@ -16,10 +16,18 @@ public class contarPalabras {
             while ((linea = leer.readLine()) != null){
                 System.out.println(linea);
                 ArrayList<String> palabras = new ArrayList<>(Arrays.asList(linea.split(" ")));
+                int pos = 0;
+                while (pos < palabras.size()){
+                    if (palabras.get(pos).isEmpty()){
+                        palabras.remove(pos);
+                    } else {
+                        pos++;
+                    }
+                }
                 cont += palabras.size();
                 lineas++;
             }
-            System.out.println("El archivo tiene " + cont + " palabras y " + lineas + " lineas");
+            System.out.println("<===============>\nEl archivo tiene " + cont + " palabras y " + lineas + " lineas");
         } catch (IOException e){
             System.out.println("No se ha encontrado el archivo");
             e.printStackTrace();
