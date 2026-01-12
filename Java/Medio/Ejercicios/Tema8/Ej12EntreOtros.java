@@ -1,0 +1,53 @@
+package Java.Medio.Ejercicios.Tema8;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Ej12EntreOtros {
+    public static void main(String[] args) {
+        System.out.println("Correo electrónico\n------------------");
+        String email = "asdad@sdasd.adsa";
+        Matcher matcher = Pattern.compile("\\w+@\\w+\\.\\w{2,}").matcher(email);
+        if (matcher.matches()) {
+            System.out.println(matcher.group());
+        } else {
+            System.out.println("No válido");
+        }
+        System.out.println("Nº Teléfono\n------------------");
+        String telefono = "412-012-8423";
+        matcher = Pattern.compile("\\d{3}-\\d{3}-\\d{4}").matcher(telefono);
+        if (matcher.matches()){
+            System.out.println(matcher.group());
+        } else {
+            System.out.println("No válido");
+        }
+        System.out.println("Mayúsculas\n------------------");
+        String texto = "HOLA BUENAS A";
+        matcher = Pattern.compile("\\b[A-Z]\\w*").matcher(texto);
+        System.out.println(texto);
+        while (matcher.find()){
+            System.out.println("Se ha encontrado: " + matcher.group());
+        }
+        System.out.println("IP\n------------------");
+        String ip = "192.168.0.255";
+        matcher = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+").matcher(ip);
+        if (matcher.matches()){
+            Matcher octeto = Pattern.compile("\\d+").matcher(ip);
+            boolean valido = true;
+            while (octeto.find()){
+                if (Integer.parseInt(octeto.group()) > 255 || Integer.parseInt(octeto.group()) < 0){
+                    System.out.println("No válido");
+                    valido = false;
+                    break;
+                }
+            }
+            if (valido){
+                System.out.println("OK " + matcher.group());
+            }
+
+        } else {
+            System.out.println("No válido");
+        }
+
+    }
+}
