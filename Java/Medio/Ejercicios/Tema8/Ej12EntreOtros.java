@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Ej12EntreOtros {
     public static void main(String[] args) {
-        System.out.println("Correo electrónico\n------------------");
+        System.out.println("--------Correo electrónico----------");
         String email = "asdad@sdasd.adsa";
         Matcher matcher = Pattern.compile("\\w+@\\w+\\.\\w{2,}").matcher(email);
         if (matcher.matches()) {
@@ -13,7 +13,7 @@ public class Ej12EntreOtros {
         } else {
             System.out.println("No válido");
         }
-        System.out.println("Nº Teléfono\n------------------");
+        System.out.println("---------Nº Teléfono---------");
         String telefono = "412-012-8423";
         matcher = Pattern.compile("\\d{3}-\\d{3}-\\d{4}").matcher(telefono);
         if (matcher.matches()){
@@ -21,14 +21,14 @@ public class Ej12EntreOtros {
         } else {
             System.out.println("No válido");
         }
-        System.out.println("Mayúsculas\n------------------");
+        System.out.println("---------Mayúsculas---------");
         String texto = "HOLA BUENAS A";
         matcher = Pattern.compile("\\b[A-Z]\\w*").matcher(texto);
         System.out.println(texto);
         while (matcher.find()){
             System.out.println("Se ha encontrado: " + matcher.group());
         }
-        System.out.println("IP\n------------------");
+        System.out.println("--------IP----------");
         String ip = "192.168.0.255";
         matcher = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+").matcher(ip);
         if (matcher.matches()){
@@ -48,6 +48,11 @@ public class Ej12EntreOtros {
         } else {
             System.out.println("No válido");
         }
-
+        System.out.println("---------Fecha---------");
+        String fecha = "03/05/2007";
+        matcher = Pattern.compile("\\d{2}/\\d{2}/\\d{4}").matcher(fecha);
+        if (matcher.matches()){
+            //Matcher num = Pattern.
+        }
     }
 }
