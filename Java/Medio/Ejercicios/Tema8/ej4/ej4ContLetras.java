@@ -15,7 +15,10 @@ public class ej4ContLetras {
             ArrayList<Character> tipo = new ArrayList<>();
 
             while ((car = leer.read()) != -1){
-                if (car >= 65 && car <= 90 || car >= 97 && car <= 122){
+                if (car >= 65 && car <= 90){
+                    car += 32;
+                }
+                if (car >= 97 && car <= 122){
                     if (!tipo.contains((char) car)){
                         tipo.add((char) car);
                         cant.add(1);
