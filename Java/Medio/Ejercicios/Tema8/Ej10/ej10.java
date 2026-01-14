@@ -16,7 +16,7 @@ public class ej10 {
         System.out.println("<================>\nPor email \"yahoo\"\n<================>");
         buscar("@yahoo\\.");
         System.out.println("<================>\nPor ultimo login\n<================>");
-        buscar("2015-0[5-9]|2015-[10-12]");
+        buscar("2015-0[5-9]|2015-[10-12]|2016-[0-9]{2}|2017-0[1-2]");
 
 
     }
