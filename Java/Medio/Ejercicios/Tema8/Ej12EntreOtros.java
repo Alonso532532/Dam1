@@ -29,7 +29,8 @@ public class Ej12EntreOtros {
             System.out.println("Se ha encontrado: " + matcher.group());
         }
         System.out.println("--------IP----------");
-        String ip = "192.168.0.255";
+        System.out.println("MANERA 1");
+        String ip = "192.168.123.123";
         matcher = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+").matcher(ip);
         if (matcher.matches()){
             Matcher octeto = Pattern.compile("\\d+").matcher(ip);
@@ -47,6 +48,13 @@ public class Ej12EntreOtros {
 
         } else {
             System.out.println("No válido");
+        }
+        System.out.println("MANERA 2");
+        matcher = Pattern.compile("(25[0-4]|[01]\\d{0,2})(\\.25[0-4]|[01]\\d{0,2}){3}").matcher(ip);
+        if (matcher.matches()){
+            System.out.println("La ip es correcta");
+        } else {
+            System.out.println("La ip es incorrecta");
         }
         System.out.println("---------Fecha---------");
         String fecha = "03/05/2007";

@@ -10,17 +10,8 @@ public class Enemigo {
     int veneno;
     int armadura;
 
-    void atacar(){
-        int dano;
-        if (fuerza > 0 && debilidad == 0){
-            dano = (int)(ataque*1.25);
-        } else if (fuerza == 0 && debilidad > 0) {
-            dano = (int)(ataque*0.5);
-        } else {
-            dano = ataque;
-        }
-        System.out.println(nombre +" hace "+ dano +" de daño.");
-    }
+
+    //<========================| Aumentos de estadisticas |========================>\\
     void aumentarFuerza(int aumento){
         fuerza+=aumento;
     }
@@ -45,13 +36,67 @@ public class Enemigo {
     void aumentarSangrado(){
         sangrado++;
     }
+    //<========================| Reduccion de estadisticas |========================>\\
+    void reducirFuerza(int reduccion){
+        if (fuerza >= reduccion){
+            fuerza-=reduccion;
+        }
+    }
+    void reducirDebilidad(int reduccion){
+        if (debilidad >= reduccion){
+            debilidad-=reduccion;
+        }
+    }
+    void reducirVeneno(int reduccion){
+        if (veneno >= reduccion){
+            veneno-=reduccion;
+        }
+    }
+    void reducirSangrado(int reduccion){
+        if (sangrado >= reduccion){
+            sangrado-=reduccion;
+        }
+    }
+    void reducirFuerza(){
+        if (debilidad > 0){
+            debilidad--;
+        }
+    }
+    void reducirDebilidad(){
+        if (debilidad > 0){
+            debilidad--;
+        }
+    }
+    void reducirVeneno(){
+        if (veneno > 0){
+            veneno--;
+        }
+    }
+    void reducirSangrado(){
+        if (sangrado > 0){
+            sangrado--;
+        }
+    }
+    //<========================| Ataque basico |========================>\\
+    void atacar(){
+        int dano;
+        if (fuerza > 0 && debilidad == 0){
+            dano = (int)(ataque*1.25);
+        } else if (fuerza == 0 && debilidad > 0) {
+            dano = (int)(ataque*0.5);
+        } else {
+            dano = ataque;
+        }
+        System.out.println(nombre +" hace "+ dano +" de daño.");
+    }
+    //<========================| Terminar turno |========================>\\
     int terminarTurno(){
         vida-=sangrado+veneno;
         if (vida>0){
-            veneno--;
-            sangrado--;
-            fuerza--;
-            debilidad--;
+            reducirVeneno();
+            reducirSangrado();
+            reducirFuerza();
+            reducirDebilidad();
             return 1;
         } else {
             return 0;
