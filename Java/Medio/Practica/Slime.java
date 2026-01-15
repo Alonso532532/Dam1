@@ -13,6 +13,18 @@ public class Slime extends Enemigo {
         super.veneno = 0;
         super.armadura = armadura;
     }
+    public Slime(String nombre, int vida, int ataque, int armadura) {
+        super.nombre = nombre;
+        super.vida = vida;
+        super.vidaMax = vida;
+        super.ataque = ataque;
+        super.debilidad = 0;
+        super.fuerza = 0;
+        super.vulnerabilidad = 0;
+        super.sangrado = 0;
+        super.veneno = 0;
+        super.armadura = armadura;
+    }
     //<========================| Empezar turno |========================>\\
     void turno(Personaje personaje) throws InterruptedException {
         switch ((int)(Math.random()*4)){
