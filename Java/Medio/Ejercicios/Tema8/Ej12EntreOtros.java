@@ -28,7 +28,7 @@ public class Ej12EntreOtros {
         while (matcher.find()){
             System.out.println("Se ha encontrado: " + matcher.group());
         }
-        System.out.println("--------IP----------");
+        System.out.println("--------IP---------");
         System.out.println("MANERA 1");
         String ip = "255.89.25.1";
         matcher = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+").matcher(ip);
@@ -57,10 +57,30 @@ public class Ej12EntreOtros {
             System.out.println("La ip es incorrecta");
         }
         System.out.println("---------Fecha---------");
-        String fecha = "03/05/2007";
-        matcher = Pattern.compile("\\d{2}/\\d{2}/\\d{4}").matcher(fecha);
+        String fecha = "03/12/2007";
+        matcher = Pattern.compile("(3[01]|[0-2]\\d)/(1[0-2]|0\\d)/\\d{4}").matcher(fecha);
         if (matcher.matches()){
-            //Matcher num = Pattern.
+            System.out.println("La fecha es correcta");
+        } else {
+            System.out.println("La fecha es incorrecta");
         }
+        System.out.println("---------Contraseña---------");
+        String contrasena = "123123Aaa!a";
+        matcher = Pattern.compile("(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}").matcher(contrasena);
+        if (matcher.matches()){
+            System.out.println("La contraseña es correcta");
+        } else {
+            System.out.println("La contraseña es incorrecta");
+        }
+        System.out.println("---------Vocales---------");
+        String vocales = "Hola";
+        System.out.println(vocales.replaceAll("[aeiouAEIOU]", "*"));
+        System.out.println("---------Especiales---------");
+        String especiales = "Hola #mundo juanma hecproll%";
+        matcher = Pattern.compile("\\b.\\w*[@#$%^&+=!]\\w*").matcher(especiales);
+        while (matcher.find()){
+            System.out.println(matcher.group());
+        }
+
     }
 }

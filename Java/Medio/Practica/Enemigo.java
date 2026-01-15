@@ -12,6 +12,7 @@ public class Enemigo {
     int veneno;
     int armadura;
 
+    Modificadores mods = new Modificadores();
     //<========================| Aumentos de estadisticas |========================>\\
     void aumentarVida(int aumento){
         vida+=aumento;
@@ -103,8 +104,8 @@ public class Enemigo {
         }
     }
     void reducirFuerza(){
-        if (debilidad > 0){
-            debilidad--;
+        if (fuerza > 0){
+            fuerza--;
         }
     }
     void reducirDebilidad(){
@@ -197,11 +198,19 @@ public class Enemigo {
     //<========================| Ataque basico |========================>\\
     int atacar(){
         int dano = ataque;
+        int aumento = 0;
+        int reduccion = 0;
+
         if (fuerza > 0 && debilidad == 0){
-            dano *= 1.25;
+            aumento = (int) (dano * mods.getFuerza());
         } else if (fuerza == 0 && debilidad > 0) {
-            dano *= 0.5;
+            reduccion = (int) (dano * mods.getDebilidad());
         }
-        return dano;
+
+        return dano-reduccion+aumento;
+    }
+    //<========================| Ataque con mod |========================>\\
+    int atacar(int mod){
+        return atacar()+mod;
     }
 }
