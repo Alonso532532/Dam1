@@ -1,6 +1,6 @@
 package Java.Medio.Practica;
 
-public class Enemigo {
+public class Personaje {
     String nombre;
     int vida;
     int vidaMax;
@@ -11,6 +11,19 @@ public class Enemigo {
     int sangrado;
     int veneno;
     int armadura;
+
+    public Personaje(String nombre, int vida, int ataque, int armadura) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.vidaMax = vida;
+        this.ataque = ataque;
+        this.debilidad = 0;
+        this.fuerza = 0;
+        this.vulnerabilidad = 0;
+        this.sangrado = 0;
+        this.veneno = 0;
+        this.armadura = armadura;
+    }
 
     //<========================| Aumentos de estadisticas |========================>\\
     void aumentarVida(int aumento){
@@ -182,6 +195,7 @@ public class Enemigo {
     }
     //<========================| Recibir daño |========================>\\
     void recibirDano(int dano){
+        System.out.println("¡Recibes ["+dano+"] de daño!");
         if (armadura>0){
             if (armadura>=dano){
                 armadura-=dano;
@@ -193,15 +207,6 @@ public class Enemigo {
         } else {
             vida-=dano;
         }
-    }
-    //<========================| Ataque basico |========================>\\
-    int atacar(){
-        int dano = ataque;
-        if (fuerza > 0 && debilidad == 0){
-            dano *= 1.25;
-        } else if (fuerza == 0 && debilidad > 0) {
-            dano *= 0.5;
-        }
-        return dano;
+
     }
 }
