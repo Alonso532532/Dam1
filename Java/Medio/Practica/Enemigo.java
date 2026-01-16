@@ -13,6 +13,21 @@ public class Enemigo {
     int armadura;
 
     Modificadores mods = new Modificadores();
+    //<========================| Constructor |========================>\\
+
+    public Enemigo(int armadura, int veneno, int sangrado, int vulnerabilidad, int fuerza, int debilidad, int ataque, int vidaMax, int vida, String nombre) {
+        this.armadura = armadura;
+        this.veneno = veneno;
+        this.sangrado = sangrado;
+        this.vulnerabilidad = vulnerabilidad;
+        this.fuerza = fuerza;
+        this.debilidad = debilidad;
+        this.ataque = ataque;
+        this.vidaMax = vidaMax;
+        this.vida = vida;
+        this.nombre = nombre;
+    }
+
     //<========================| Aumentos de estadisticas |========================>\\
     void aumentarVida(int aumento){
         vida+=aumento;

@@ -11,8 +11,10 @@ public class Personaje {
     int sangrado;
     int veneno;
     int armadura;
+    int energia;
+    int energiaMax;
 
-    public Personaje(String nombre, int vida, int ataque, int armadura) {
+    public Personaje(String nombre, int vida, int ataque, int armadura, int energia, int energiaMax) {
         this.nombre = nombre;
         this.vida = vida;
         this.vidaMax = vida;
@@ -23,6 +25,8 @@ public class Personaje {
         this.sangrado = 0;
         this.veneno = 0;
         this.armadura = armadura;
+        this.energia = energia;
+        this.energiaMax = energiaMax;
     }
 
     //<========================| Aumentos de estadisticas |========================>\\
@@ -207,6 +211,11 @@ public class Personaje {
         } else {
             vida-=dano;
         }
-
+        if (vida <= 0){
+            terminarPartida();
+        }
+    }
+    void terminarPartida(){
+        System.out.println("Partida terminada");
     }
 }
