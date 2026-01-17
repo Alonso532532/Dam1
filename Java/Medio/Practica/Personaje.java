@@ -4,14 +4,14 @@ public class Personaje {
     String nombre;
     int vida;
     int vidaMax;
-    int ataque;
-    int debilidad;
-    int fuerza;
+    public int ataque;
+    public int debilidad;
+    public int fuerza;
     int vulnerabilidad;
     int sangrado;
     int veneno;
     int armadura;
-    int energia;
+    public int energia;
     int energiaMax;
 
     public Personaje(String nombre, int vida, int ataque, int armadura, int energia, int energiaMax) {
@@ -156,10 +156,6 @@ public class Personaje {
 
     public int getVidaMax() {
         return vidaMax;
-    }
-
-    public int getAtaque() {
-        return ataque;
     }
 
     public int getDebilidad() {

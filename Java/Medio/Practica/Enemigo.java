@@ -29,116 +29,116 @@ public class Enemigo {
     }
 
     //<========================| Aumentos de estadisticas |========================>\\
-    void aumentarVida(int aumento){
+    public void aumentarVida(int aumento){
         vida+=aumento;
     }
-    void aumentarVidaMax(int aumento){
+    public void aumentarVidaMax(int aumento){
         vidaMax+=aumento;
     }
-    void aumentarFuerza(int aumento){
+    public void aumentarFuerza(int aumento){
         fuerza+=aumento;
     }
-    void aumentarDebilidad(int aumento){
+    public void aumentarDebilidad(int aumento){
         debilidad+=aumento;
     }
-    void aumentarVulnerabilidad(int aumento){
+    public void aumentarVulnerabilidad(int aumento){
         vulnerabilidad+=aumento;
     }
-    void aumentarVeneno(int aumento){
+    public void aumentarVeneno(int aumento){
         veneno+=aumento;
     }
-    void aumentarSangrado(int aumento){
+    public void aumentarSangrado(int aumento){
         sangrado+=aumento;
     }
-    void aumentarVida(){
+    public void aumentarVida(){
         vida++;
     }
-    void aumentarVidaMax(){
+    public void aumentarVidaMax(){
         vidaMax++;
     }
-    void aumentarFuerza(){
+    public void aumentarFuerza(){
         fuerza++;
     }
-    void aumentarDebilidad(){
+    public void aumentarDebilidad(){
         debilidad++;
     }
-    void aumentarVulnerabilidad(){
+    public void aumentarVulnerabilidad(){
         vulnerabilidad++;
     }
-    void aumentarVeneno(){
+    public void aumentarVeneno(){
         veneno++;
     }
-    void aumentarSangrado(){
+    public void aumentarSangrado(){
         sangrado++;
     }
 
     //<========================| Reduccion de estadisticas |========================>\\
-    void reducirVida(int reduccion){
+    public void reducirVida(int reduccion){
         if (vida >= reduccion){
             vida-=reduccion;
         }
     }
-    void reducirVidaMax(int reduccion){
+    public void reducirVidaMax(int reduccion){
         if (vidaMax >= reduccion){
             vidaMax-=reduccion;
         }
     }
-    void reducirFuerza(int reduccion){
+    public void reducirFuerza(int reduccion){
         if (fuerza >= reduccion){
             fuerza-=reduccion;
         }
     }
-    void reducirDebilidad(int reduccion){
+    public void reducirDebilidad(int reduccion){
         if (debilidad >= reduccion){
             debilidad-=reduccion;
         }
     }
-    void reducirVulnerabilidad(int reduccion){
+    public void reducirVulnerabilidad(int reduccion){
         if (vulnerabilidad >= reduccion){
             vulnerabilidad-=reduccion;
         }
     }
-    void reducirVeneno(int reduccion){
+    public void reducirVeneno(int reduccion){
         if (veneno >= reduccion){
             veneno-=reduccion;
         }
     }
-    void reducirSangrado(int reduccion){
+    public void reducirSangrado(int reduccion){
         if (sangrado >= reduccion){
             sangrado-=reduccion;
         }
     }
-    void reducirVida(){
+    public void reducirVida(){
         if (vida > 0){
             vida--;
         }
     }
-    void reducirVidaMax(){
+    public void reducirVidaMax(){
         if (vidaMax > 0){
             vidaMax--;
         }
     }
-    void reducirFuerza(){
+    public void reducirFuerza(){
         if (fuerza > 0){
             fuerza--;
         }
     }
-    void reducirDebilidad(){
+    public void reducirDebilidad(){
         if (debilidad > 0){
             debilidad--;
         }
     }
-    void reducirVulnerabilidad(){
+    public void reducirVulnerabilidad(){
         if (vulnerabilidad > 0){
             vulnerabilidad--;
         }
     }
-    void reducirVeneno(){
+    public void reducirVeneno(){
         if (veneno > 0){
             veneno--;
         }
     }
-    void reducirSangrado(){
+    public void reducirSangrado(){
         if (sangrado > 0){
             sangrado--;
         }
@@ -186,7 +186,7 @@ public class Enemigo {
     }
 
     //<========================| Terminar turno |========================>\\
-    void terminarTurno(){
+    public void terminarTurno(){
         vida-=sangrado+veneno;
         if (vida>0){
             reducirVeneno();
@@ -197,7 +197,7 @@ public class Enemigo {
         }
     }
     //<========================| Recibir daño |========================>\\
-    void recibirDano(int dano){
+    public void recibirDano(int dano){
         if (armadura>0){
             if (armadura>=dano){
                 armadura-=dano;
@@ -211,7 +211,7 @@ public class Enemigo {
         }
     }
     //<========================| Ataque basico |========================>\\
-    int atacar(){
+    public int atacar(){
         int dano = ataque;
         int aumento = 0;
         int reduccion = 0;
@@ -225,7 +225,7 @@ public class Enemigo {
         return dano-reduccion+aumento;
     }
     //<========================| Ataque con mod |========================>\\
-    int atacar(int mod){
+    public int atacar(int mod){
         return atacar()+mod;
     }
 }
