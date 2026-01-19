@@ -1,7 +1,6 @@
-package Java.Medio.Practica;
+package Java.Medio.Rpg;
 
-import Java.Medio.Practica.Cartas.Ataque.Corte;
-import Java.Medio.Practica.Cartas.Carta;
+import Java.Medio.Rpg.Cartas.Ataque.Corte;
 
 public class Demo {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package Java.Medio.Practica;
+package Java.Medio.Rpg;
 
 public class Slime extends Enemigo {
     //<========================| Constructores |========================>\\

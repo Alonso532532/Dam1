@@ -1,7 +1,7 @@
-package Java.Medio.Practica.Cartas.Ataque;
-import Java.Medio.Practica.Cartas.CartaAtaque;
-import Java.Medio.Practica.Enemigo;
-import Java.Medio.Practica.Personaje;
+package Java.Medio.Rpg.Cartas.Ataque;
+import Java.Medio.Rpg.Cartas.CartaAtaque;
+import Java.Medio.Rpg.Enemigo;
+import Java.Medio.Rpg.Personaje;
 
 public class Corte extends CartaAtaque {
     //<========================| Constructor básico |========================>\\

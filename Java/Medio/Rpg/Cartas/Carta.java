@@ -1,6 +1,6 @@
-package Java.Medio.Practica.Cartas;
+package Java.Medio.Rpg.Cartas;
 
-import Java.Medio.Practica.Personaje;
+import Java.Medio.Rpg.Personaje;
 
 public class Carta {
     public String nombre;

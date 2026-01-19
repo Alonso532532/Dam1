@@ -1,6 +1,6 @@
-package Java.Medio.Practica.Cartas;
+package Java.Medio.Rpg.Cartas;
 
-import Java.Medio.Practica.Personaje;
+import Java.Medio.Rpg.Personaje;
 
 public class CartaAtaque extends Carta {
     public CartaAtaque(int dano, int coste, String estilo, String nombre, boolean mejorada, Personaje personaje) {
