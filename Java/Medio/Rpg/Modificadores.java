@@ -1,4 +1,4 @@
-package Java.Medio.Practica;
+package Java.Medio.Rpg;
 
 public class Modificadores {
     double fuerza = 0.25;

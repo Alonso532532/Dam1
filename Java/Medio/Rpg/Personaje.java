@@ -1,18 +1,34 @@
-package Java.Medio.Practica;
+package Java.Medio.Rpg;
 
-public class Enemigo {
+public class Personaje {
     String nombre;
     int vida;
     int vidaMax;
-    int ataque;
-    int debilidad;
-    int fuerza;
+    public int ataque;
+    public int debilidad;
+    public int fuerza;
     int vulnerabilidad;
     int sangrado;
     int veneno;
     int armadura;
+    public int energia;
+    int energiaMax;
 
-    Modificadores mods = new Modificadores();
+    public Personaje(String nombre, int vida, int ataque, int armadura, int energia, int energiaMax) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.vidaMax = vida;
+        this.ataque = ataque;
+        this.debilidad = 0;
+        this.fuerza = 0;
+        this.vulnerabilidad = 0;
+        this.sangrado = 0;
+        this.veneno = 0;
+        this.armadura = armadura;
+        this.energia = energia;
+        this.energiaMax = energiaMax;
+    }
+
     //<========================| Aumentos de estadisticas |========================>\\
     void aumentarVida(int aumento){
         vida+=aumento;
@@ -104,8 +120,8 @@ public class Enemigo {
         }
     }
     void reducirFuerza(){
-        if (fuerza > 0){
-            fuerza--;
+        if (debilidad > 0){
+            debilidad--;
         }
     }
     void reducirDebilidad(){
@@ -140,10 +156,6 @@ public class Enemigo {
 
     public int getVidaMax() {
         return vidaMax;
-    }
-
-    public int getAtaque() {
-        return ataque;
     }
 
     public int getDebilidad() {
@@ -183,6 +195,7 @@ public class Enemigo {
     }
     //<========================| Recibir daño |========================>\\
     void recibirDano(int dano){
+        System.out.println("¡Recibes ["+dano+"] de daño!");
         if (armadura>0){
             if (armadura>=dano){
                 armadura-=dano;
@@ -194,23 +207,11 @@ public class Enemigo {
         } else {
             vida-=dano;
         }
-    }
-    //<========================| Ataque basico |========================>\\
-    int atacar(){
-        int dano = ataque;
-        int aumento = 0;
-        int reduccion = 0;
-
-        if (fuerza > 0 && debilidad == 0){
-            aumento = (int) (dano * mods.getFuerza());
-        } else if (fuerza == 0 && debilidad > 0) {
-            reduccion = (int) (dano * mods.getDebilidad());
+        if (vida <= 0){
+            terminarPartida();
         }
-
-        return dano-reduccion+aumento;
     }
-    //<========================| Ataque con mod |========================>\\
-    int atacar(int mod){
-        return atacar()+mod;
+    void terminarPartida(){
+        System.out.println("Partida terminada");
     }
 }

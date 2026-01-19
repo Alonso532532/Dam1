@@ -24,5 +24,25 @@ CREATE TABLE AUTORES(
 	fecha_fallecimiento DATE,
 	biografia TEXT,
 	permisos VARCHAR(200),
-	CONSTRAINT ck_fechaFallecimientoFechaNacimiento CHECK (fecha_fallecimiento>fecha_nacimiento)
+	CONSTRAINT ck_fechaFallecimientoFechaNacimiento CHECK (fecha_fallecimiento IS NULL AND (fecha_fallecimiento>fecha_nacimiento))
+);
+
+CREATE TABLE LIBROS(
+	isbn VARCHAR(17) PRIMARY KEY,
+	titulo VARCHAR(150) NOT NULL,
+	anio_publicacion INT(4),
+	num_paginas INT,
+	idioma VARCHAR(20),
+	genero VARCHAR(30) NOT NULL,
+	formato VARCHAR(15) DEFAULT 'DIGITAL',
+	precio_compra DECIMAL(6,2),
+	dispone CHAR(1) DEFAULT 'S', --
+	cif_editorial VARCHAR(12), --
+	CONSTRAINT ck_anioPublicacion CHECK (anio_publicacion BETWEEN 1000 AND 2027);
+	CONSTRAINT ck_numPaginas CHECK (num_paginas>0);
+	CONSTRAINT ck_idioma CHECK (idioma IN ('ESPAÑOL', 'INGLES', 'FRANCES', 'ALEMAN', 'ITALIANO', 'PORTUGUES'));
+	CONSTRAINT ck_formato CHECK (formato IN ('DIGITAL', 'FISICO', 'AMBOS'));
+	CONSTRAINT ck_precioCompra CHECK (precio_compra>0);
+	CONSTRAINT ck_dispone CHECK (dispone IN ('N', 'S'));
+	CONSTRAINT fk_cifEditorial FOREIGN KEY cif_editorial REFERENCES EDITORIALES(cif) ON DELETE RESTRICT;
 );

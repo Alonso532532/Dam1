@@ -1,29 +1,22 @@
-package Java.Medio.Practica;
+package Java.Medio.Rpg;
 
 public class Slime extends Enemigo {
-    public Slime(int vida, int ataque, int armadura) {
-        super.nombre = "Slime";
-        super.vida = vida;
-        super.vidaMax = vida;
-        super.ataque = ataque;
-        super.debilidad = 0;
-        super.fuerza = 0;
-        super.vulnerabilidad = 0;
-        super.sangrado = 0;
-        super.veneno = 0;
-        super.armadura = armadura;
+    //<========================| Constructores |========================>\\
+
+    public Slime(int armadura, int veneno, int sangrado, int vulnerabilidad, int fuerza, int debilidad, int ataque, int vidaMax, int vida) {
+        super(armadura, veneno, sangrado, vulnerabilidad, fuerza, debilidad, ataque, vidaMax, vida, "Slime");
     }
-    public Slime(String nombre, int vida, int ataque, int armadura) {
-        super.nombre = nombre;
-        super.vida = vida;
-        super.vidaMax = vida;
-        super.ataque = ataque;
-        super.debilidad = 0;
-        super.fuerza = 0;
-        super.vulnerabilidad = 0;
-        super.sangrado = 0;
-        super.veneno = 0;
-        super.armadura = armadura;
+
+    public Slime(int armadura, int veneno, int sangrado, int vulnerabilidad, int fuerza, int debilidad, int ataque, int vidaMax, int vida, String nombre) {
+        super(armadura, veneno, sangrado, vulnerabilidad, fuerza, debilidad, ataque, vidaMax, vida, nombre);
+    }
+
+    public Slime(String nombre, int vidaMax , int vida, int ataque, int armadura) {
+        super(armadura, 0, 0, 0, 0, 0, ataque, vidaMax, vida, nombre);
+    }
+
+    public Slime(int vidaMax , int vida, int ataque, int armadura) {
+        super(armadura, 0, 0, 0, 0, 0, ataque, vidaMax, vida, "Slime");
     }
     //<========================| Empezar turno |========================>\\
     void turno(Personaje personaje) throws InterruptedException {
