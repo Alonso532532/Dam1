@@ -17,11 +17,14 @@ public class Modificar {
             }
             Files.createFile(archivo1.toPath());
             System.out.println(archivo1.toPath().getFileName().toString().substring(archivo1.toPath().getFileName().toString().lastIndexOf(".")+1));
-            Files.write(archivo1.toPath(), ("Hola buenas\nTardes").getBytes());
+
+            Files.write(archivo1.toPath(), ("Hola Þbuenas\nTardes").getBytes());
             System.out.println("Contenido del archivo");
+
             for (int i : Files.readAllBytes(archivo1.toPath())) {
                 System.out.print((char)i);
             }
+
             System.out.println();
         } catch (IOException e){
             System.out.println("Archvo no encontrado en parte 1");

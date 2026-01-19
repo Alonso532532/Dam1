@@ -65,7 +65,7 @@ public class Ej12EntreOtros {
             System.out.println("La fecha es incorrecta");
         }
         System.out.println("---------Contraseña---------");
-        String contrasena = "123123Aaa!a";
+        String contrasena = "123122Aaa!a";
         matcher = Pattern.compile("(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}").matcher(contrasena);
         if (matcher.matches()){
             System.out.println("La contraseña es correcta");
@@ -77,7 +77,7 @@ public class Ej12EntreOtros {
         System.out.println(vocales.replaceAll("[aeiouAEIOU]", "*"));
         System.out.println("---------Especiales---------");
         String especiales = "Hola #mundo juanma hecproll%";
-        matcher = Pattern.compile("\\b.\\w*[@#$%^&+=!]\\w*").matcher(especiales);
+        matcher = Pattern.compile("\\w*[@#$%^&+=!]\\w*").matcher(especiales);
         while (matcher.find()){
             System.out.println(matcher.group());
         }
