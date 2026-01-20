@@ -80,7 +80,7 @@ CREATE TABLE PRESTAMOS(
 	fecha_prestamo DATETIME DEFAULT NOW() NOT NULL,
 	fecha_devolucion_prevista DATE NOT NULL,
 	fecha_devolucion_real DATE,
-	estado VARCHAR(20) DEFAULT 'EN_PRESTAMO', --
+	estado VARCHAR(20) DEFAULT 'EN_PRESTAMO',
 	renovaciones INT DEFAULT 0,
 	CONSTRAINT fk_numSocio FOREIGN KEY (num_socio) REFERENCES SOCIOS (num_socio),
 	CONSTRAINT fk_isbn_prestamos FOREIGN KEY (isbn) REFERENCES LIBROS (isbn),
@@ -97,3 +97,13 @@ ALTER TABLE LIBROS ADD valoracion_media DECIMAL(4,2), ADD CONSTRAINT ck_valoraci
 ALTER TABLE SOCIOS DROP CONSTRAINT ck_penalizaciones, ADD CONSTRAINT ck_penalizaciones CHECK (penalizaciones BETWEEN 0 AND 20);
 
 ALTER TABLE PRESTAMOS ADD observaciones VARCHAR(300);
+
+ALTER TABLE SOCIOS DROP CONSTRAINT ck_tipoSocio, ADD CONSTRAINT ck_tipoSocio CHECK (tipo_socio IN ('BASICO', 'PREMIUM', 'VIP', 'CORPORATIVO'));
+
+ALTER TABLE EDITORIALES DROP web;
+
+-- 21 ???
+
+ALTER TABLE SOCIOS ADD descuento_socio INT(3), ADD CONSTRAINT ck_descuentoSocio CHECK (descuento_socio BETWEEN 0 AND 50);
+
+ALTER TABLE SOCIOS ADD CONSTRAINT ck_vip CHECK (tipo_socio='VIP' AND cuota_pagada='S');
