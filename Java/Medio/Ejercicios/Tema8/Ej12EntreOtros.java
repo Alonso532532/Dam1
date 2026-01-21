@@ -65,10 +65,10 @@ public class Ej12EntreOtros {
             System.out.println("La fecha es incorrecta");
         }
         System.out.println("---------Contraseña---------");
-        String contrasena = "123122Aaa!a";
-        matcher = Pattern.compile("(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}").matcher(contrasena);
-        if (matcher.matches()){
-            System.out.println("La contraseña es correcta");
+        String contrasena = "123122aa!As";
+        matcher = Pattern.compile("(?=\\S*[A-Z])(?=\\S*\\d)(?=\\S*[@#$%^&+=!])\\S{8,}").matcher(contrasena);
+        if (matcher.find()){
+            System.out.println("La contraseña es correcta: "+matcher.group());
         } else {
             System.out.println("La contraseña es incorrecta");
         }
@@ -81,6 +81,7 @@ public class Ej12EntreOtros {
         while (matcher.find()){
             System.out.println(matcher.group());
         }
-
     }
+
+
 }
