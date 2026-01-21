@@ -1,3 +1,3 @@
 En Java, la clase base para trabajar con flujos de bytes es InputStream (para entrada) y
 OutputStream (para salida). Estas clases se utilizan como punto de partida para flujos
-relacionados con archivos,{.ãwWzO%ÉÌ
+relacionados con archivos,{.ãwWzO%ÉÌú

@@ -12,7 +12,7 @@ public class Regex {
         String texto2 = "lHao";
         Matcher hola = Pattern.compile("(?=.*[hH])(?=.*[oO])(?=.*[lL])(?=.*[aA]).{4,}").matcher(texto2);
         comprobar(hola);
-        String texto3 = "Un flujo es un mecanismo que permite realizar operaciones de entrada y salida de datos (I/O), " +
+        String texto3 = "Un flujo es un m.ecanismo que permite realizar operaciones de entrada y salida de datos (I/O), " +
                 "de manera secuencial, " +
                 "entre un origen de datos (data source) y un destino de datos (data sink).\n";
         Matcher palabras = Pattern.compile("\\b\\S+").matcher(texto3);
