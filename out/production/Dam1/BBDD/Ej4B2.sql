@@ -4,15 +4,6 @@ CREATE DATABASE CLINICA;
 
 USE CLINICA;
 
-CREATE TABLE UNIDAD(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	nombre VARCHAR(20) NOT NULL UNIQUE,
-	planta INT,
-	codigo INT,
-	CONSTRAINT fk_codigo FOREIGN KEY (codigo) REFERENCES DOCTOR (cofigo) ON DELETE CASCADE,
-	CONSTRAINT ck_nombre CHECK (nombre IN ('trauma', 'quemados', 'interna', 'corazón'))
-);
-
 CREATE TABLE DOCTOR(
 	codigo INT PRIMARY KEY,
 	nombre VARCHAR(20) NOT NULL,
@@ -20,13 +11,22 @@ CREATE TABLE DOCTOR(
 	CONSTRAINT ck_nombre CHECK (nombre = UPPER(nombre))
 );
 
+CREATE TABLE UNIDAD(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(20) NOT NULL UNIQUE,
+	planta INT,
+	codigo INT,
+	CONSTRAINT fk_codigo FOREIGN KEY (codigo) REFERENCES DOCTOR (codigo) ON DELETE CASCADE,
+	CONSTRAINT ck_nombre_unidad CHECK (nombre IN ('trauma', 'quemados', 'interna', 'corazón'))
+);
+
 CREATE TABLE PACIENTE(
 	nuss VARCHAR(9) PRIMARY KEY,
 	nombre VARCHAR(20),
 	edad INT(2), 
-	id_unidad INT,
+	id_unidad INT DEFAULT 1002,
 	fecha_ingreso DATE,
-	CONSTRAINT fk_idUnidad FOREIGN KEY (id_unidad) REFERENCES UNIDAD (id) ON DELETE SET 1002,
+	CONSTRAINT fk_idUnidad FOREIGN KEY (id_unidad) REFERENCES UNIDAD (id) ON DELETE SET DEFAULT,
 	CONSTRAINT ck_edad CHECK (edad BETWEEN 5 AND 80),
 	CONSTRAINT ck_fechaIngreso CHECK (fecha_ingreso>'2010-01-01')
 );
