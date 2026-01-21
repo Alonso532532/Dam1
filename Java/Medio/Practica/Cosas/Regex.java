@@ -10,7 +10,7 @@ public class Regex {
         Matcher numero = Pattern.compile("1500|1[0-4]\\d{2}|\\d{1,3}").matcher(texto);
         comprobar(numero);
         String texto2 = "lHao";
-        Matcher hola = Pattern.compile("(?=.*[hH])(?=.*[oO])(?=.*[lL])(?=.*[aA]).{4,}").matcher(texto2);
+        Matcher hola = Pattern.compile("(?=.*[hH])(?=.*[oO])(?=.*[lL])(?=.*[aA])\\w{4,}").matcher(texto2);
         comprobar(hola);
         String texto3 = "Un flujo es un m.ecanismo que permite realizar operaciones de entrada y salida de datos (I/O), " +
                 "de manera secuencial, " +

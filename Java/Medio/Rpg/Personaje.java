@@ -1,5 +1,9 @@
 package Java.Medio.Rpg;
 
+import Java.Medio.Rpg.Cartas.Carta;
+
+import java.util.ArrayList;
+
 public class Personaje {
     String nombre;
     int vida;
@@ -13,6 +17,8 @@ public class Personaje {
     int armadura;
     public int energia;
     int energiaMax;
+    Carta[] mano = new Carta[6];
+    ArrayList<Carta> mazo = new ArrayList<>();
 
     public Personaje(String nombre, int vida, int ataque, int armadura, int energia, int energiaMax) {
         this.nombre = nombre;
@@ -182,6 +188,14 @@ public class Personaje {
         return armadura;
     }
 
+    public ArrayList<Carta> getMazo() {
+        return mazo;
+    }
+
+    public Carta[] getMano() {
+        return mano;
+    }
+
     //<========================| Terminar turno |========================>\\
     void terminarTurno(){
         vida-=sangrado+veneno;
@@ -213,5 +227,9 @@ public class Personaje {
     }
     void terminarPartida(){
         System.out.println("Partida terminada");
+    }
+    //<========================| Cartas |========================>\\
+    void anadirCarta(){
+
     }
 }
