@@ -1,0 +1,32 @@
+• \d: Cualquier dígito.
+• \w: Cualquier letra, número o guion bajo.
+• .: Cualquier carácter (excepto salto de línea).
+• ^: Inicio de la cadena.
+• $: Fin de la cadena.
+• *: Cero o más repeticiones.
+• +: Una o más repeticiones.
+• []: Corchetes para definir un conjunto de caracteres (por ejemplo, [a-z]).
+• (): Paréntesis para agrupar expresiones.
+• a: Coincide exactamente con el carácter a.
+• [abc]: Coincide con cualquiera de los caracteres a, b o c.
+• [a-z]: Coincide con cualquier letra minúscula entre a y z.
+• [A-Za-z]: Coincide con cualquier letra mayúscula o minúscula entre A-Z o a-z.
+• [0-9]: Coincide con cualquier dígito entre 0 y 9.
+• A?: Coincide con el carácter A, una vez o ninguna vez.
+• A*: Coincide con el carácter A, cero o más veces.
+• A+: Coincide con el carácter A, una o más veces.
+• A{2}: Coincide con exactamente dos veces el carácter A.
+• A{3,}: Coincide con tres o más veces el carácter A.
+• A{2,4}: Coincide con entre 2 y 4 veces el carácter A.
+• [a-z]{1,4}[0-9]+: Coincide con entre 1 y 4 letras minúsculas, seguido de uno o más dígitos.
+• [^abc]: Coincide con cualquier carácter que no sea a, b o c.
+• .: Coincide con cualquier carácter, excepto el salto de línea.
+• \d: Coincide con cualquier dígito (equivalente a [0-9]).
+• \D: Coincide con cualquier carácter que no sea un dígito (equivalente a [^0-9]).
+• \s: Coincide con un espacio en blanco (incluye espacios, tabulaciones, saltos de línea, etc.).
+• \S: Coincide con cualquier carácter que no sea un espacio en blanco.
+• \w: Coincide con cualquier carácter de palabra (letras, dígitos, y guion bajo: [a-zA-Z_0-9]).
+• \W: Coincide con cualquier carácter que no sea de una palabra (cualquier cosa que no sea alfanumérica o guion bajo).
+• X|Y: Coincide con X o Y. Por ejemplo, a|b coincidirá con a o b.
+• \b: Coincide con un límite de palabra (el borde de una palabra).
+• \B: Coincide con cualquier lugar que no sea un límite de palabra.

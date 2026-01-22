@@ -17,7 +17,9 @@ public class ej10 {
         System.out.println("<================>\nPor email \"yahoo\"\n<================>");
         buscar("@yahoo\\.");
         System.out.println("<================>\nPor ultimo login\n<================>");
-        buscar("2015-0[5-9]|2015-[10-12]|2016-[0-9]{2}|2017-0[1-2]");
+        buscar("2015-0[5-9]|2015-1[0-2]|2016-[0-9]{2}|2016-1[0-2]|2017-0[1-2]");
+        System.out.println("<================>\nPor nombre\n<================>");
+        buscar("\\d+,Clem");
     }
     static void buscar(String rejex){
         try (BufferedReader br = new BufferedReader(new FileReader("Java/Medio/Ejercicios/Tema8/Ej10/DATA.csv"))){
