@@ -10,9 +10,12 @@ public class regex {
                 blandit ultricies. Nulla eget lacinia nisi. Fusce ut erat venenatis, fermentum felis ac, dapibus ipsum. Morbi posuere dignissim convallis
                 Aenean viverra augue eu mauris tristique, eget lacinia quam efficitur. amam amAl Maecenas euismod maximus aliquam. Integer gravida elit id tempus
                 """;
-        Matcher cosa = Pattern.compile("").matcher(texto);
+        Matcher cosa = Pattern.compile("\\S+").matcher(texto);
+        int contador =0;
         while (cosa.find()){
             System.out.println(cosa.group());
+            contador++;
         }
+        System.out.println(contador);
     }
 }
