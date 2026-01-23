@@ -2,7 +2,7 @@ package Java.Medio.Rpg;
 
 import Java.Medio.Rpg.Cartas.Ataque.Corte;
 
-public class Demo {
+public class RPG {
     public static void main(String[] args) throws InterruptedException {
         Slime enemigo1 = new Slime("Slime1", 38, 38, 12, 0);
         Personaje personaje = new Personaje("Hecproll", 100, 0, 0, 3, 3);

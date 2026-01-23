@@ -1,9 +1,9 @@
 package Java.Medio.Rpg.Cartas.Ataque;
-import Java.Medio.Rpg.Cartas.CartaAtaque;
+import Java.Medio.Rpg.Cartas.Carta;
 import Java.Medio.Rpg.Enemigo;
 import Java.Medio.Rpg.Personaje;
 
-public class Corte extends CartaAtaque {
+public class Corte extends Carta {
     //<========================| Constructor básico |========================>\\
     public Corte(String estilo, boolean mejorada, Personaje personaje) {
         super(12, 1, estilo, "Corte", mejorada, personaje);

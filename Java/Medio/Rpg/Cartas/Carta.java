@@ -1,5 +1,6 @@
 package Java.Medio.Rpg.Cartas;
 
+import Java.Medio.Rpg.Enemigo;
 import Java.Medio.Rpg.Personaje;
 
 public class Carta {
@@ -19,4 +20,12 @@ public class Carta {
         this.personaje = personaje;
     }
 
+    public void accion(Enemigo objetivo){
+
+        if (!mejorada){
+            objetivo.recibirDano(dano);
+        } else {
+            objetivo.recibirDano(dano);
+        }
+    }
 }
