@@ -1,0 +1,40 @@
+DROP DATABASE IF EXISTS MULTAS;
+
+CREATE DATABASE MULTAS;
+
+USE MULTAS;
+
+CREATE TABLE PERSONA(
+	dni CHAR(9) PRIMARY KEY,
+	nombre VARCHAR(20),
+	dir VARCHAR(20),
+	cp INT(5),
+	CONSTRAINT ck_cp CHECK (cp BETWEEN 44000 AND 44999)
+);
+
+CREATE TABLE VEHICULO(
+	matricula CHAR(7) PRIMARY KEY,
+	propietario CHAR(9),
+	fecha_compra DATE,
+	CONSTRAINT fk_propietario_vehiculo FOREIGN KEY (propietario) REFERENCES PERSONA (dni) ON DELETE CASCADE
+);
+
+CREATE TABLE MULTA(
+	vehiculo CHAR(7),
+	propietario CHAR(9),
+	fecha DATE,
+	euros DOUBLE(10,2),
+	CONSTRAINT pk_multa PRIMARY KEY (vehiculo, propietario, fecha),
+	CONSTRAINT fk_propietario FOREIGN KEY (propietario) REFERENCES PERSONA (dni) ON DELETE CASCADE,
+	CONSTRAINT fk_vehiculo FOREIGN KEY (vehiculo) REFERENCES VEHICULO (matricula),
+	CONSTRAINT ck_fecha CHECK (fecha > '2010-01-01'),
+	CONSTRAINT nn_fecha CHECK (fecha IS NOT NULL)
+);
+
+ALTER TABLE PERSONA MODIFY dir VARCHAR(50);
+
+ALTER TABLE PERSONA ADD CONSTRAINT ck_nombre CHECK (nombre = UPPER (nombre));
+
+ALTER TABLE PERSONA ADD sexo CHAR(2), ADD CONSTRAINT ck_sexo CHECK (sexo IN ('M', 'F', 'SD'));
+
+ALTER TABLE PERSONA DROP sexo, DROP CONSTRAINT ck_sexo;
