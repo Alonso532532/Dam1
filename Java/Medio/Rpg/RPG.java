@@ -16,6 +16,7 @@ public class RPG {
         System.out.println("Introduce las acciónes por la linea de comandos");
         System.out.print("└─> ");
         sc.nextLine();
+        impInicio();
     }
 
     static void impInicio(){
@@ -24,6 +25,23 @@ public class RPG {
                     ╔════════════════╗
                     ║ Presiona ENTER ║
                     ╚════════════════╝
+                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┃                                                                                           ┃
+                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """;
             escribir.write(inicio);
         }catch (IOException e){
