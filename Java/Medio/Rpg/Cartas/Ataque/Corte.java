@@ -1,6 +1,5 @@
 package Java.Medio.Rpg.Cartas.Ataque;
 import Java.Medio.Rpg.Cartas.Carta;
-import Java.Medio.Rpg.Enemigo;
 import Java.Medio.Rpg.Personaje;
 
 public class Corte extends Carta {
@@ -11,14 +10,5 @@ public class Corte extends Carta {
     //<========================| Constructor completo |========================>\\
     public Corte(int dano, int coste, String estilo, String nombre, boolean mejorada, Personaje personaje) {
         super(dano, coste, estilo, nombre, mejorada, personaje);
-    }
-
-    public void accion(Enemigo objetivo){
-
-        if (!mejorada){
-            objetivo.recibirDano(dano);
-        } else {
-            objetivo.recibirDano(dano);
-        }
     }
 }
