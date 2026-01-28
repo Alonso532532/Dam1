@@ -12,14 +12,7 @@ import java.util.Scanner;
 public class RPG {
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
-        impInicio();
-        System.out.println("Introduce las acciónes por la linea de comandos");
-        System.out.print("└─> ");
-        sc.nextLine();
-        impInicio();
-    }
-
-    static void impInicio(){
+//        impInicio();
         try (BufferedWriter escribir = new BufferedWriter(new FileWriter("Java/Medio/Rpg/Pantalla.txt"))){
             String inicio = """
                     ╔════════════════╗
@@ -47,5 +40,39 @@ public class RPG {
         }catch (IOException e){
             System.out.println("Pantalla no encontrada");
         }
+        System.out.println("Introduce las acciónes por la linea de comandos");
+        System.out.print("└─> ");
+        sc.nextLine();
+
+    }
+
+    static void impInicio(){
+//        try (BufferedWriter escribir = new BufferedWriter(new FileWriter("Java/Medio/Rpg/Pantalla.txt"))){
+//            String inicio = """
+//                    ╔════════════════╗
+//                    ║ Presiona ENTER ║
+//                    ╚════════════════╝
+//                    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┃                                                                                           ┃
+//                    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//                    """;
+//            escribir.write(inicio);
+//        }catch (IOException e){
+//            System.out.println("Pantalla no encontrada");
+//        }
     }
 }
