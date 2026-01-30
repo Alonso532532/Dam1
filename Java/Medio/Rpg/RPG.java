@@ -107,7 +107,11 @@ public class RPG {
             }
             for (int j = 0; j < 3; j++){
                 String sala = "□";
+                int tipo = (int) (Math.random()*4);
+                if (i > 2 && tipo == 0) sala = "■";
+                if (i > 1 && tipo == 1) sala = "?";
                 if (i == 4) sala = "◈";
+                if (i == 8) sala = "◆";
                 if (salas[i][j] != 0) {
                     pantalla[salas[i][j]] = new StringBuilder(pantalla[salas[i][j]]).replace((i+1)*10, (i+1)*10+1, sala).toString();
                 }
