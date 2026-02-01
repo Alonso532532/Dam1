@@ -111,16 +111,29 @@ public class RPG {
                                 caminos[a] = true;
                             }
                         }
-                        switch ((int)(Math.random()*4)) {
-                            case 0,1:
-                                tipo = "Combate: □";
-                                break;
-                            case 2:
-                                tipo = "Elite: ■";
-                                break;
-                            case 3:
-                                tipo = "Curio: ?";
-                                break;
+                        if (i == 1){
+                            tipo = "Combate: □";
+                        } else if (i == 2){
+                            switch ((int)(Math.random()*4)) {
+                                case 0,1,2:
+                                    tipo = "Combate: □";
+                                    break;
+                                case 3:
+                                    tipo = "Curio: ?";
+                                    break;
+                            }
+                        } else {
+                            switch ((int)(Math.random()*4)) {
+                                case 0,1:
+                                    tipo = "Combate: □";
+                                    break;
+                                case 2:
+                                    tipo = "Elite: ■";
+                                    break;
+                                case 3:
+                                    tipo = "Curio: ?";
+                                    break;
+                            }
                         }
                         if (i == 4) tipo = "Tienda: ◈";
                         salas[i][j] = new Sala((i+1)*10, (j+1)*3+1-((int) (Math.random() * 2)), tipo, caminos);
