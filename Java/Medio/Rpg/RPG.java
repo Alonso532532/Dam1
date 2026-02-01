@@ -172,7 +172,6 @@ public class RPG {
 
             } else {
                 System.out.println(pantalla[i]);
-
             }
         }
     }
