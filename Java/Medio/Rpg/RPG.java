@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class RPG {
     static Sala[][] salas = new Sala[9][3];
     static String[] mapa = new String[14];
+    static int contMapa = 0;
     static String[] pantalla = """
                     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
                     ┃                                                                                                    ┃
@@ -30,11 +31,13 @@ public class RPG {
                     ┃                                                                                                    ┃
                     ┃                                                                                                    ┃
                     ┃                                                                                                    ┃
-                    ┃                                                                                                    ┃
+                    ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
                     ┃                                                                                                    ┃
                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                     """.split("\n");
+    static Personaje personaje = new Personaje("Hecproll", 100, 0, 0, 3, 3);
     public static void main(String[] args) throws InterruptedException {
+        generarMapa();
         Scanner sc = new Scanner(System.in);
         String op;
         // 102x25 parte externa
@@ -45,10 +48,10 @@ public class RPG {
         for (String i : pantalla){
             System.out.println(i);
         }
-        generarMapa();
-        mostrarMapa();
+
         System.out.print("┗─> ");
         sc.nextLine();
+        mostrarMapa();
     }
 
     // <================================== | BORRAR | ==================================> \\
@@ -75,8 +78,10 @@ public class RPG {
                 mapa[i] = "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓";
             } else if (i == 13) {
                 mapa[i] = "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫";
-            } else if (i == 1 || i == 12) {
-                mapa[i] = "┃▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░         ⮘    ⮚        ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒┃";
+            } else if (i == 1) {
+                mapa[i] = "┃▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       ⮘ MAPA "+ contMapa +" ⮚      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒┃";
+            } else if (i == 12) {
+                mapa[i] = "┃▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░       ⮘        ⮚      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒┃";
             } else if (i == 2 || i == 11) {
                 mapa[i] = "┃▒▒▒▒░░░░░░░░░░░                                                                      ░░░░░░░░░░░▒▒▒▒┃";
             } else if (i == 3 || i == 10) {
@@ -154,10 +159,20 @@ public class RPG {
     }
     static void mostrarMapa(){
         for (int i = 0; i < 25; i++){
-            if (i < 14){
+            if (i <= 14){
                 System.out.println(mapa[i]);
+            } else if (i < 22){
+                String[] textos = {"Inicio - ◇", "Combate - □", "Curio - ?", "Elite - ■", "Tienda - ◈", "Boss - ◆", "", ""};
+                int inicio = 51 - textos[i-14].length()/2;
+                if (textos[i-14].length()%2==1){
+                    int fin = 52 + textos[i-14].length()/2;
+                } else {
+                    int fin = 51 + textos[i-14].length()/2;
+                }
+
             } else {
                 System.out.println(pantalla[i]);
+
             }
         }
     }
