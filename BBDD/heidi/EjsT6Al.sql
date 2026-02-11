@@ -40,4 +40,37 @@ SELECT nomdep FROM departamento WHERE nomdep LIKE '%Zona%';
 -- 19
 SELECT nomemp, salemp FROM empleado WHERE (nomemp LIKE 'M%' OR 'F%') AND salemp > 3000000;
 -- 20
-SELECT * FROM empleado WHERE (YEAR(fecnaemp) BETWEEN 1970 AND 1979) AND (coddep NOT LIKE 'PROZS') AND (nomemp LIKE '%ar%' OR nomemp LIKE '%o') AND (salemp > 3000000);
+SELECT * FROM empleado WHERE 
+	(YEAR(fecnaemp) BETWEEN 1970 AND 1979) AND 
+	(coddep NOT LIKE 'PROZS') AND 
+	(nomemp LIKE '%ar%' OR nomemp LIKE '%o') AND 
+	(salemp > 3000000);
+-- Subconsultas
+-- 1
+SELECT nomemp, salemp FROM empleado WHERE salemp > 
+	(SELECT AVG(salemp) FROM empleado WHERE coddep = 'PROZS');
+-- 2
+SELECT nomemp, salemp FROM empleado WHERE salemp > 
+	(SELECT AVG(salemp) FROM empleado WHERE coddep IN 
+		(SELECT coddep FROM departamento WHERE NomDep = 'Investigación y Diseño'));
+-- 3
+SELECT nomemp, salemp FROM empleado e1 WHERE salemp > 
+	(SELECT AVG(salemp) FROM empleado e2 WHERE e2.coddep = e1.Coddep );
+-- 4
+SELECT nomdep FROM departamento WHERE preanu > 
+	(SELECT AVG(preanu) FROM departamento);
+-- 5
+SELECT nomdep FROM departamento WHERE preanu > 
+	(SELECT AVG(PresuCentro) FROM 
+		(SELECT SUM(preanu) AS PresuCentro FROM departamento GROUP BY codcen) AS Obligatorio);
+-- 6
+SELECT codhab, deshab FROM habilidad WHERE codhab NOT IN 
+	(SELECT codhab FROM habemp);
+-- 7
+SELECT nomemp FROM empleado order by salemp desc limit 1;
+-- 8
+select nomemp from empleado where salemp = 
+	(select max(salemp) from empleado);
+-- 9
+select * from empleado where salemp > any 
+	(select salemp from empleado where coddep = 'JEFZS');
