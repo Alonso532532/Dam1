@@ -1,4 +1,4 @@
-package Java.Medio.Pruebas;
+package Java.Medio.Pruebas.Prueba1;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
