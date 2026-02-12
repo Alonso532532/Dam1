@@ -41,5 +41,8 @@ public class Ej1 {
         System.out.println("<==========================>\n<==========================>\n<==========================>\n<==========================>\n<==========================>");
         System.out.println("3- Los nombres y apellidos de los registros cuyo nombre (first_name) empiecen por ‘A’ ordenados por fecha (descendente) del último inicio de sesión (last_login).");
         registros.stream().filter(registro -> registro.getNombre().startsWith("A")).sorted(Comparator.comparing(Registro::getLast_login_date)).map(a->a.getNombre()+" "+ a.getApellido()).forEach(System.out::println);
+        System.out.println("<==========================>\n<==========================>\n<==========================>\n<==========================>\n<==========================>");
+        System.out.println("Practica");
+//        registros.stream().filter(a->a.getId()>10 &&a.getId()<50).map(a).forEach(System.out::println);
     }
 }
