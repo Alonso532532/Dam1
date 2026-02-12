@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leyes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap">
+    <style>
+        #linea1 {
+            background: linear-gradient(to right, rgb(0, 110, 165), rgb(172, 203, 239));
+        }
+
+        #linea2 {
+            background: linear-gradient(to left, rgb(0, 110, 165), rgb(172, 203, 239));
+        }
+
+        li>a.hov:hover {
+            color: rgb(0, 0, 0) !important
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1 {
+            color: rgb(1, 91, 136);
+            font-family: "Roboto Slab", serif !important;
+        }
+    </style>
+
+</head>
+<!--==============| MENU NAV |==============-->
+
+<body style="">
+    <div class="container mt-3 mb-3">
+        <img class="" src="./img/logoAsimovFans.png" alt="">
+    </div>
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse container" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hov" style="color:  rgb(0, 92, 138);" href="./Asimov.html">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hov" style="color: rgb(0, 92, 138);" href="./Leyes.html">LEYES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hov" style="color:  rgb(0, 92, 138);" href="./Datos.html">DATOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: rgb(255, 71, 71);" href="./Asociate.html">ASÓCIATE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--==============| LINEA |==============-->
+    <div class="p-1" id="linea1"></div>
+    <!--==============| CUERPO |==============-->
+    <div class="container">
+        <h1 class="py-4">Formulario para hacerte socio</h1>
+        <p class="pb-1">Para hacerte socio de nuestro club de fans, por favor rellena los siguientes datos y nos
+            pondremos en contacto
+            contigo lo antes posible para terminar
+            el proceso de inscripción.</p>
+        <div class="row justify-content-center">
+            <form action="" class="col-sm-12 col-md-8 mb-4">
+                <fieldset class="bg-primary-subtle my-4 px-5 pb-4 rounded">
+                    <legend class="float-none w-auto px-2"><b><span style="color: rgb(46, 46, 177);">1</span> Datos
+                            personales</b></legend>
+                    <p class="text-muted"><i>Todos los campos con * son obligatorios</i></p>
+                    <div class="mb-2 row mt-3">
+                        <label class="col-form-label col-4" for="Nombre">Nombre*</label>
+                        <input class="form-control col col" type="text" id="Nombre" required>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="Apellido1">Primer apellido *</label>
+                        <input class="form-control col" type="text" id="Apellido1" required>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="Apellido2">Segundo apellido</label>
+                        <input class="form-control col" type="text" id="Apellido2">
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="DNIoP">DNI o Pasaporte</label>
+                        <input class="form-control col" type="text" id="DNIoP" placeholder="DNI o Passaport">
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="FechaN">Fecha de nacimiento</label>
+                        <input class="form-control col" type="date" id="FechaN">
+                    </div>
+                </fieldset>
+
+                <fieldset class="bg-primary-subtle my-4 px-5 pb-4 rounded">
+                    <legend class="float-none w-auto px-2"><b><span style="color: rgb(46, 46, 177);">2</span> Datos de
+                            contacto</b></legend>
+                    <div class="mb-2 row mt-4">
+                        <label class="col-form-label col-4" for="Correo">Correo electrónico *</label>
+                        <input class="form-control col col" type="text" id="Correo" placeholder="Correo electrónico"
+                            required>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="CofigoP">Codigo postal *</label>
+                        <input class="form-control col" type="text" id="CofigoP" ^required>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="DP">Dirección Posta *</label>
+                        <input class="form-control col" type="text" id="DP" required>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="Pob">Población *</label>
+                        <input class="form-control col" type="text" id="Pob" placeholder="DNI o Passaport" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bg-primary-subtle my-4 px-5 pb-4 rounded">
+                    <legend class="float-none w-auto px-2"><b><span style="color: rgb(46, 46, 177);">1</span> Datos de
+                            inscripción</b></legend>
+                    <div class="mb-2 row mt-4">
+                        <label class="col-form-label col-4" for="Tipo">Tipo *</label>
+                        <select class="form-select col" id="Tipo" required>
+                            <option selected value="1">Senior</option>
+                            <option value="2">Premium</option>
+                            <option value="3">VIP</option>
+                        </select>
+                    </div>
+                    <div class="mb-2 row">
+                        <label class="col-form-label col-4" for="Cuota">Cuota *</label>
+                        <select class="form-select col" id="Cuota" required>
+                            <option selected value="1">General - 5€/mes</option>
+                            <option value="2">Extendida - 10€/mes</option>
+                        </select>
+                    </div>
+                    <div class="mb-2 row">
+                        <fieldset class="bg-primary-subtle border-1 border border-primary-subtle col-8 py-2">
+                            <legend class="float-none w-auto px-2 fs-6">Periodicidad</legend>
+                            <input class="form-check-input" type="radio" name="rb" id="rb1" checked>
+                            <label class="form-check-label" for="rb1">Trimestral</label>
+                            <input class="form-check-input" type="radio" name="rb" id="rb2">
+                            <label class="form-check-label" for="rb2">Semanal</label>
+                            <input class="form-check-input" type="radio" name="rb" id="rb3">
+                            <label class="form-check-label" for="rb3">Anual</label>
+                        </fieldset>
+                    </div>
+                    <div class="mb-4 row">
+                        <label class="col-form-label col-4" for="IBAN">IBAN</label>
+                        <input class="form-control col" type="text" id="IBAN" placeholder="(si no lo sabes, déjalo vacío)">
+                    </div>
+                    <div class="justify-content-center row mb-2">
+                        <button class="btn btn-danger col-5" type="submit">ENVIAR</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!--==============| FOOTER |==============-->
+    <div class="p-1" id="linea2"></div>
+    <div class="bg-primary-subtle text-center p-2 text-muted">
+        <p>Actividad realizada por Alonso Soriano Maicas</p>
+        <p>Fotografía de la portada de <a href="">Adam Muise</a> en <a href="">Unsplash</a></p>
+        <img src="./img/creative-commons.png" alt="">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

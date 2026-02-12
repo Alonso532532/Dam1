@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiendaMusica>
+    <disco id="0">
+        <titulo>Breva</titulo>
+        <artista>Abascal</artista>
+        <año>2011</año>
+        <genero>Motocultor</genero>
+        <precio moneda="EUR">13.33</precio>
+
+        <canciones>
+            <cancion numero="0">
+                <titulo>Hydrogen</titulo>
+                <duracion>7:42</duracion>
+            </cancion>
+            <cancion numero="1">
+                <titulo>C2</titulo>
+                <duracion>5:22</duracion>
+            </cancion>
+            <cancion numero="2">
+                <titulo>C3</titulo>
+                <duracion>8:46</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+
+    <disco id="1">
+        <titulo>VENDO OPEL CORSA</titulo>
+        <artista>Celia</artista>
+        <año>2021</año>
+        <genero>Java</genero>
+        <precio moneda="EUR">27.00</precio>
+
+        <canciones>
+            <cancion numero="0">
+                <titulo>C1</titulo>
+                <duracion>6:35</duracion>
+            </cancion>
+            <cancion numero="1">
+                <titulo>C2</titulo>
+                <duracion>8:12</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+
+    <disco id="2">
+        <titulo>CIRO</titulo>
+        <artista>ESTA</artista>
+        <año>2025</año>
+        <genero>EN LA MILI</genero>
+        <precio moneda="EUR">15.00</precio>
+
+        <canciones>
+            <cancion numero="0">
+                <titulo>C1</titulo>
+                <duracion>8:22</duracion>
+            </cancion>
+            <cancion numero="1">
+                <titulo>C2</titulo>
+                <duracion>7:15</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+</tiendaMusica>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="empleados.dtd" type="application/xml-dtd"?>
+<!--
+<empresa>
+    <departamentos>
+        <departamento id="E01" codigo="YEAH">
+            <nombre></nombre>
+            <ubicacion></ubicacion>
+        </departamento>
+    </departamentos>
+    <empleados>
+        <empleado dni="DNI131231S">
+            <nombre>asas</nombre>
+            <apellido>asdad</apellido>
+            <departamentoRef refDep="E02" />
+            <fechaNcto>asda</fechaNcto>
+        </empleado>
+    </empleados>
+</empresa>-->
