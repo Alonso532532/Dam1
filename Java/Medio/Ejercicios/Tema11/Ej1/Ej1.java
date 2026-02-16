@@ -1,12 +1,12 @@
 package Java.Medio.Ejercicios.Tema11.Ej1;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Ej1 {
     static List<Registro> registros = new ArrayList<>();
@@ -42,7 +42,8 @@ public class Ej1 {
         System.out.println("3- Los nombres y apellidos de los registros cuyo nombre (first_name) empiecen por ‘A’ ordenados por fecha (descendente) del último inicio de sesión (last_login).");
         registros.stream().filter(registro -> registro.getNombre().startsWith("A")).sorted(Comparator.comparing(Registro::getLast_login_date)).map(a->a.getNombre()+" "+ a.getApellido()).forEach(System.out::println);
         System.out.println("<==========================>\n<==========================>\n<==========================>\n<==========================>\n<==========================>");
-        System.out.println("Practica");
-//        registros.stream().filter(a->a.getId()>10 &&a.getId()<50).map(a).forEach(System.out::println);
+//        List<Registro> resultado = registros.stream().filter(a->a.getId()>=100 && a.getId()<200).sorted(Comparator.comparing(Registro::getNombre)).collect(Collectors.toList());
+//        resultado.forEach(System.out::println);
+        System.out.println("Hay "+registros.stream().filter(a->a.getNombre().contains("A")).count()+" nombres que empiezan por A");
     }
 }

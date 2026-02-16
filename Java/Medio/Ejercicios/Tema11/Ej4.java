@@ -23,6 +23,7 @@ public class Ej4 {
                         fila1.remove(opq);
                     } else System.out.println("No contiene "+ opq);
                     break;
+
                 case "C":
                     System.out.print("¿Que elemento quieres sustituir?\n> ");
                     String opc = sc.nextLine();
@@ -33,6 +34,7 @@ public class Ej4 {
                         fila1.set(index, cosa);
                     } else System.out.println("No contiene "+ opc);
                     break;
+
                 case "A":
                     System.out.print("¿Que elemento quieres añadir?\n> ");
                     String opa = sc.nextLine();
@@ -45,8 +47,8 @@ public class Ej4 {
                             System.out.println("Posición imposible");
                         }
                     } else System.out.println("Ya contiene "+ opa);
-
                     break;
+
             }
         }
     }

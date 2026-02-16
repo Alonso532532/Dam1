@@ -10,7 +10,12 @@ public class Ej8 {
                 cars.put(i, cars.get(i) != null ? cars.get(i)+1 : 1);
             }
         }
-        for (int i = 0; i < cars.size(); i++){
+        for (Character i: cars.keySet()){
+
+            System.out.println(i);
+
+        }
+        while (!cars.isEmpty()){
             char eliminar = cars.firstKey();
             System.out.println("La letra " + eliminar + " aparece " + cars.get(eliminar) + " veces ");
             cars.remove(eliminar);

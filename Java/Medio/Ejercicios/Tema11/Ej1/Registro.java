@@ -6,15 +6,15 @@ import java.time.LocalTime;
 
 public class Registro {
     //id,first_name,last_name,latitude,longitude,domain,email,country,ip_address,last_login
-    int id;
-    String nombre;
-    String apellido;
-    double latitud;
-    double longitud;
-    String dominio;
-    String email;
-    String pais;
-    String direccion_ip;
+    private int id;
+    private String nombre;
+    private String apellido;
+    private double latitud;
+    private double longitud;
+    private String dominio;
+    private String email;
+    private String pais;
+    private String direccion_ip;
     LocalDateTime last_login_date;
 
 
