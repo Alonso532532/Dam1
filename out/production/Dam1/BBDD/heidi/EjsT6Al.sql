@@ -74,3 +74,16 @@ select nomemp from empleado where salemp =
 -- 9
 select * from empleado where salemp > any 
 	(select salemp from empleado where coddep = 'JEFZS');
+
+-- 10 ??
+select * from empleado where SalEmp > 
+	(select SUM(salemp) from empleado where coddep = 'VENZS');
+
+select (select SUM(salemp) from empleado where coddep = 'VENZS') from empleado;
+
+-- 11
+select * from centro c where CodCen IN 
+	(select d.CodCen from departamento d where d.PreAnu > 20000000);
+
+-- 12
+

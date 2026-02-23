@@ -45,20 +45,25 @@ SELECT * FROM empleado WHERE
 	(coddep NOT LIKE 'PROZS') AND 
 	(nomemp LIKE '%ar%' OR nomemp LIKE '%o') AND 
 	(salemp > 3000000);
+
 -- Subconsultas
 -- 1
 SELECT nomemp, salemp FROM empleado WHERE salemp > 
 	(SELECT AVG(salemp) FROM empleado WHERE coddep = 'PROZS');
+
 -- 2
 SELECT nomemp, salemp FROM empleado WHERE salemp > 
 	(SELECT AVG(salemp) FROM empleado WHERE coddep IN 
 		(SELECT coddep FROM departamento WHERE NomDep = 'Investigación y Diseño'));
+
 -- 3
 SELECT nomemp, salemp FROM empleado e1 WHERE salemp > 
 	(SELECT AVG(salemp) FROM empleado e2 WHERE e2.coddep = e1.Coddep );
+
 -- 4
 SELECT nomdep FROM departamento WHERE preanu > 
 	(SELECT AVG(preanu) FROM departamento);
+
 -- 5
 SELECT nomdep FROM departamento WHERE preanu > 
 	(SELECT AVG(PresuCentro) FROM 
@@ -66,24 +71,98 @@ SELECT nomdep FROM departamento WHERE preanu >
 -- 6
 SELECT codhab, deshab FROM habilidad WHERE codhab NOT IN 
 	(SELECT codhab FROM habemp);
+
 -- 7
 SELECT nomemp FROM empleado order by salemp desc limit 1;
+
 -- 8
 select nomemp from empleado where salemp = 
 	(select max(salemp) from empleado);
+
 -- 9
 select * from empleado where salemp > any 
 	(select salemp from empleado where coddep = 'JEFZS');
 
--- 10 ??
-select * from empleado where SalEmp > 
-	(select SUM(salemp) from empleado where coddep = 'VENZS');
-
-select (select SUM(salemp) from empleado where coddep = 'VENZS') from empleado;
+-- 10
+select * from empleado where salemp > all
+	(select salemp from empleado where coddep = 'VENZS');
 
 -- 11
-select * from centro c where CodCen IN 
-	(select d.CodCen from departamento d where d.PreAnu > 20000000);
+select * from centro where CodCen in (select CodCen from departamento where PreAnu > 20000000);
 
 -- 12
+select * from departamento where CodDep not in 
+	(select CodDep from empleado);
 
+-- 13
+select * from departamento d where not exists 
+	(select CodDep from empleado e where d.coddep=e.coddep);
+
+-- 14
+select * from centro c where 20000000 > all 
+	(select PreAnu from departamento where CodCen = c.CodCen);
+
+-- 15
+select * from empleado e1 where coddep in
+	(select coddep from empleado e2 where salemp > 2000000 and e1.codemp!=e2.Codemp);
+
+-- 16
+select * from empleado where fecinemp >= all 
+	(select fecinemp from empleado);
+
+select * from empleado e1 where not exists 
+	(select * from empleado e2 where e2.FecInEmp>e1.FecInEmp);
+
+-- 17
+select * from centro where CodCen not in 
+	(select CodCen from departamento where preanu < 1000000);
+
+-- 18 
+select * from departamento d where exists 
+	(select * from empleado e where e.CodDep = d.CodDep and e.SalEmp > 4000000);
+
+-- 19
+select * from empleado e1 where e1.NumHi > 
+	(select AVG(e2.NumHi) from empleado e2 where e1.CodDep = e2.CodDep);
+
+-- 20
+select * from empleado e1 where SalEmp = 
+	(select MAX(SalEmp) from empleado e2 where e1.CodDep = e2.CodDep);
+
+-- 21
+select * from departamento d1 where d1.PreAnu > all 
+	(select preanu from departamento d2 where d1.codcen != d2.CodCen);
+
+-- MULTITABLAS
+
+-- 1
+select d.NomDep, d.PreAnu, c.CodCen 
+	from departamento d 
+	natural left join centro c;
+
+-- 2
+select d.NomDep, d.PreAnu, e.NomEmp
+	from departamento d 
+	join empleado e on d.CodEmpDir = e.CodEmp;
+
+-- 3
+select d.NomDep, d.PreAnu, c.CodCen, e.NomEmp 
+	from departamento d 
+	natural left join centro c
+	join empleado e on e.CodEmp = c.CodEmpDir;
+
+-- 4
+select d.NomDep, d.PreAnu, c.CodCen, e.NomEmp 
+	from departamento d 
+	natural left join centro c
+	join empleado e on e.CodEmp = d.CodEmpDir where d.PreAnu = 
+	(select MAX(PreAnu) from departamento);
+
+-- 5
+select e.*, c.CodCen
+	from empleado e
+	natural join departamento d 
+	join centro c on d.CodCen = c.CodCen where c.CodCen = 'FAZS';
+
+-- 6
+	
