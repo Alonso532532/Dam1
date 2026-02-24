@@ -12,13 +12,8 @@ public class Ej8 {
         }
         for (Character i: cars.keySet()){
 
-            System.out.println(i);
+            System.out.println("La letra " + i + " aparece " + cars.get(i) + " veces ");
 
-        }
-        while (!cars.isEmpty()){
-            char eliminar = cars.firstKey();
-            System.out.println("La letra " + eliminar + " aparece " + cars.get(eliminar) + " veces ");
-            cars.remove(eliminar);
         }
     }
 }
