@@ -1,4 +1,4 @@
-<!--<!ELEMENT tiendaMusica (disco+)>
+<!ELEMENT tiendaMusica (disco+)>
     <!ELEMENT disco (titulo, artista, año, genero, precio, canciones)>
         <!ATTLIST disco id ID #REQUIRED>
 
@@ -7,7 +7,7 @@
         <!ELEMENT año (#PCDATA)>
         <!ELEMENT genero (#PCDATA)>
         <!ELEMENT precio (#PCDATA)>
-        <!ATTLIST precio moneda ????? #REQUIRED>
+        <!ATTLIST precio moneda ID #REQUIRED>
 
         <!ELEMENT canciones (cancion+)>
             <!ELEMENT cancion (titulo, duracion)>
