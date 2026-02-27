@@ -1,0 +1,39 @@
+<!ELEMENT menu (entrantes?, principales?, postres?)>
+    <!ELEMENT entrantes (plato+)>
+        <!ELEMENT plato (nombre, descripcion, precio, cocina, alergenos?)>
+            <!ATTLIST plato 
+            codPlato ID #REQUIRED
+            nombreMenu CDATA #IMPLIED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT descripcion (#PCDATA)>
+            <!ELEMENT precio (#PCDATA)>
+            <!ELEMENT cocina EMPTY>
+                <!ATTLIST cocina id ID #REQUIRED>
+            <!ELEMENT alergenos (alergeno+)>
+                <!ELEMENT alergeno (#PCDATA)>
+
+    <!ELEMENT principales (plato+)>
+        <!ELEMENT plato (nombre, descripcion, precio, cocina, alergenos?)>
+            <!ATTLIST plato 
+            codPlato ID #REQUIRED
+            nombreMenu CDATA #IMPLIED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT descripcion (#PCDATA)>
+            <!ELEMENT precio (#PCDATA)>
+            <!ELEMENT cocina EMPTY>
+                <!ATTLIST cocina id ID #REQUIRED>
+            <!ELEMENT alergenos (alergeno+)>
+                <!ELEMENT alergeno (#PCDATA)>
+
+    <!ELEMENT postres (plato+)>
+        <!ELEMENT plato (nombre, descripcion, precio, cocina, alergenos?)>
+            <!ATTLIST plato 
+            codPlato ID #REQUIRED
+            nombreMenu CDATA #IMPLIED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT descripcion (#PCDATA)>
+            <!ELEMENT precio (#PCDATA)>
+            <!ELEMENT cocina EMPTY>
+                <!ATTLIST cocina id ID #REQUIRED>
+            <!ELEMENT alergenos (alergeno+)>
+                <!ELEMENT alergeno (#PCDATA)>

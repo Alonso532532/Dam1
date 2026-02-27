@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="ejer4.dtd" type="application/xml-dtd"?>
+<menu>
+    <entrantes>
+        <plato codPlato="A001" nombreMenu="Iker lozano romero">
+            <nombre>Ensalada</nombre>
+            <descripcion>Cosas verdes</descripcion>
+            <precio>12.50</precio>
+            <cocina id="C001"/>
+            <alergenos>
+                <alergeno>Melocoton</alergeno>
+                <alergeno>Gluten</alergeno>
+            </alergenos>
+        </plato>
+    </entrantes>
+    <principales>
+        <plato codPlato="A002" nombreMenu="Macarrones carbonara">
+            <nombre>Macarrones</nombre>
+            <descripcion>Imprescindible</descripcion>
+            <precio>14.5</precio>
+            <cocina id="C002"/>
+            <alergenos>
+                <alergeno>Gluten</alergeno>
+            </alergenos>
+        </plato>
+    </principales>
+    <postres>
+        <plato codPlato="A003">
+            <nombre>Tarta de queso</nombre>
+            <descripcion>TOP</descripcion>
+            <precio>9.2</precio>
+            <cocina id="C003"/>
+            <alergenos>
+                <alergeno>Queso</alergeno>
+            </alergenos>
+        </plato>
+        <plato codPlato="A004" nombreMenu="Frigopie">
+            <nombre>HELAO</nombre>
+            <descripcion>Si</descripcion>
+            <precio>8.2</precio>
+            <cocina id="C004"/>
+        </plato>
+    </postres>
+</menu>

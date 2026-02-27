@@ -3,10 +3,8 @@ package Java.Medio.Ejercicios.Tema11.Ej1;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Ej1 {
     static List<Registro> registros = new ArrayList<>();
@@ -45,5 +43,6 @@ public class Ej1 {
 //        List<Registro> resultado = registros.stream().filter(a->a.getId()>=100 && a.getId()<200).sorted(Comparator.comparing(Registro::getNombre)).collect(Collectors.toList());
 //        resultado.forEach(System.out::println);
         System.out.println("Hay "+registros.stream().filter(a->a.getNombre().contains("A")).count()+" nombres que empiezan por A");
+        System.out.println("Promedio de id: "+registros.stream().mapToInt(Registro::getId).average().orElse(0));
     }
 }
