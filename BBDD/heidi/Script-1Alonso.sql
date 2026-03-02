@@ -207,5 +207,5 @@ select d.*, d2.CodDep as 'Depende de'
 	natural join departamento d2 where d.CodDepDep is not null;
 
 -- 14
-
+select e.* from empleado e left join departamento d on e.CodEmp = d.CodEmpDir where d.CodEmpDir is null;
 	
