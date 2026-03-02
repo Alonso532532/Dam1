@@ -196,16 +196,43 @@ select h.*, e.NomEmp
 -- 11
 select * from habilidad where CodHab not in (select CodHab from habemp);
 
--- 12 ??
-select *, h.NomHi
+-- 12
+select e.*, h.NomHi
 	from empleado e 
-	natural join hijo h;
+	natural left join hijo h;
 
--- 13 ??
+-- 13
 select d.*, d2.CodDep as 'Depende de'
 	from departamento d
-	natural join departamento d2 where d.CodDepDep is not null;
+	left join departamento d2 ON d.CodDepDep=d2.CodDep;
 
 -- 14
-select e.* from empleado e left join departamento d on e.CodEmp = d.CodEmpDir where d.CodEmpDir is null;
+select e.* 
+	from empleado e 
+	left join departamento d on e.CodEmp = d.CodEmpDir 
+	where d.CodEmpDir is null;
+
+-- 15
+select e.* 
+	from empleado e 
+	left join centro c on e.CodEmp = c.CodEmpDir 
+	where c.CodEmpDir is null;
 	
+-- 16
+select c.* 
+	from centro c 
+	natural left join departamento d
+	where d.CodDep is null;
+
+-- 17
+select e.* 
+	from empleado e 
+	left join centro c on e.CodEmp = c.CodEmpDir 
+	left join departamento d on e.CodEmp = d.CodEmpDir 
+	where c.CodEmpDir is null and d.CodEmpDir is null;
+
+-- 18
+select e.*, d.NomDep, h.NomHi , h.FecNaHi 
+	from empleado e 
+	natural join departamento d 
+	natural left join hijo h;
