@@ -15,5 +15,8 @@ public class Demo {
         Centro centro = new Centro(new ArrayList<>(Arrays.asList(eker, alon, pasc)));
         System.out.println(centro.empMasAntiguo().nombre);
         System.out.println(centro.sacarEstudiantes().size());
+        Estudiante2 juanma = new Estudiante2("Juanma");
+        juanma.estudiar();
+        juanma.estudiar();
     }
 }

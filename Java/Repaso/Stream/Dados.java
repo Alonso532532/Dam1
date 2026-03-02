@@ -17,7 +17,7 @@ public class Dados {
 
         }else {
 
-            System.out.print("El puntaje más alto lo tiene: ");
+            System.out.print("El puntaje más alto lo tiene ");
             partida.stream().filter(a->a.getValor()==partida.stream().mapToInt(Jugador::getValor).max().getAsInt()).map(Jugador::getNombre).forEach(System.out::print);
             System.out.println(" con un "+partida.stream().mapToInt(Jugador::getValor).max().getAsInt());
 
