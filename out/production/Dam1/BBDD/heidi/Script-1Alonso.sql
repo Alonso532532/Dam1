@@ -165,4 +165,47 @@ select e.*, c.CodCen
 	join centro c on d.CodCen = c.CodCen where c.CodCen = 'FAZS';
 
 -- 6
+select e.NomEmp, h.NomHi
+	from empleado e 
+	natural join hijo h 
+	where e.NumHi = 1 order by h.FecNaHi;
+
+-- 7
+select e.*, c.CodCen
+	from empleado e
+	natural join departamento d 
+	join centro c on d.CodCen = c.CodCen where c.CodCen = 'FAZS' and e.NumHi > 0;
+
+-- 8
+select d.*, h.CodHab 
+	from departamento d 
+	natural join empleado e
+	natural join habemp h where h.CodHab = 'FONTA';
+
+-- 9
+select d.*, d2.CodDep as 'Depende de'
+	from departamento d
+	natural join departamento d2 where d.CodDepDep is not null;
+
+-- 10
+select h.*, e.NomEmp 
+	from habilidad h 
+	natural left join habemp h2 
+	natural left join empleado e 
+	
+-- 11
+select * from habilidad where CodHab not in (select CodHab from habemp);
+
+-- 12 ??
+select *, h.NomHi
+	from empleado e 
+	natural join hijo h;
+
+-- 13 ??
+select d.*, d2.CodDep as 'Depende de'
+	from departamento d
+	natural join departamento d2 where d.CodDepDep is not null;
+
+-- 14
+
 	
