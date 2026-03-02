@@ -18,5 +18,6 @@ public class Demo {
         Estudiante2 juanma = new Estudiante2("Juanma");
         juanma.estudiar();
         juanma.estudiar();
+        juanma.mostrarEstudio();
     }
 }
