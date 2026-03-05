@@ -31,7 +31,7 @@
                                         <xs:element name="precio" type="xs:double"/>
                                         <xs:element name="fechaInicio" type="xs:date"/>
                                     </xs:sequence>
-                                    <xs:attribute name="id" type="xs:ID"></xs:attribute>
+                                    <xs:attribute name="id" type="xs:ID"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
@@ -41,11 +41,25 @@
                 <xs:element name="estudiantes">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="estudiante">
+                            <xs:element name="estudiante" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                        <xs:element name="fechaNacimiento" type="xs:string"/>
+                                        <xs:element name="cursosMatriculados">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="cursoRef" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="refCurso" type="xs:IDREF"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
