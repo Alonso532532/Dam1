@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="tipoGenero">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Aventura"/>
+            <xs:enumeration value="Acción"/>
+            <xs:enumeration value="RPG"/>
+            <xs:enumeration value="Sandbox"/>
+            <xs:enumeration value="Metroidvania"/>
+            <xs:enumeration value="Deportes"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoPrecio">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoAño">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1970"/>
+            <xs:maxInclusive value="2100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoValoracion">
+        <xs:restriction base="xs:double">
+            <xs:maxInclusive value="10"/>
+            <xs:minInclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="catalogo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="videojuego" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string"/>
+                            <xs:element name="desarrolladora" type="xs:string"/>
+                            <xs:element name="año" type="tipoAño"/>
+                            <xs:element name="plataformas">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plataforma" maxOccurs="unbounded" minOccurs="1" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="genero" type="tipoGenero"/>
+                            <xs:element name="precio" type="tipoPrecio"/>
+                            <xs:element name="valoracion" type="tipoValoracion"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

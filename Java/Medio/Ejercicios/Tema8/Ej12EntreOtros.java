@@ -22,7 +22,7 @@ public class Ej12EntreOtros {
             System.out.println("No válido");
         }
         System.out.println("---------Mayúsculas---------");
-        String texto = "HOLA BUENAS A";
+        String texto = "HOLA BUENAS tARDES A";
         matcher = Pattern.compile("\\b[A-Z]\\w*").matcher(texto);
         System.out.println(texto);
         while (matcher.find()){

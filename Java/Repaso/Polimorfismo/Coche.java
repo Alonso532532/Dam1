@@ -1,6 +1,6 @@
-package Java.Medio.Ejercicios.Tema6.Ej3;
+package Java.Repaso.Polimorfismo;
 
-public class Coche extends Vehiculo{
+public class Coche extends Vehiculo {
     private int puetras;
 
     public int getPuetras() {

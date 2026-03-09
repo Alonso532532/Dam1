@@ -1,4 +1,4 @@
-package Java.Medio.Ejercicios.Tema6.Ej3;
+package Java.Repaso.Polimorfismo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
