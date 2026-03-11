@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+
 <plataforma xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="reglas.xsd">-->
+            xsi:noNamespaceSchemaLocation="reglas.xsd">
     <cursos>
         <curso id="C001">
             <titulo>Introducción a Python</titulo>

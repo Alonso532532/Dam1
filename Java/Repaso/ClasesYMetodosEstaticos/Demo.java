@@ -3,7 +3,6 @@ package Java.Repaso.ClasesYMetodosEstaticos;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 
 public class Demo {
     public static void main(String[] args) {
