@@ -81,6 +81,17 @@ public class Ej12EntreOtros {
         while (matcher.find()){
             System.out.println(matcher.group());
         }
+        System.out.println("---------Ultima zurzida---------");
+        texto = "Nombre: Alons, Apellido: Lozano, SegundoApellido: Maicas";
+        matcher = Pattern.compile("Nombre: (\\w+,) Apellido: (\\w+,) SegundoApellido: (\\w+)").matcher(texto);
+        if (matcher.find()){
+            System.out.println(matcher.group(1)+matcher.group(2)+matcher.group(3));
+        }
+        texto = "Nombre: Eker, Apellido: Romero, SegundoApellido: Pascual";
+        matcher = Pattern.compile("Nombre: (\\w+,) Apellido: (\\w+,) SegundoApellido: (\\w+)").matcher(texto);
+        if (matcher.find()){
+            System.out.println(matcher.group(1)+matcher.group(2)+matcher.group(3));
+        }
     }
 
 
