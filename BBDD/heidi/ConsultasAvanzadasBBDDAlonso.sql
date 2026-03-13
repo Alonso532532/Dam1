@@ -133,19 +133,70 @@ select c.NomCen, (select count(*)
 		natural join empleado e 
 		where c.CodCen=d.CodCen)>3;
 
-select * from empleado;
 
 -- Ej18
-select from departamento d 
+select d.NomDep, d.CodDep from departamento d 
+	where (select AVG(NumHi) from empleado e where e.CodDep = d.CodDep)>2;
 
 -- Ej19
-
+select CodHab from habilidad h where (select count(*) from habemp h2 where h.CodHab = h2.CodHab)>3;
 
 -- Ej20
+select c.* from centro c 
+	join departamento d on d.CodCen=c.CodCen 
+	where (select avg(TIMESTAMPDIFF(year, e.FecInEmp, CURDATE())) 
+		from empleado e where e.CodDep = d.CodDep)>10 group by c.CodCen ;
 
 
 -- Ej21
-
+-- AVG(TIMESTAMPDIFF(year, e.FecNaEmp, CURDATE()))
+select c.* from centro c 
+	join departamento d on d.CodCen = c.CodCen 
+	where (select count(*) from empleado e 
+		where TIMESTAMPDIFF(year, e.FecInEmp, CURDATE())>=20 and e.CodDep = d.CodDep 
+		group by e.CodDep)>3 group by c.CodCen;
 
 -- Ej22
+select d.* from departamento d 
+	where (select MAX(e.SalEmp) from empleado e 
+		where e.CodDep = d.CodDep)!=(select MIN(e.SalEmp) 
+		from empleado e where e.CodDep = d.CodDep);
 
+-- Funciones Ventana
+
+-- EJ1
+select e.NomEmp, 
+	TRUNCATE(TIMESTAMPDIFF(year, e.FecNaEmp, CURDATE()),0) as "Edad", 
+	AVG(TRUNCATE(TIMESTAMPDIFF(year, e.FecNaEmp, CURDATE()),0)) over (partition by e.CodDep) as "Edad media departamento" from empleado e;
+
+-- EJ2
+select e.CodDep , e.NomEmp, e.SalEmp, 
+	AVG(e.SalEmp) over(partition by e.CodDep) as "Salario Medio",
+	case 
+		when e.SalEmp > AVG(e.SalEmp) over(partition by e.CodDep) then "Por encima"
+		when e.SalEmp < AVG(e.SalEmp) over(partition by e.CodDep) then "Por debajo"
+		else "Normal"
+	end
+	from empleado e ;
+
+-- EJ3
+select e.NomEmp, e.CodDep, e.SalEmp, 
+	MAX(e.SalEmp) over(partition by e.coddep) as "Salario maximo",
+	MAX(e.SalEmp) over(partition by e.coddep)-e.SalEmp as "Dirferencia de salario"
+	from empleado e;
+
+-- EJ4
+select e.NomEmp, TIMESTAMPDIFF(year, e.FecInEmp, CURDATE()),
+	rank() over (partition by d.CodCen order by TIMESTAMPDIFF(year, e.FecInEmp, CURDATE()))
+	from empleado e natural join departamento d;
+
+
+-- EJ5
+
+-- CTE
+
+-- EJ1
+with empleados as (
+	select NomEmp, SalEmp from empleado
+)
+select nomemp, AVG(salemp) from empleados;
