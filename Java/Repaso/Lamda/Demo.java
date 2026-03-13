@@ -8,5 +8,7 @@ public class Demo {
         System.out.println(hola.saludo("Hecproll"));
         System.out.println("Suma normal: "+suma.operacion(2,56.2));
         System.out.println("Suma triple: "+muchaSuma.operacion(5,2,6.32));
+
+
     }
 }
