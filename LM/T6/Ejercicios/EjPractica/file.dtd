@@ -1,0 +1,9 @@
+<!ELEMENT Biblioteca (libro+, autor+)>
+    <!ELEMENT libro (titulo, año, autor)>
+        <!ELEMENT titulo (#PCDATA)>
+        <!ELEMENT año (#PCDATA)>
+        <!ELEMENT autorref (#PCDATA)>
+        <!ATTLIST autorref id IDREF #REQUIRED>
+    <!ELEMENT autor (nombre)>
+    <!ATTLIST autor id ID #REQUIRED>
+        <!ELEMENT nombre (#PCDATA)>
