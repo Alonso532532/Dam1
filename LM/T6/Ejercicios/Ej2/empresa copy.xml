@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="empresa.xsd">
+    <departamentos>
+        <departamento id="E01" codigo="YEAH">
+            <nombre></nombre>
+            <ubicacion></ubicacion>
+        </departamento>
+    </departamentos>
+    <empleados>
+        <empleado dni="DNI131231S">
+            <nombre>asas</nombre>
+            <apellido>asdad</apellido>
+            <fechaNcto>asda</fechaNcto>            
+            <departamentoRef refDep="E01"/>
+        </empleado>
+    </empleados>
+</empresa>

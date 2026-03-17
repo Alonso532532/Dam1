@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="departamentos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="departamento" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="ubicacion" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID"/>
+                                    <xs:attribute name="codigo" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="empleados">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="empleado" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="apellido" type="xs:string"/>
+                                        <xs:element name="fechaNcto" type="xs:string"/>
+                                        <xs:element name="departamentoRef">
+                                            <xs:complexType>
+                                                <xs:attribute name="refDep" type="xs:IDREF"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="dni" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

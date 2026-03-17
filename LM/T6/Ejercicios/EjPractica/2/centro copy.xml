@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<centro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="centro.xsd">
+
+    <profesorado>
+        <profesor clase="C001">
+            <nombre>Pablo</nombre>
+            <asignatura>Geografia</asignatura>
+        </profesor>
+        <profesor clase="C002">
+            <nombre>Miguel</nombre>
+            <asignatura>Historia</asignatura>
+            <edad>20</edad>
+        </profesor>
+    </profesorado>
+    <alumnado>
+        <alumno>
+            <nombre>EKER</nombre>
+            <curso>1</curso>
+        </alumno>
+        <alumno>
+            <nombre>Lozan</nombre>
+            <curso>2</curso>
+        </alumno>
+        <alumno>
+            <nombre>Hproll</nombre>
+            <curso>3</curso>
+        </alumno>
+        <alumno>
+            <nombre>Tetico</nombre>
+            <curso>4</curso>
+        </alumno>
+    </alumnado>
+    <instalaciones>
+        <clase id="C001" tamaño="pequeña"/>
+        <clase id="C002" tamaño="grande"/>
+        <clase id="C003" tamaño="mediana"/>
+    </instalaciones>
+</centro>

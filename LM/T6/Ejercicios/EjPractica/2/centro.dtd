@@ -1,0 +1,19 @@
+<!ELEMENT centro (profesorado, alumnado, instalaciones)>
+
+    <!ELEMENT profesorado (profesor+)>
+        <!ELEMENT profesor (nombre, asignatura, edad?)>
+            <!ATTLIST profesor clase IDREF #REQUIRED>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT asignatura (#PCDATA)>
+            <!ELEMENT edad (#PCDATA)>
+
+    <!ELEMENT alumnado (alumno+)>
+        <!ELEMENT alumno (nombre, curso)>
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT curso (#PCDATA)>
+
+    <!ELEMENT instalaciones (clase+)>
+        <!ELEMENT clase EMPTY>
+        <!ATTLIST clase id ID #REQUIRED
+            tamaño (pequeña | mediana | grande) #IMPLIED>
+        

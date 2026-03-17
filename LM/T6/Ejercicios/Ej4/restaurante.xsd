@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="tipoAlergeno">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Melocoton"/>
+            <xs:enumeration value="Gluten"/>
+            <xs:enumeration value="Queso"/>
+            <xs:enumeration value="Olivas"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="menu">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="entrantes">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="plato" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="descripcion" type="xs:string"/>
+                                        <xs:element name="precio" type="xs:double"/>
+                                        <xs:element name="cocina">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:ID"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="alergenos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="alergeno" type="tipoAlergeno" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="codPlato" type="xs:ID"/>
+                                    <xs:attribute name="nombreMenu" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="principales">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="plato" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="descripcion" type="xs:string"/>
+                                        <xs:element name="precio" type="xs:double"/>
+                                        <xs:element name="cocina">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:ID"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="alergenos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="alergeno" type="tipoAlergeno" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="codPlato" type="xs:ID"/>
+                                    <xs:attribute name="nombreMenu" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="postres">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="plato" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="descripcion" type="xs:string"/>
+                                        <xs:element name="precio" type="xs:double"/>
+                                        <xs:element name="cocina">
+                                            <xs:complexType>
+                                                <xs:attribute name="id" type="xs:ID"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="alergenos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="alergeno" type="tipoAlergeno" maxOccurs="unbounded"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="codPlato" type="xs:ID"/>
+                                    <xs:attribute name="nombreMenu" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

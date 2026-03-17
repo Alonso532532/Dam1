@@ -4,12 +4,12 @@
     <libro>
         <titulo>EKR</titulo>
         <año>2004</año>
-        <autorref id="A001"></autor>
+        <autorref id="A001"></autorref>
     </libro>
     <libro>
         <titulo>HECPROLL</titulo>
         <año>2007</año>
-        <autorref id="A002"></autor>
+        <autorref id="A002"></autorref>
     </libro>
     <autor id="A001">
         <nombre>Alonso</nombre>

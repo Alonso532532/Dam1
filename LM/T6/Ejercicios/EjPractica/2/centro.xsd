@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="tipoCurso">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"></xs:minInclusive>
+            <xs:maxInclusive value="4"></xs:maxInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoTamaño">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="pequeña"></xs:enumeration>
+            <xs:enumeration value="mediana"></xs:enumeration>
+            <xs:enumeration value="grande"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="centro">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="profesorado">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="profesor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="asignatura" type="xs:string"/>
+                                        <xs:element name="edad" type="xs:integer" minOccurs="0"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="clase" type="xs:IDREF"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="alumnado">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="alumno" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="curso" type="tipoCurso"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="instalaciones">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="clase" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="id" type="xs:ID"/>
+                                    <xs:attribute name="tamaño" type="tipoTamaño"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
