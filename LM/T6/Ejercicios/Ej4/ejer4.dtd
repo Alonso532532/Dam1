@@ -10,7 +10,7 @@
             <!ELEMENT cocina EMPTY>
                 <!ATTLIST cocina id ID #REQUIRED>
             <!ELEMENT alergenos (alergeno+)>
-                <!ELEMENT alergeno (#PCDATA)>
+                <!ELEMENT (alergeno) (#PCDATA)>
 
     <!ELEMENT principales (plato+)>
         <!ELEMENT plato (nombre, descripcion, precio, cocina, alergenos?)>

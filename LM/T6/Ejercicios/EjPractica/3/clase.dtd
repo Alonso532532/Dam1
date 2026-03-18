@@ -1,0 +1,8 @@
+<!ELEMENT centro (clase+)>
+    <!ELEMENT clase EMPTY>
+    <!ATTLIST clase 
+    proyector (true|false) #REQUIRED
+    capacidad (grande|media|pequeña) #REQUIRED
+    profesor CDATA #IMPLIED
+    profesora CDATA #IMPLIED
+    delegado CDATA #IMPLIED>

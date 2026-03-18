@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="tipoMoneda">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="DOLAR"/>
+            <xs:enumeration value="RUBLO"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="tiendaMusica">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="disco" maxOccurs="unbounded">
+
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string"/>
+                            <xs:element name="artista" type="xs:string"/>
+                            <xs:element name="año" type="xs:string"/>
+                            <xs:element name="genero" type="xs:string"/>
+                            <xs:element name="moneda">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="precio" type="xs:double"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="moneda" type="tipoMoneda"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="canciones">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="cancion">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="titulo" type="xs:string"/>
+                                                    <xs:element name="duracion" type="xs:string"></xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="numero" type="xs:string"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID"/>
+                    </xs:complexType>
+
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

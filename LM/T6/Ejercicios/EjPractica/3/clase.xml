@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="clase.dtd" type="application/xml-dtd"?>
+<centro>
+    <clase proyector="true" capacidad="grande" profesor="Juanma"/>
+    <clase proyector="true" capacidad="media" profesora="Lydia"/>
+    <clase proyector="false" capacidad="pequeña" profesor="Angel" delegado="Tete"/>
+    <clase proyector="false" capacidad="media" profesor="PASC" delegado="Tete"/>
+</centro>

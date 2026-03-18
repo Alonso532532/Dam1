@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiendaMusica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="tiendaMuscia.xsd">
+    <disco id="D0">
+        <titulo>Breva</titulo>
+        <artista>Abascal</artista>
+        <año>2011</año>
+        <genero>Motocultor</genero>
+        <moneda moneda="EUR">
+            <precio>131.22</precio>
+        </moneda>
+
+        <canciones>
+            <cancion numero="C0">
+                <titulo>Hydrogen</titulo>
+                <duracion>7:42</duracion>
+            </cancion>
+            <cancion numero="C1">
+                <titulo>C2</titulo>
+                <duracion>5:22</duracion>
+            </cancion>
+            <cancion numero="C2">
+                <titulo>C3</titulo>
+                <duracion>8:46</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+
+    <disco id="D1">
+        <titulo>VENDO OPEL CORSA</titulo>
+        <artista>Celia</artista>
+        <año>2021</año>
+        <genero>Java</genero>
+        <moneda moneda="DOLAR">
+            <precio>23.32</precio>
+        </moneda>
+
+        <canciones>
+            <cancion numero="C4">
+                <titulo>C1</titulo>
+                <duracion>6:35</duracion>
+            </cancion>
+            <cancion numero="C5">
+                <titulo>C2</titulo>
+                <duracion>8:12</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+
+    <disco id="D2">
+        <titulo>CIRO</titulo>
+        <artista>ESTA</artista>
+        <año>2025</año>
+        <genero>EN LA MILI</genero>
+        <moneda moneda="RUBLO">
+            <precio>15.20</precio>
+        </moneda>
+
+        <canciones>
+            <cancion numero="C6">
+                <titulo>C1</titulo>
+                <duracion>8:22</duracion>
+            </cancion>
+            <cancion numero="C7">
+                <titulo>C2</titulo>
+                <duracion>7:15</duracion>
+            </cancion>
+        </canciones>
+    </disco>
+</tiendaMusica>
