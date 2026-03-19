@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receta codigo="AL001" nombre="Macarrones" dificultad="facil" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="val.xsd">
+    <ingredientes>
+        <ingrediente id="ING001" tipo="basico">
+            <nombre>Macarrones</nombre>
+            <cantidad>50</cantidad>
+            <unidad>unidades</unidad>
+        </ingrediente>
+        <ingrediente id="ING002" tipo="basico">
+            <nombre>tomate</nombre>
+            <cantidad>20</cantidad>
+            <unidad>gramos</unidad>
+        </ingrediente>
+        <ingrediente id="ING003" tipo="basico">
+            <nombre>queso</nombre>
+            <cantidad>15</cantidad>
+            <unidad>gramos</unidad>
+        </ingrediente>
+    </ingredientes>
+    <elaboracion>
+        <paso>
+            Herbir en agua
+        </paso>
+        <paso>
+            Poner cosas
+        </paso>
+        <paso>
+            Disfrutar
+        </paso>
+    </elaboracion>
+    <tiempoElaboracion>45</tiempoElaboracion>
+    <etiqueta tipo="pasta"></etiqueta>
+    <etiqueta tipo="mu gueno"></etiqueta>
+</receta>

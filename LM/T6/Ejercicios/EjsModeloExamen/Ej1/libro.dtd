@@ -1,0 +1,19 @@
+<!ELEMENT libro (autores|editorial|sinopsis|categoria*|precio)>
+<!ATTLIST libro isbn CDATA #REQUIRED
+idioma (es|en|fr|de) #REQUIRED
+formato (tapa_dura|tapa_blanda|ebook) "tapa_blanda">
+
+    <!ELEMENT autores (autor+)>
+        <!ELEMENT autor (nombre|apellidos|nacionalidad)>    
+        <!ATTLIST autor id ID #REQUIRED
+        rol (autor|coautor|traductor) "autor">
+            <!ELEMENT nombre (#PCDATA)>
+            <!ELEMENT apellidos (#PCDATA)>
+            <!ELEMENT nacionalidad (#PCDATA)>
+
+    <!ELEMENT editorial (#PCDATA)>
+    <!ELEMENT sinopsis (#PCDATA)>
+    <!ELEMENT categoria EMPTY>
+    <!ATTLIST categoria nombre CDATA #REQUIRED>
+
+    <!ELEMENT precio (#PCDATA)>

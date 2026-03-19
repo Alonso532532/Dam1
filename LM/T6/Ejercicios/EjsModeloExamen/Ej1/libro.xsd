@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="tipoIsbn">
+        <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="9999999999"/>
+            <xs:minInclusive value="1000000000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoIdioma">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="es"/>
+            <xs:enumeration value="en"/>
+            <xs:enumeration value="fr"/>
+            <xs:enumeration value="de"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoFormato">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="tapa_dura"/>
+            <xs:enumeration value="tapa_blanda"/>
+            <xs:enumeration value="ebook"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoAutor">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="autor"/>
+            <xs:enumeration value="coautor"/>
+            <xs:enumeration value="traductor"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoPrecio">
+        <xs:restriction base="xs:double">
+            <xs:pattern value="\d+\.\d{2}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="libro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="autores">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="autor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="apellidos" type="xs:string"/>
+                                        <xs:element name="nacionalidad" type="xs:string" minOccurs="0"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID"/>
+                                    <xs:attribute name="rol" default="autor" type="tipoAutor"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="editorial" type="xs:string"/>
+                <xs:element name="sinopsis" type="xs:string"/>
+                <xs:element name="categoria" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="nombre" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="precio" type="tipoPrecio"></xs:element>
+            </xs:sequence>
+            <xs:attribute name="isbn" type="tipoIsbn"/>
+            <xs:attribute name="idioma" type="tipoIdioma"/>
+            <xs:attribute name="formato" use="optional" default="tapa_blanda" type="tipoFormato"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

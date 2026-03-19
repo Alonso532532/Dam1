@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receta codigo="AL001" nombre="Bocadillo de rufles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="val.xsd">
+    <ingredientes>
+        <ingrediente id="ING001" tipo="basico">
+            <nombre>Rufles (Jamon)</nombre>
+            <cantidad>50</cantidad>
+            <unidad>unidades</unidad>
+        </ingrediente>
+        <ingrediente id="ING002" tipo="basico">
+            <nombre>Barrapan</nombre>
+            <cantidad>1</cantidad>
+            <unidad>unidad</unidad>
+        </ingrediente>
+    </ingredientes>
+    <elaboracion>
+        <paso>
+            Abres el pan y las rufles
+        </paso>
+        <paso>
+            Poner cosas
+        </paso>
+    </elaboracion>
+    <tiempoElaboracion>15</tiempoElaboracion>
+    <etiqueta tipo="Eker"></etiqueta>
+</receta>

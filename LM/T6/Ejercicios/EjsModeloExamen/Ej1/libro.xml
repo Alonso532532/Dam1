@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="libro.dtd" type="application/xml-dtd"?>
+<libro isbn="1234567890" idioma="es" formato="ebook">
+    <autores>
+        <autor id="AU001" rol="autor">
+            <nombre>Hecproll</nombre>
+            <apellidos>soriano</>
+            <nacionalidad>es</nacionalidad>
+        </autor>
+        <autor id="AU002" rol="coautor">
+            <nombre>Hecproll</nombre>
+            <apellidos>soriano</apellidos>
+            <nacionalidad>es</nacionalidad>
+        </autor>
+    </autores>
+    <editorial>Breva productions</editorial>
+    <sinopsis>Sin más</sinopsis>
+    <categoria nombre="Terror"></categoria>
+    <categoria nombre="Ficción"></categoria>
+    <precio>12.00</precio>
+</libro>
