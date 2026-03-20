@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class arrayList {
+
     public static Scanner sc = new Scanner(System.in);
     static java.util.ArrayList<Integer> numeros = new java.util.ArrayList<>();
     static void main(String[] args) {

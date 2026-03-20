@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receta codigo="AL001" nombre="Patatas fritas" dificultad="facil" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="val.xsd">
+    <ingredientes>
+        <ingrediente id="ING001" tipo="basico">
+            <nombre>Patatas</nombre>
+            <cantidad>10</cantidad>
+            <unidad>unidades</unidad>
+        </ingrediente>
+        <ingrediente id="ING002" tipo="basico">
+            <nombre>Aceite</nombre>
+            <cantidad>1</cantidad>
+            <unidad>DcLitro</unidad>
+        </ingrediente>
+        <ingrediente id="ING003">
+            <nombre>Macarrones</nombre>
+            <cantidad>50</cantidad>
+            <unidad>gramos</unidad>
+        </ingrediente>
+    </ingredientes>
+    <elaboracion>
+        <paso>
+            Herbir en aceite
+        </paso>
+        <paso>
+            Poner sal
+        </paso>
+    </elaboracion>
+    <tiempoElaboracion>30</tiempoElaboracion>
+</receta>
