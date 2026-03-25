@@ -47,6 +47,10 @@ insert into prestamo ()
 values (6, 1, curdate(), (select c.DNI from cliente c where c.nombre="PEDRO MARTINEZ ROY"));
 
 -- 8
+insert into interpretada 
+values (
+	6, 
+	(select codactor from pelicula where codpeli= 6));
 
 -- 9
 delete from pelicula p
