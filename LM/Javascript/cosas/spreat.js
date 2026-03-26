@@ -32,6 +32,8 @@ const personas = [{
     edad: 23
 },{
     nombre: "Pascual",
-    edad: 23
+    edad: 23,
+    ciudad: "Teruel",
+    codigoPostal: 44002 
 }]
-sout(personas.at(0).nombre+"\n"+personas.at(1).nombre)
+sout(personas.at(0).nombre+"\n"+personas.at(1).ciudad)

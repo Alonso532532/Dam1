@@ -6,3 +6,10 @@ console.log(suma(2,5) == 7 ? "siete" : "No es siete")
 
 const obtenerFecha = () => new Date()
 console.log(obtenerFecha())
+
+const numeros = [1,2,3]
+const dobles = numeros.map((num)=>{
+    console.log(`Procesando ${num}`)
+    return num*2
+})
+console.log(dobles)

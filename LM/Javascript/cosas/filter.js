@@ -5,7 +5,6 @@ const alumnos = [
   { nombre: "Quiles", nota: 9 },
   { nombre: "Hector", nota: 4 }
 ]
-resp = alumnos.filter(a => a.nota>6).map(a => a.nombre)
+let aprobados = alumnos.filter(a => a.nota>=5)
 
-sout(resp)
-
+aprobados.forEach(a=>console.log(a))
