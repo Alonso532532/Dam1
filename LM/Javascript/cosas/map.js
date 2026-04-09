@@ -1,5 +1,5 @@
 let numeros = [1,2,3,4]
-const dobles = numeros.map((num)=>{
+const dobles = numeros.map(num=>{
     console.log(`Procesando ${num}`)
     return num*2
 })
@@ -19,6 +19,8 @@ const usuariosDesdeServidor = [
     {id: 3, nombre: "eker", edad: 6}
 ]
 
+usuariosDesdeServidor.forEach(a=>console.log(a))
+
 let nuevo = usuariosDesdeServidor.map(a=>({
     nombre: a.nombre,
     valor: a.id,
@@ -26,3 +28,4 @@ let nuevo = usuariosDesdeServidor.map(a=>({
     }))
 
 nuevo.forEach(a => console.log(a))
+
