@@ -85,7 +85,5 @@ create table Usuarios(
 
 insert into Usuarios () 
 	values
-	('Admin', 'Sor2425$'),
-	('Cliente', '12341234'),
-	('Recepcionista', 'Lovelace1815');
+	('Admin', 'Sor2425$');
 
