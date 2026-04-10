@@ -4,6 +4,8 @@ CREATE DATABASE Dinopolis;
 
 USE Dinopolis;
 
+-- TABLAS DE DINOPOLIS
+
 CREATE TABLE Clientes(
 	DNI VARCHAR(9) PRIMARY KEY,
 	edad INTEGER,
@@ -73,4 +75,17 @@ insert into Atracciones (nombre, numeroDeZona)
 	('Trenecito', 1),
 	('Teatro', 1);
 
+-- USUARIOS DEL PROGRAMA
+
+create table Usuarios(
+	nombre VARCHAR(20) primary key,
+	contrasena VARCHAR(50) not null
+);
 	
+
+insert into Usuarios () 
+	values
+	('Admin', 'Sor2425$'),
+	('Cliente', '12341234'),
+	('Recepcionista', 'Lovelace1815');
+
