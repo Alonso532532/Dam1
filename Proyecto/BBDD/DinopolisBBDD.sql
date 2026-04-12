@@ -135,12 +135,13 @@ create table Pertenece(
 	constraint fk_nombre_Pertenece foreign key (nombre) references Categoria (nombre)
 );
 
+-- Sentencias DDL
+
 insert into Persona ()
 	values
 	('11111111A', 23, 'Juan Carlos'),
 	('22222222A', 73, 'Maria'),
 	('33333333A', 34, 'Carlos Casado'),
-	
 	('44444444A', 12, 'Marcos Inojosa'),
 	('55555555A', 43, 'Emanuel Ciro'),
 	('66666666A', 82, 'Pablo Miguel'),
@@ -150,7 +151,9 @@ insert into Persona ()
 	('11111111B', 53, 'Hector Criado'),
 	('22222222B', 19, 'Sara'),
 	('33333333B', 64, 'Jeffry'),
-	('44444444B', 53, 'Estela Ramirez');
+	('44444444B', 53, 'Estela Ramirez'),
+	('55555555B', 23, 'Denis'),
+	('66666666B', 48, 'Pedro Idalgo');
 
 insert into Clientes ()
 	values
@@ -175,7 +178,9 @@ insert into Trabajadores ()
 	('11111111B', '77 12345678 90', '99999999A'),
 	('22222222B', '88 12345678 90', '22222222B'),
 	('33333333B', '99 12345678 90', '22222222B'),
-	('44444444B', '00 12345678 90', '22222222B');
+	('44444444B', '00 12345678 90', '22222222B'),
+	('55555555B', '12 12345678 90', '77777777A'),
+	('66666666B', '23 12345678 90', '99999999A');
 
 insert into Vigilantes ()
 	values
@@ -186,12 +191,14 @@ insert into Vigilantes ()
 insert into Limpiadores ()
 	values
 	('77777777A'),
-	('88888888A');
+	('88888888A'),
+	('55555555B');
 
 insert into Cajeros ()
 	values
 	('99999999A'),
-	('11111111B');
+	('11111111B'),
+	('66666666B');
 
 insert into Actores ()
 	values
@@ -204,7 +211,9 @@ insert into Zonas (nombre)
 	values
 	('Paleosenda'),
 	('Entrada'),
-	('Patio exterior');
+	('Patio exterior'),
+	('Tienda'),
+	('Entrada2');
 
 insert into Visita ()
 	values 
@@ -218,11 +227,13 @@ insert into Visita ()
 insert into ZonasEntretenimiento ()
 	values 
 	(1),
+	(4),
 	(3);
 
 insert into ZonasRecepcion ()
 	values 
-	(2);
+	(2),
+	(5);
 
 insert into Vigila ()
 	values 
@@ -234,11 +245,13 @@ insert into Limpia ()
 	values 
 	(1, '77777777A'),
 	(2, '77777777A'),
+	(2, '55555555B'),
 	(3, '88888888A');
 
 insert into Trabaja ()
 	values 
 	(2, '99999999A'),
+	(2, '66666666B'),
 	(2, '11111111B');
 
 insert into Atracciones (nombre)
@@ -278,4 +291,63 @@ insert into Pertenece ()
 	(4, 'Informativo'),
 	(4, 'Colaborativo');
 
+-- Consultas
 
+-- 1- Personas que tengan apellidos y sean mayores de 50 ordenados por la edad
+select * from persona p where p.nombre like '% %' and p.edad > 50 order by p.edad;
+
+-- 2- Zonas que hayan sido visitadas
+select * from zonas z where z.numeroDeZona in (select v.numeroDeZona from visita v);
+
+-- 3- Categoría más común
+select c.nombre  from categoria c where 
+	(select count(*) from pertenece p  where c.nombre = p.nombre) > all 
+	(select count(*) from pertenece p where c.nombre != p.nombre group by p.nombre);
+
+-- 4-  Personas que trabajan limpiando
+select p.* from persona p where p.DNI in 
+	(select t.DNI from trabajadores t where t.DNI in 
+		(select l.DNI from limpiadores l));
+
+-- 5- Personas que trabajan limpiando junto a las zonas que limpian y su nuss, si solo limpian una
+select p.*, t.NUSS, z.nombre from persona p 
+	join trabajadores t on p.DNI = t.DNI 
+	join limpia l on p.DNI = l.DNI 
+	join zonas z on l.numeroDeZona = z.numeroDeZona where 1=(select count(*) from limpia l2 where l2.DNI = p.DNI);
+
+-- 6- Vigilantes que vigilan al menos una zona junto a su nuss
+select v.*, t.DNI from vigilantes v 
+	join trabajadores t on t.DNI = v.DNI 
+	where (select COUNT(*) from vigila v2 where v2.DNI = v.DNI)>0;
+
+-- 7- Cantidad de trabajadores agrupados por su jefe que sean mayores de 30
+select (select p.nombre from persona p where p.DNI = t.DNI_Jefe), count(*) from trabajadores t where 
+	(select p.edad from persona p where p.DNI = t.DNI)>20
+	group by t.DNI_Jefe;
+
+-- 8- Atracciones que tengan 2 categorías
+select (select a.nombre from atracciones a where a.numeroDeAtraccion = p.numeroDeAtraccion)
+	from pertenece p group by p.numeroDeAtraccion having count(*)=2;
+
+-- 9- Zonas que sean de entretenimiento y que tengan más de una atracción
+select z.* from zonas z 
+	where z.numeroDeZona in (select z2.numeroDeZona from zonasentretenimiento z2)
+	having (select count(*) from atraccioneszona a where a.numeroDeZona = z.numeroDeZona)>1;
+
+-- 10- Personas que sean clientes
+select p.DNI from persona p
+intersect 
+select c.DNI from clientes c;
+
+-- 11- Cantidad de trabajadroes con el mismo jefe
+select (select p.nombre  from persona p where p.DNI = t.DNI), 
+	count(*) over (partition by t.DNI_Jefe) as "Compañeros con mismo jefe"
+	from trabajadores t;	
+
+-- 12- Muestro la atracción y el numero de categorías que esta tiene de las atracciónes de la zona "Patio exterior" donde actuen actores
+with atraccionesDePatio as 
+	(select a.*, (select count(*) from pertenece p where p.numeroDeAtraccion = a.numeroDeAtraccion) as "Cantidad de categorías"
+	from atracciones a where a.numeroDeAtraccion in 
+	(select a2.numeroDeAtraccion from atraccioneszona a2 where a2.numeroDeZona = 
+		(select z.numeroDeZona from zonas z where z.nombre = "Patio exterior")))
+		select a.* from atraccionesDePatio a where a.numeroDeAtraccion in (select a2.numeroDeAtraccion from actua a2);
