@@ -153,7 +153,9 @@ insert into Persona ()
 	('33333333B', 64, 'Jeffry'),
 	('44444444B', 53, 'Estela Ramirez'),
 	('55555555B', 23, 'Denis'),
-	('66666666B', 48, 'Pedro Idalgo');
+	('66666666B', 48, 'Pedro Idalgo'),
+	('77777777B', 63, 'Aurelio López'),
+	('88888888B', 18, 'Yolanda');
 
 insert into Clientes ()
 	values
@@ -351,3 +353,26 @@ with atraccionesDePatio as
 	(select a2.numeroDeAtraccion from atraccioneszona a2 where a2.numeroDeZona = 
 		(select z.numeroDeZona from zonas z where z.nombre = "Patio exterior")))
 		select a.* from atraccionesDePatio a where a.numeroDeAtraccion in (select a2.numeroDeAtraccion from actua a2);
+
+-- Sentencias DML
+
+-- 1- Inserto las personas que no sean ni clientes ni trabajadores en la tabla clientes
+insert into clientes () 
+	select p.DNI from persona p where p.dni not in (select t.DNI from trabajadores t) and p.dni not in (select c.DNI from clientes c);
+
+-- 2- Reduzco el precio de las entradas a las personas que tengan 50 o más años
+update entrada e  
+	set precio=e.precio*0.90
+	where e.DNI in (select p.DNI from persona p where p.edad>=50);
+
+-- 3- Pone la edad a 25 de la primera persona que ha comprado la entrada má cara
+update persona p set edad=(select 25 from entrada e where p.DNI = e.DNI limit 1) 
+	where p.DNI = (select e.DNI from entrada e where e.precio in (select MAX(precio) from entrada e2) limit 1);
+
+-- 4- 
+
+
+
+
+
+
