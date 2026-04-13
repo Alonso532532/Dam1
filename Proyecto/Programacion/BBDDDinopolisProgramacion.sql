@@ -8,14 +8,14 @@ USE Dinopolis;
 
 CREATE TABLE Clientes(
 	DNI VARCHAR(9) PRIMARY KEY,
-	edad INTEGER,
-	nombre VARCHAR(50)
+	edad INTEGER not null,
+	nombre VARCHAR(50) not null
 );
 
 CREATE TABLE Entrada(
 	numeroDeEntrada INTEGER AUTO_INCREMENT PRIMARY KEY,
 	tipo VARCHAR(20),
-	precio DOUBLE DEFAULT 0,
+	precio DOUBLE NOT NULL,
 	DNI VARCHAR(9) NOT NULL,
 	CONSTRAINT fk_DNI_Entrada FOREIGN KEY (DNI) REFERENCES Clientes (DNI),
 	CONSTRAINT ck_tipo_Entrada CHECK (tipo IN ('Oferta', 'Normal', 'Familia numerosa')),
@@ -38,7 +38,7 @@ CREATE TABLE Visita(
 CREATE TABLE Atracciones(
 	numeroDeAtraccion INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(50) NOT NULL,
-	numeroDeZona INTEGER,
+	numeroDeZona INTEGER not null,
 	CONSTRAINT fk_numeroDeZona_Atracciones FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona)
 );
 
