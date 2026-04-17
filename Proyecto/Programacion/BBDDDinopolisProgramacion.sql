@@ -30,7 +30,8 @@ CREATE TABLE Zonas(
 CREATE TABLE Visita(
 	DNI VARCHAR(9),
 	numeroDeZona INTEGER,
-	CONSTRAINT pk_visita PRIMARY KEY (DNI, numeroDeZona),
+	fecha DATETIME default NOW(),
+	CONSTRAINT pk_visita PRIMARY KEY (DNI, numeroDeZona, fecha),
 	CONSTRAINT fk_numeroDeZona_Visita FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona),
 	CONSTRAINT fk_DNI_Visita FOREIGN KEY (DNI) REFERENCES Clientes (DNI)
 );
@@ -62,11 +63,12 @@ insert into Zonas (nombre)
 
 insert into Visita () 
 	values
-	('17352120H', 3),
-	('29232320G', 3),
-	('17352120H', 2),
-	('29232320G', 2),
-	('17352120H', 1);
+	('29232320G', 2, '2026-04-17 18:52:43'),	
+	('17352120H', 3, '2026-04-17 18:35:52'),
+	('29232320G', 3, '2026-04-17 18:32:23'),
+	('17352120H', 2, '2026-04-17 17:13:54'),
+	('29232320G', 2, '2026-04-17 17:02:23'),
+	('17352120H', 1, '2026-04-16 13:32:10');
 
 insert into Atracciones (nombre, numeroDeZona) 
 	values
