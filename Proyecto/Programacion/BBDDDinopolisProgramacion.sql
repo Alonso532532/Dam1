@@ -61,7 +61,7 @@ insert into Zonas (nombre)
 	("Patio exterior"),
 	("Recepción");
 
-insert into Visita () 
+insert into Visita ()
 	values
 	('29232320G', 2, '2026-04-17 18:52:43'),	
 	('17352120H', 3, '2026-04-17 18:35:52'),
@@ -81,12 +81,13 @@ insert into Atracciones (nombre, numeroDeZona)
 
 create table Usuarios(
 	nombre VARCHAR(20) primary key,
-	contrasena VARCHAR(50) not null
+	contrasena VARCHAR(50) not null,
+	esAdmin BOOL default false
 );
 	
 
 insert into Usuarios () 
 	values
-	('Admin', 'Sor2425$');
+	('Admin', 'Sor2425$', true);
 
 
