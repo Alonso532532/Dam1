@@ -13,6 +13,7 @@ public class ej2 {
         Path ruta = Paths.get(sc.nextLine());
         File archivo = new File(ruta.toString());
         System.out.println("La ruta del padre es " + ruta.getParent());
+
         if (archivo.exists()){
             System.out.println("El elemento existe");
             if (ruta.getFileName().toString().contains(".")){
