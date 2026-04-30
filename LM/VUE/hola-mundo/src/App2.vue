@@ -13,14 +13,16 @@
   <p>{{ colores }} iker</p>
   <!-- Uso un array -->
   <h3 :style="`color: ${colores[2]}`">Color con interpolación IKER</h3>
-  <!-- Directiva v-if muestra o no un elemento según un booleano, el v-else tiene que estár pegado al v-if -->
+  <!-- Directiva v-if muestra o no un elemento según un booleano si es falso deja un comentario, el v-else tiene que estár pegado al v-if -->
    <hr>
   <h3>Directiva v-if</h3>
   <h2 v-if="active">iker, v-if en acción</h2>
   <h2 v-else-if="active">iker está en false</h2>
   <h2 v-else>No se sabe en que estado está iker</h2>
+  <p>{{ active ? "Sin v-if, true" : "Sin v-if, no es true" }}</p>
+
   <hr>
-  <!--Este lo que hace es ocultar el objeto pero no qitarlo-->
+  <!--Este lo que hace es ocultar el objeto pero no qitarlo, el v-if si que lo quita-->
   <h3>Directiva v-show</h3>
   <h2 v-show="true">True</h2>
   <h2 v-show="false">False</h2>
