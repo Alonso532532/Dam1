@@ -17,7 +17,7 @@ CREATE TABLE Entrada(
 	tipo VARCHAR(20),
 	precio DOUBLE NOT NULL,
 	DNI VARCHAR(9) NOT NULL,
-	CONSTRAINT fk_DNI_Entrada FOREIGN KEY (DNI) REFERENCES Clientes (DNI),
+	CONSTRAINT fk_DNI_Entrada FOREIGN KEY (DNI) REFERENCES Clientes (DNI) on update cascade on delete cascade,
 	CONSTRAINT ck_tipo_Entrada CHECK (tipo IN ('Oferta', 'Normal', 'Familia numerosa')),
 	CONSTRAINT ck_precio_Entrada CHECK (precio >= 0)
 );
@@ -32,15 +32,15 @@ CREATE TABLE Visita(
 	numeroDeZona INTEGER,
 	fecha DATETIME default NOW(),
 	CONSTRAINT pk_visita PRIMARY KEY (DNI, numeroDeZona, fecha),
-	CONSTRAINT fk_numeroDeZona_Visita FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona),
-	CONSTRAINT fk_DNI_Visita FOREIGN KEY (DNI) REFERENCES Clientes (DNI)
+	CONSTRAINT fk_numeroDeZona_Visita FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona) on update cascade on delete cascade,
+	CONSTRAINT fk_DNI_Visita FOREIGN KEY (DNI) REFERENCES Clientes (DNI) on update cascade on delete cascade
 );
 
 CREATE TABLE Atracciones(
 	numeroDeAtraccion INTEGER AUTO_INCREMENT PRIMARY KEY,
 	nombre VARCHAR(50) NOT NULL,
 	numeroDeZona INTEGER not null,
-	CONSTRAINT fk_numeroDeZona_Atracciones FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona)
+	CONSTRAINT fk_numeroDeZona_Atracciones FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona) on update cascade on delete cascade
 );
 
 insert into Clientes () 
@@ -89,5 +89,4 @@ create table Usuarios(
 insert into Usuarios () 
 	values
 	('Admin', 'Sor2425$', true);
-
 
