@@ -66,3 +66,59 @@ update departamento set CodEmpDir = (select e.CodEmp from empleado e where e.Nom
 
 -- 11
 update empleado e set SalEmp=e.SalEmp*1.10 where e.SalEmp < (select promedio from (select AVG(e2.salemp) as promedio from empleado e2) as coste);
+
+-- 12
+update departamento d set PreAnu = d.PreAnu*1.08 where d.CodCen = "FAZS" and d.PreAnu < 20000000;
+
+-- 13 
+update empleado e set ExTelEmp = "9999" where 
+	e.CodDep in (select dep from 
+		(select d.CodDep as dep from departamento d where d.PreAnu = 
+			(select MAX(d2.PreAnu) from departamento d2)) as CodDep)
+
+-- 14
+update empleado e set SalEmp = e.SalEmp * 1.03 where 
+	e.CodDep in (select cod from 
+			(select e2.CodDep as cod from empleado e2 where e2.NumHi>1) as deps);
+
+-- 15
+-- Manera ej
+update empleado e join 
+	(select h.CodEmp, COUNT(*) as cant from hijo h group by h.CodEmp) 
+	as ch on e.CodEmp = ch.CodEmp 
+	set NumHi=cant;
+	
+update empleado e set NumHi=0 where e.CodEmp  not in (select e.CodEmp from hijo);
+
+-- Manera 2
+update empleado e set NumHi = 
+	(select COUNT(*) from hijo h where h.CodEmp = e.CodEmp);
+
+-- 16
+delete from habemp where CodHab = "PROYE";
+
+-- 17
+delete from habilidad where CodHab = "PROYE"
+
+-- 18
+delete from hijo where CodEmp not in (select e.CodEmp from empleado e);
+
+-- 19
+delete from hijo where CodEmp in (select e.CodEmp from empleado e where e.coddep = "DEVZS");
+
+delete from habemp where CodEmp in (select e.CodEmp from empleado e where e.coddep = "DEVZS");
+
+update departamento d set CodEmpDir = null where d.CodEmpDir in (select e.CodEmp from empleado e where e.coddep = "DEVZS");
+
+delete from empleado where CodDep = "DEVZS";
+
+-- 20
+delete from habemp where CodEmp in 
+	(select e.CodEmp from empleado e where e.salemp < 
+		(select AVG(e2.SalEmp) from empleado e2));
+
+-- 21
+update empleado e set CodDep = null where CodDep in ("DEVZS", "CENZ");
+
+delete from departamento where CodDep in ("DEVZS", "CENZ");
+
