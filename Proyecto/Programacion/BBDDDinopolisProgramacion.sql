@@ -15,7 +15,7 @@ CREATE TABLE Clientes(
 CREATE TABLE Entrada(
 	numeroDeEntrada INTEGER AUTO_INCREMENT PRIMARY KEY,
 	tipo VARCHAR(20),
-	precio DOUBLE NOT NULL,
+	precio DOUBLE(5,2) NOT NULL,
 	DNI VARCHAR(9) NOT NULL,
 	CONSTRAINT fk_DNI_Entrada FOREIGN KEY (DNI) REFERENCES Clientes (DNI) on update cascade on delete cascade,
 	CONSTRAINT ck_tipo_Entrada CHECK (tipo IN ('Oferta', 'Normal', 'Familia numerosa')),
