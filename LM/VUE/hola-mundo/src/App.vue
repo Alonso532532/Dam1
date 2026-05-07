@@ -33,6 +33,10 @@ import { computed, ref } from 'vue'
     }
 
     const anadir = () => {
+        var existe = false
+        arrayFavoritos.array.forEach(element => {
+            
+        });
         arrayFavoritos.value.push(contador.value)
     }
 
