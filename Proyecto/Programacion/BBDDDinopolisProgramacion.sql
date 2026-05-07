@@ -88,5 +88,6 @@ create table Usuarios(
 
 insert into Usuarios () 
 	values
-	('Admin', 'Sor2425$', true);
+	('Admin', 'Sor2425$', true),
+	('User', 'Sor2425$', false);
 
