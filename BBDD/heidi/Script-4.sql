@@ -79,7 +79,7 @@ with minsHablados as (
 )
 select m.*, rank() over (order by m.total) from minsHablados m where m.total > 5;
 
--- Pruebas
+-- Pruebas (no son ejercicios)
 select c.nombre, count(l.id_llamada) over (partition by l.id_cliente) from llamadas l join clientes c on c.id_cliente = l.id_cliente; 
 
 select c.nombre, count(l.id_llamada) from llamadas l join clientes c on c.id_cliente = l.id_cliente group by c.id_cliente; 

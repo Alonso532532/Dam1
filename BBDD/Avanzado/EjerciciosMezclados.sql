@@ -122,3 +122,28 @@ update empleado e set CodDep = null where CodDep in ("DEVZS", "CENZ");
 
 delete from departamento where CodDep in ("DEVZS", "CENZ");
 
+
+-- Transacciones
+-- 1
+create index idx_sal on empleado (salemp);
+
+explain select * from empleado where salemp>30000000;
+
+-- 3
+create index idx_fecinc on empleado (FecInEmp);
+-- Aquí si que se compara el atributo con índice entonces si que se usa
+explain select * from empleado e where e.FecInEmp>'2000-01-01';
+-- Pero aquí no
+explain select * from empleado e where year(fecinemp)=2000;
+
+-- 2
+-- compuesto
+create index idx_dep_sal on empleado(codDep, Salemp);
+
+-- Transacciónes
+-- 1
+select @autocommit;
+set autocommit=0;
+insert into empleado values (4321, 'PROZS', null, CURDATE(), '1985-02-02', '12345678J', 'PEPE', 0, 123456);
+select * from empleado e where e.NomEmp = "PEPE";
+rollback;
