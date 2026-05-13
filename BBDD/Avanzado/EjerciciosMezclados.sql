@@ -122,7 +122,76 @@ update empleado e set CodDep = null where CodDep in ("DEVZS", "CENZ");
 
 delete from departamento where CodDep in ("DEVZS", "CENZ");
 
+-- Vistas
+-- 1
+create view v_empleados_sobre_media as
+	select e.nomEmp, e.salEmp, e.codDep from empleado e where e.salemp>(select AVG(e2.salemp) from empleado e2);
 
+select * from v_empleados_sobre_media;
+
+-- 2
+create view v_dep_sin_empleados as
+	select d.coddep, d.nomdep from departamento d where not exists (select e.codDep from empleado e where e.codDep = d.codDep);
+
+select * from v_dep_sin_empleados;
+
+-- 3
+create view v_centros_presupuesto as
+	select c.codcen, c.nomcen, SUM(d.preAnu) from centro c join departamento d on c.codCen = d.codCen group by c.codCen;
+
+select * from v_centros_presupuesto;
+
+-- 4
+create view v_directorio as
+	select e.nomEmp, d.nomDep, c.nomCen, e.salemp, e.numhi from empleado e 
+	join departamento d on e.codDep=d.codDep
+	join centro c on c.codCen=d.codCen;
+
+select * from v_directorio;
+
+-- 5
+create view v_emp_habilidades as
+	select e.NomEmp, h2.desHab, h1.nivHab from empleado e
+	join habemp h1 on e.codEmp = h1.codEmp
+	join habilidad h2 on h1.codHab = h2.codHab;
+
+select * from v_emp_habilidades;
+
+-- 6
+create view v_resumen_dep as
+	select d.nomDep, c.nomCen, e2.nomEmp as NomEmpDir, COUNT(e.nomEmp) as NumEmpleados, MIN(e.salEmp) as SalarioMinimo, MAX(e.salemp) as SalarioMaximo from departamento d
+	join centro c on d.codCen = c.codCen
+	join empleado e on d.codDep = e.codDep
+	join empleado e2 on d.codEmpDir = e2.codEmp group by d.codDep, c.nomCen, e2.codEmp;
+
+drop view v_resumen_dep;
+
+select * from v_resumen_dep;
+
+-- 7
+create view v_emp_hijos as
+	select e.nomEmp, h.numHij, h.fecNaHi from empleado e
+	left join hijo h on e.codEmp = h.codEmp;
+
+select * from v_emp_hijos;
+
+-- 8
+create view v_top_sal_centro as
+	select c.nomcen, (select e.nomEmp from empleado e where e.codDep in (select d.coddep from departamento d where d.codCen = c.codCen) and e.salemp in (select max(e2.salemp) from empleado e2 where e2.codDep in (select d.coddep from departamento d where d.codCen = c.codCen))) as NomEmpMejorPagado from centro c;
+
+drop view v_top_sal_centro;
+
+select * from v_top_sal_centro;
+
+-- 9
+create view v_habilidades_populares as
+	select h.desHab, count(h2.codHab) from habilidad h 
+	join habemp h2 on h.codHab = h2.codHab 
+	group by h.codHab having count(h2.codHab)>=2;
+
+drop view v_habilidades_populares;
+
+select * from v_habilidades_populares;
 -- Transacciones
 -- 1
 create index idx_sal on empleado (salemp);
@@ -147,3 +216,4 @@ set autocommit=0;
 insert into empleado values (4321, 'PROZS', null, CURDATE(), '1985-02-02', '12345678J', 'PEPE', 0, 123456);
 select * from empleado e where e.NomEmp = "PEPE";
 rollback;
+
