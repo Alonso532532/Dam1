@@ -23,7 +23,7 @@
                 {{ title }}
             </h4>
             <p>
-                {{ texto }}
+                {{ id }} - {{ texto }}
             </p>
             <button @click="$emit('cambiarTituloFavorito', title)" class="btn btn-outline-primary">Mi post favorito</button>
         </div>

@@ -1,29 +1,58 @@
 <script setup>
-import { ref } from 'vue';
-import BlogPost from './components/BlogPost.vue';
-import BotonContador from './components/BotonContador.vue';
-import ContactosPractica from './components/ContactosPractica.vue';
+  import { computed, ref } from 'vue';
+  import BlogPost from './components/BlogPost.vue';
+  import BotonContador from './components/BotonContador.vue';
+  import ContactosPractica from './components/ContactosPractica.vue';
+  import PaginatePost from './components/PaginatePost.vue';
+import LoadingSpinner from './components/LoadingSpinner.vue';
 
-const posts = ref([
-  {title: "Post 01", texto: "Hola Hecproll", color: "primary", id: 1},
-  {title: "Post 02", texto: "Hola Pascual", color: "warning", id: 2},
-  {title: "Post 03", texto: "Hola Iker", color: "success", id: 3},
-  {title: "Post 04", color: "danger", id: 4}
-])
+  const posts = ref([])
 
-const contactos = ([
-  {nombre: "Juan Pérez", email: "juan@example.com", estado: "Desarollador"},
-  {nombre: "Pedro Pérez", email: "pedro@example.com", estado: "Estudiante"},
-  {nombre: "Mario Pérez", email: "mario@example.com", estado: "Profesor"}
-])
-const miFavorito = ref("")
+  const contactos = ([
+    {nombre: "Juan Pérez", email: "juan@example.com", estado: "Desarollador"},
+    {nombre: "Pedro Pérez", email: "pedro@example.com", estado: "Estudiante"},
+    {nombre: "Mario Pérez", email: "mario@example.com", estado: "Profesor"}
+  ])
+  const miFavorito = ref("")
 
-const cambiarFavorito = (titulo) => miFavorito.value = titulo
+  const cambiarFavorito = (titulo) => miFavorito.value = titulo
 
-const contactarCon = ref("")
+  const contactarCon = ref("Nadie")
 
-const cambiarContactar = (contacto) => contactarCon.value = contacto
+  const cambiarContactar = (contacto) => contactarCon.value = contacto
 
+  const loading = ref(true)
+
+  // Uso de fetch para cargar datos de una api publica
+  fetch('https://jsonplaceholder.typicode.com/posts')
+  // Cuando responda se formatea la respuesta a json
+    .then( response => response.json())
+  // manipulo la información
+    .then( data => posts.value = data)
+    .finally(() =>{
+      setTimeout(()=>{loading.value=false}, 3000)
+    })
+
+  // Paginación
+  const postXPagina = 10;
+  const ini = ref(0)
+  const fin = ref(postXPagina)
+  const tamanio = computed(()=>posts.value.length)
+
+
+  const next = () => {
+    if (fin.value < posts.value.length){
+      ini.value = fin.value
+      fin.value = fin.value+postXPagina
+    }
+  }
+
+  const previous = () => {
+    if (ini.value > 0){
+      ini.value = ini.value-postXPagina
+      fin.value = fin.value-postXPagina
+    }
+  }
 </script>
 
 <template>
@@ -48,18 +77,27 @@ const cambiarContactar = (contacto) => contactarCon.value = contacto
     </div>
 
     <hr>
-    <h2>Mi post favorito: {{ miFavorito }}</h2>
-    <BlogPost 
-      v-for="post in posts" :key="post.id"
-      :title="post.title"
-      :texto="post.texto"
-      :color="post.color"
-      @cambiarTituloFavorito="cambiarFavorito"
-      class="m-3"
-    />
+    <LoadingSpinner v-if="loading"/>
+      <div v-else>
+        <h2>Mi post favorito: {{ miFavorito }}</h2>
 
-      
-
+        <PaginatePost
+          @siguiente="next"
+          @anterior="previous"
+          :inicio="ini"
+          :fin="fin"
+          :tamanio="tamanio"
+        class="mx-3" />
+        <BlogPost 
+          v-for="post in posts.slice(ini,fin)" :key="post.id"
+          :title="post.title"
+          :texto="post.texto"
+          :color="post.color"
+          :id="post.id"
+          @cambiarTituloFavorito="cambiarFavorito"
+          class="m-3"
+        /> 
+      </div>
     </div>
 </template>
 
