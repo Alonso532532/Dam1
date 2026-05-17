@@ -64,7 +64,8 @@ create table Zonas(
 CREATE TABLE Visita(
 	DNI VARCHAR(9),
 	numeroDeZona INTEGER,
-	CONSTRAINT pk_visita PRIMARY KEY (DNI, numeroDeZona),
+	fecha DateTime,
+	CONSTRAINT pk_visita PRIMARY KEY (DNI, numeroDeZona, fecha),
 	CONSTRAINT fk_numeroDeZona_Visita FOREIGN KEY (numeroDeZona) REFERENCES Zonas (numeroDeZona),
 	CONSTRAINT fk_DNI_Visita FOREIGN KEY (DNI) REFERENCES Clientes (DNI)
 );
@@ -219,12 +220,12 @@ insert into Zonas (nombre)
 
 insert into Visita ()
 	values 
-	('11111111A', 2),
-	('33333333A', 2),
-	('11111111A', 3),
-	('33333333A', 3),
-	('22222222A', 2),
-	('22222222A', 3);
+	('11111111A', 2, '2025-11-11 12:12:12'),
+	('33333333A', 2, '2025-12-09 12:12:12'),
+	('11111111A', 3, '2025-09-06 12:12:12'),
+	('33333333A', 3, '2025-10-07 12:12:12'),
+	('22222222A', 2, '2025-11-12 12:12:12'),
+	('22222222A', 3, '2025-10-27 12:12:12');
 
 insert into ZonasEntretenimiento ()
 	values 
@@ -365,7 +366,7 @@ update entrada e
 	set precio=e.precio*0.90
 	where e.DNI in (select p.DNI from persona p where p.edad>=50);
 
--- 3- Pone la edad a 25 de la primera persona que ha comprado la entrada má cara
+-- 3- Pone la edad a 25 de la primera persona que ha comprado la entrada más cara
 update persona p set edad=(select 25 from entrada e where p.DNI = e.DNI limit 1) 
 	where p.DNI = (select e.DNI from entrada e where e.precio in (select MAX(precio) from entrada e2) limit 1);
 
