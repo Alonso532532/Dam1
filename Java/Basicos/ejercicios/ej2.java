@@ -9,5 +9,6 @@ public class ej2 {
         System.out.print("¿Y después?\n> ");
         String t2 = lozano.nextLine();
         System.out.println(t1 + "\n" + t2);
+
     }
 }
